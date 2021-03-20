@@ -1,0 +1,9 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: transparent;
+  user-select: transparent;
+  -webkit-user-select: transparent;
+  -khtml-user-select: transparent;
+  -moz-user-select: transparent;
+  -ms-user-select: transparent;
+}

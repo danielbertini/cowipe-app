@@ -1,0 +1,328 @@
+{
+  "app": {
+    "name": "Agarrei",
+    "copyright": "© 2020 Agarrei.com"
+  },
+  "translations": {
+    "changeLanguage": "Idiomas",
+    "english": "Inglês",
+    "spanish": "Espanhol",
+    "portuguese": "Português"
+  },
+  "themes": {
+    "changeTheme": "Temas",
+    "dark": "Tema escuro",
+    "light": "Tema claro"
+  },
+  "buttons": {
+    "pay": "Pagar",
+    "buy": "Comprar",
+    "clean": "Limpar",
+    "refuse": "Recusar",
+    "accept": "Aceitar",
+    "connect": "Conectar",
+    "disconnect": "Desconectar",
+    "add": "Adicionar",
+    "send": "Enviar",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "cancelChange": "Cancelar alteração",
+    "yes": "Sim",
+    "no": "Não",
+    "back": "Voltar",
+    "continue": "Continuar",
+    "conclude": "Concluir",
+    "change": "Alterar",
+    "access": "Acessar",
+    "forgotYourPassword": "Esqueceu sua senha?",
+    "passwordRecover": "Recuperar senha",
+    "changePassword": "Alterar senha",
+    "select": "Selecionar",
+    "remove": "Remover",
+    "unlock": "Desbloquear",
+    "apply": "Aplicar",
+    "usersWithPhoto": "Apenas pessoas com foto",
+    "usersOnline": "Apenas pessoas online"
+  },
+  "alerts": {
+    "blocked": "Bloqueado",
+    "disconnected": "Desconectado",
+    "noPeopleFound": "Nenhuma pessoa encontrada.",
+    "picturesRemoved": "Fotos removidas",
+    "unavailableService": "Serviço indisponível",
+    "unavailableProfile": "Perfil indisponível",
+    "savedInformations": "Informações salvas",
+    "legal": "Ao acessar você automaticamente declara ter lido e aceito nossos Termos de Serviço, Condições de Uso e Política de Privacidade disponíveis no menu Jurídico, bem como declara ser maior de 18 anos.",
+    "passwordChangeInfo": "Após informar um novo e-mail lhe enviaremos um código de seis dígitos para que possamos dar continuidade na alteração do seu e-mail atual.",
+    "passwordRecoverInfo": "Informe seu nome de usuário, e-mail e clique em continuar, nós lhe enviaremos um código para que você possa criar uma senha nova.",
+    "passwordRecoverSuccess": "Informe o código que foi enviado para seu e-mail e crie uma nova senha.",
+    "passwordNew": "Insira sua nova senha. Ela deve ter de 4 a 12 caracteres com 1 caractere especial e 1 letra maiúscula.",
+    "passwordNewSuccess": "Senha alterada com sucesso.",
+    "locationSuccess": "Conseguimos obter sua localização. Utilizamos sua localização para que você possa encontrar pessoas perto de você mas em nenhum momento compartilhamos sua localização com outros usuários. Clique em continuar.",
+    "locationFail1": "Não foi possível obter a informação sobre geolocalização por que a página não possuía permissão para fazê-lo.",
+    "locationFail2": "A obtenção da geolocalização falhou por que pelo menos uma fonte interna de posicionamento retornou um erro interno.",
+    "locationFail3": "O tempo máximo permitido para obter a geolocalização foi atingido antes de se obter a informação.",
+    "locationFail4": "Seu navegador não possui o recurso de geolocalização, utilize um navegador mais moderno.",
+    "verificationCodeInstructions": "Enviamos um e-mail para você contendo um código de seis dígitos, informe esse código para continuar. Caso não tenha recebido o e-mail procure na caixa de SPAM ou se necessário tente utilizar outro e-mail.",
+    "emptyGallery": "Você não possui nenhuma foto em sua galeria. Ao enviar uma foto você pode marcá-la como restrita, assim apenas as pessoas que você se conectar poderão ver suas fotos. Fotos que não forem marcadas como restrita estarão disponíveis para qualquer pessoa dentro da plataforma.",
+    "emptyProfileGallery": "Nenhuma foto disponível nesse perfil.",
+    "emptyProfileGalleryRestricted": "Nenhuma foto marcada como restrita disponível nesse perfil.",
+    "justAfterConnecting": "Recurso disponível para pessoas que já estão conectadas. Solicite uma conexão.",
+    "restrictedPicturesCountInfo": "fotos marcadas como restritas. Solicite uma conexão para ter acesso às fotos restritas.",
+    "chatStartInfo": "Vocês já podem conversar, que tal começar enviando uma mensagem? Lembre-se a mensagem fica disponível durante 48h, após este período ela será apagada automaticamente.",
+    "emptyConversationsInfo": "Aqui você pode acompanhar todas as conversas de forma organizada mas você ainda não possui nenhuma conexão ativa no momento. Faça conexões.",
+    "removeItems": "Tem certeza que deseja remover esses itens? Após removê-los não será possível recuperá-los.",
+    "endSession": "Tem certeza que deseja encerrar sua sessão?",
+    "disconnect": "Ao se desconectar a pessoa não será notificada e você poderá solicitar uma nova conexão quando desejar. Tem certeza que deseja continuar?",
+    "block": "Ao bloquear uma pessoa vocês não terão mais contato e não irão ficar mais visíveis um para o outro. Tem certeza que deseja continuar?",
+    "unblock": "Tem certeza que deseja desbloquear {{username}}? {{username}} não será notificado que você fez o desbloqueio. Após o desbloqueio, caso deseje, você deverá solicitar uma nova conexão com {{username}}.",
+    "cancelConnection": "Tem certeza que deseja cancelar a solicitação de conexão com {{username}}? {{username}} não será notificado. Você ainda poderá solicitar uma nova conexão com {{username}} sempre que desejar.",
+    "pictureLimit": "Você alcançou seu limite disponível de fotos.",
+    "isGeolocationAvailable": "Seu navegador não oferece suporte à geolocalização. Por esse motivo não conseguimos exibir as pessoas que estão perto de você.",
+    "isGeolocationEnabled": "Habilite a geolocalização em seu navagador para que possamos exibir as pessoas que estão perto de você com maior precisão.",
+    "isGeolocationCoordsUnavailable": "Habilite a geolocalização em seu navagador para que possamos exibir as pessoas que estão perto de você com maior precisão."
+  },
+  "fields": {
+    "message": {
+      "label": "Mensagem",
+      "placeHolder": "Escreva sua mensagem"
+    },
+    "comments": {
+      "label": "Comentários",
+      "placeHolder": "Insira seus comentários"
+    },
+    "complaintTypes": {
+      "label": "Tipo de denúncia",
+      "placeHolder": "Insira seu tipo de denúncia"
+    },
+    "username": {
+      "label": "Usuário",
+      "placeHolder": "Insira seu nome de usuário"
+    },
+    "birthday": {
+      "label": "Nascimento",
+      "placeHolder": "dd/mm/aaaa"
+    },
+    "email": {
+      "label": "E-mail",
+      "placeHolder": "Insira seu e-mail"
+    },
+    "password": {
+      "label": "Senha",
+      "placeHolder": "Insira sua senha"
+    },
+    "currentPassword": {
+      "label": "Senha atual",
+      "placeHolder": "Insira sua senha atual"
+    },
+    "passwordRetype": {
+      "label": "Confirme sua senha",
+      "placeHolder": "Insira novamente sua senha"
+    },    
+    "newPassword": {
+      "label": "Nova senha",
+      "placeHolder": "Insira sua nova senha"
+    },
+    "passwordRepeat": {
+      "label": "Confirmação de senha",
+      "placeHolder": "Repita sua nova senha"
+    },
+    "gender": {
+      "label": "Gênero",
+      "placeHolder": "Selecione seu gênero"
+    },
+    "orientation": {
+      "label": "Orientação",
+      "placeHolder": "Selecione sua orientação sexual"
+    },
+    "myGender": {
+      "label": "Meu gênero",
+      "placeHolder": "Selecione seu gênero"
+    },
+    "myOrientation": {
+      "label": "Minha orientação",
+      "placeHolder": "Selecione sua orientação sexual"
+    },
+    "maritalStatus": {
+      "label": "Estado civil",
+      "placeHolder": "Selecione seu estado civil"
+    },
+    "relationship": {
+      "label": "Relacionamento",
+      "placeHolder": "Selecione o relacionamento que deseja"
+    },
+    "sugar": {
+      "label": "Sugar",
+      "placeHolder": "Selecione o tipo de sugar"
+    },
+    "height": {
+      "label": "Altura",
+      "placeHolder": "Informe sua altura em cm"
+    },
+    "weight": {
+      "label": "Peso",
+      "placeHolder": "Informe seu peso em kg"
+    },
+    "body": {
+      "label": "Corpo",
+      "placeHolder": "Selecione seu tipo de corpo"
+    },
+    "hairColor": {
+      "label": "Cor do cabelo",
+      "placeHolder": "Selecione a cor de seu cabelo"
+    },
+    "eyeColor": {
+      "label": "Cor dos olhos",
+      "placeHolder": "Selecione a cor de seus olhos"
+    },
+    "code": {
+      "label": "Código",
+      "placeHolder": "Informe o código de verificação"
+    },
+    "tunning": {
+      "distance": {
+        "label": "Distância máxima (km)"
+      },
+      "age": {
+        "label": "Idade de sua preferência"
+      },
+      "height": {
+        "label": "Altura de sua preferência (cm)"
+      },
+      "weight": {
+        "label": "Peso de sua preferência (kg)"
+      },
+      "bodyTypes": {
+        "label": "Corpo",
+        "placeHolder": "Tipo de corpo de sua preferência"
+      },
+      "hairColors": {
+        "label": "Cabelo",
+        "placeHolder": "Cor de cabelo de sua preferência"
+      },
+      "eyeColors": {
+        "label": "Olhos",
+        "placeHolder": "Cor de olhos de sua preferência"
+      },
+      "maritalStatus": {
+        "label": "Estado civil",
+        "placeHolder": "Estado civil de sua preferência"
+      },
+      "relationship": {
+        "label": "Relacionamento",
+        "placeHolder": "Tipo de relacionamento que deseja"
+      },
+      "sugarType": {
+        "label": "Sugar",
+        "placeHolder": "Tipo de sugar que deseja"
+      }
+    }    
+  },
+  "panels": {
+    "people": {
+      "title": "Pessoas",
+      "options": {
+        "1": "Em destaque",
+        "2": "Recém-chegadas",
+        "3": "Minhas conexões",
+        "4": "Aguardando",
+        "5": "Bloqueadas"
+      }
+    },
+    "activities": {
+      "title": "Atividades",
+      "emptyMessage": "Sempre que alguém visualizar seu perfil ou realizar alguma outra atividade relacionada à seu perfil você irá visualizar aqui. Mas por enquanto não temos nada para você :("
+    }
+  },
+  "dialogs": {
+    "picturesUpload": {
+      "description": "Você pode selecionar até {{qty}} fotos simultâneamente."
+    },
+    "conversations": {
+      "title": "Conversas"
+    },
+    "report": {
+      "title": "Denunciar",
+      "description": "Ao reportar uma denúncia o perfil denunciado será verificado e nossa equipe poderá entrar em contato diretamente com você através do seu e-mail caso seja necessário."
+    },
+    "tuneSearch": {
+      "title": "Preferências"
+    },
+    "store": {
+      "title": "Loja"
+    },
+    "profile": {
+      "tab1": {
+        "title": "Sobre"
+      },
+      "tab2": {
+        "title": "Fotos"
+      },
+      "tab3": {
+        "title": "Chat"
+      }
+    }
+  },
+  "mainMenu": {
+    "company": "Empresa",
+    "workWithUs": "Trabalhe conosco",
+    "talkWithUs": "Fale conosco",
+    "security": "Segurança",
+    "legal": "Jurídico",
+    "privacy": "Privacidade",
+    "terms": "Termos",
+    "cookies": "Cookies",
+    "rules": "Regras",
+    "profile": "Meu perfil",
+    "signin": "Acessar meu perfil",
+    "signup": "Criar um perfil",
+    "signout": "Sair",
+    "passwordRecovery": "Recuperar senha",
+    "settings": "Configurações",
+    "preferences": "Preferências",
+    "myAccount": "Minha conta"
+  },
+  "chat": {
+    "sameDay": "Hoje",
+    "lastDay": "Ontem"
+  },
+  "commons": {
+    "coins": "Moedas",
+    "seeAll": "Ver tudo",
+    "accept": "Aceitar o pedido de conexão?",
+    "waiting": "Aguardando",
+    "zodiac": "Signo",
+    "age": "Idade",
+    "years": "Anos",
+    "warning": "Atenção",
+    "welcome": "Bem-vindo",
+    "appearance": "Aparência",
+    "signin": "Acessar",
+    "signup": "Inscrever-se",
+    "passwordRecovery": "Senha",
+    "registrationData": "Dados cadastrais",
+    "relationship": "Relacionamento",
+    "location": "Localização",
+    "verification": "Verificação",
+    "profile": "Perfil",
+    "viewMyProfile": "Ver meu perfil",
+    "myPictures": "Minhas fotos",
+    "addPictures": "Adicionar fotos",
+    "loading": "Carregando",
+    "informations": "Informações",
+    "email": "E-mail",
+    "password": "Senha",
+    "gallery": "Galeria",
+    "sendPicture": "Enviar foto",
+    "restricted": "Restrita",
+    "showRestricted": "Ver restritas",
+    "sound": "Som",
+    "visibility": "Visibilidade",
+    "reserved": "Reservado",
+    "report": "Denunciar",
+    "block": "Bloquear",
+    "disconnect": "Desconectar",
+    "blockUser": "Bloquear usuário",
+    "disconnectFromUser": "Desconectar do usuário"
+  }
+}

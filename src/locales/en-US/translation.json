@@ -1,0 +1,320 @@
+{
+  "app": {
+    "name": "Agarrei",
+    "copyright": "© 2020 Agarrei.com"
+  },
+  "translations": {
+    "changeLanguage": "Languages",
+    "english": "English",
+    "spanish": "Spanish",
+    "portuguese": "Portuguese"
+  },
+  "themes": {
+    "changeTheme": "Themes",
+    "dark": "Dark theme",
+    "light": "Light theme"
+  },
+  "buttons": {
+    "pay": "Pay",
+    "buy": "Buy",
+    "clean": "Clean",
+    "refuse": "Refuse",
+    "accept": "Accept",
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "add": "Add",
+    "send": "Send",
+    "save": "Save",
+    "cancel": "Cancel",
+    "cancelChange": "Cancel change",
+    "yes": "Yes",
+    "no": "No",
+    "back": "Back",
+    "continue": "Continue",
+    "conclude": "Conclude",
+    "change": "Change",
+    "access": "Access",
+    "forgotYourPassword": "Forgot your password?",
+    "passwordRecover": "Password recover",
+    "changePassword": "Change password",
+    "select": "Select",
+    "remove": "Remove",
+    "unlock": "Unlock",
+    "apply": "Apply",
+    "usersWithPhoto": "Only people with photo",
+    "usersOnline": "Only people online"
+  },
+  "alerts": {
+    "blocked": "Blocked",
+    "disconnected": "Disconnected",
+    "noPeopleFound": "No people found.",
+    "picturesRemoved": "Pictures removed",
+    "unavailableService": "Unavailable service",
+    "unavailableProfile": "Unavailable profile",
+    "savedInformations": "Saved informations",
+    "legal": "By accessing, you automatically declare to have read and accepted our Terms of Service, Conditions of Use and Privacy Policy available in the Legal menu, as well as declaring to be over 18 years old.",
+    "passwordChangeInfo": "After informing a new email we will send you a six digit code so that we can continue to change your current email.",
+    "passwordRecoverInfo": "Enter your username, email and click continue, we will send you a code so you can create a new password.",
+    "passwordRecoverSuccess": "Enter the code that was sent to your email and create a new password.",
+    "passwordNew": "Enter you new password. It must be 4 to 12 characters long with 1 special character and 1 uppercase letter.",
+    "passwordNewSuccess": "Password changed successfully.",
+    "locationSuccess": "We were able to obtain your location. We use your location so that you can find people near you but at no time do we share your location with other users. Click Continue.",
+    "locationFail1": "It was not possible to obtain geolocation information because the page did not have permission to do so.",
+    "locationFail2": "Achieving geolocation failed because at least one internal positioning source returned an internal error.",
+    "locationFail3": "The maximum time allowed to obtain geolocation was reached before obtaining the information.",
+    "locationFail4": "Your browser does not have the geolocation feature, use a more modern browser.",
+    "verificationCodeInstructions": "We sent you an email containing a six-digit code, please enter that code to finish. If you have not received the email, look in the SPAM box or, if necessary, try using another email.",
+    "emptyGallery": "You do not have any photos in your gallery. When you upload a photo, you can mark it as restricted, so only people you connect to will be able to see your photos. Photos that are not marked as restricted will be available for any people within the platform.",
+    "emptyProfileGallery": "No photo available on this profile.",
+    "emptyProfileGalleryRestricted": "No restricted photos available in this profile.",
+    "justAfterConnecting": "Feature available to people who are already connected. Request a connection.",
+    "restrictedPicturesCountInfo": "photos marked as restricted. Request a connection to access restricted photos.",
+    "chatStartInfo": "You can already talk, how about starting by sending a message? Remember, the message is available for 48 hours, after which it will be automatically deleted.",
+    "emptyConversationsInfo": "Here you can follow all the conversations in an organized way but you still don't have any active connection at the moment. Make connections.",
+    "removeItems": "Are you sure you want to remove these items? After removing them, it will not be possible to get them back.",
+    "endSession": "Are you sure you want to end your session?",
+    "disconnect": "When you disconnect the person will not be notified and you can request a new connection whenever you want. Are you sure you want to continue?",
+    "block": "By blocking a person you will no longer have contact and will no longer be visible to each other. Are you sure you want to continue?",
+    "unblock": "Are you sure you want to unlock {{username}}? {{username}} will not be notified that you have unlocked it. After unlocking, if you wish, you must request a new connection with {{username}}.",
+    "cancelConnection": "Are you sure you want to cancel the connection request with {{username}}? {{username}} will not be notified. You can still request a new connection with {{username}} whenever you want.",
+    "pictureLimit": "You have reached your available photo limit.",
+    "isGeolocationAvailable": "Your browser does not offer geolocation support. For this reason we are unable to display people who are close to you.",
+    "isGeolocationEnabled": "Enable geolocation in your browser so that we can show people who are close to you with greater precision.",
+    "isGeolocationCoordsUnavailable": "Enable geolocation in your browser so that we can show people who are close to you with greater precision."
+  },
+  "fields": {
+    "message": {
+      "label": "Message",
+      "placeHolder": "Write your message"
+    },
+    "comments": {
+      "label": "Comments",
+      "placeHolder": "Enter your comments"
+    },
+    "complaintTypes": {
+      "label": "Report type",
+      "placeHolder": "Enter the report type"
+    },    
+    "username": {
+      "label": "Username",
+      "placeHolder": "Enter your username"
+    },
+    "birthday": {
+      "label": "Birthday",
+      "placeHolder": "dd/mm/yyyy"
+    },
+    "email": {
+      "label": "Email",
+      "placeHolder": "Enter your email"
+    },
+    "password": {
+      "label": "Password",
+      "placeHolder": "Enter your password"
+    },
+    "currentPassword": {
+      "label": "Current password",
+      "placeHolder": "Enter you current password"
+    },    
+    "passwordRetype": {
+      "label": "Retype password",
+      "placeHolder": "Retype your password"
+    },
+    "newPassword": {
+      "label": "New password",
+      "placeHolder": "Enter your new password"
+    },
+    "passwordRepeat": {
+      "label": "Confirm your password",
+      "placeHolder": "Retype your password"
+    },
+    "gender": {
+      "label": "Gender",
+      "placeHolder": "Select your gender"
+    },
+    "orientation": {
+      "label": "Orientation",
+      "placeHolder": "Select your sexual orientation"
+    },
+    "maritalStatus": {
+      "label": "Marital status",
+      "placeHolder": "Select your marital status"
+    },
+    "relationship": {
+      "label": "Relationship",
+      "placeHolder": "Select the relationship you want"
+    },
+    "sugar": {
+      "label": "Sugar",
+      "placeHolder": "Select the sugar type"
+    },
+    "height": {
+      "label": "Height",
+      "placeHolder": "Enter your height in cm"
+    },
+    "weight": {
+      "label": "Weight",
+      "placeHolder": "Enter your weight in kg"
+    },
+    "body": {
+      "label": "Body",
+      "placeHolder": "Select your body type"
+    },
+    "hairColor": {
+      "label": "Hair color",
+      "placeHolder": "Select your hair color"
+    },
+    "eyeColor": {
+      "label": "Eye color",
+      "placeHolder": "Select your eye color"
+    },
+    "code": {
+      "label": "Code",
+      "placeHolder": "Enter the verification code"
+    },
+    "tunning": {
+      "distance": {
+        "label": "Maximum distance (km)"
+      },
+      "age": {
+        "label": "Preferred age"
+      },
+      "height": {
+        "label": "Height of your choice (cm)"
+      },
+      "weight": {
+        "label": "Weight of your choice (kg)"
+      },
+      "bodyTypes": {
+        "label": "Body",
+        "placeHolder": "Body type of your choice"
+      },
+      "hairColors": {
+        "label": "Hair",
+        "placeHolder": "Hair color of your choice"
+      },
+      "eyeColors": {
+        "label": "Eyes",
+        "placeHolder": "Eye color of your choice"
+      },
+      "maritalStatus": {
+        "label": "Marital status",
+        "placeHolder": "Preferred marital status"
+      },
+      "relationship": {
+        "label": "Relationship",
+        "placeHolder": "Type of relationship you want"
+      },
+      "sugarType": {
+        "label": "Sugar",
+        "placeHolder": "Type of sugar you want"
+      }
+    }    
+  },
+  "panels": {
+    "people": {
+      "title": "People",
+      "options": {
+        "1": "Highlighted",
+        "2": "New arrivals",
+        "3": "My connections",
+        "4": "Waiting",
+        "5": "Blocked"
+      }
+    },
+    "activities": {
+      "title": "Activities",
+      "emptyMessage": "Whenever someone views your profile or performs any other activity related to your profile, you will see it here. But for now we have nothing for you :("
+    }
+  },
+  "dialogs": {
+    "picturesUpload": {
+      "description": "You can select up to {{qty}} photos simultaneously."
+    },    
+    "conversations": {
+      "title": "Conversations"
+    },
+    "report": {
+      "title": "Report",
+      "description": "When reporting a report, the profile reported will be verified and our team will be able to contact you directly via your email if necessary."
+    },
+    "tuneSearch": {
+      "title": "Preferences"
+    },
+    "store": {
+      "title": "Store"
+    },
+    "profile": {
+      "tab1": {
+        "title": "About"
+      },
+      "tab2": {
+        "title": "Pictures"
+      },
+      "tab3": {
+        "title": "Chat"
+      }
+    }
+  },
+  "mainMenu": {
+    "company": "Company",
+    "workWithUs": "Work with us",
+    "talkWithUs": "Talk with us",
+    "security": "Security",
+    "legal": "Legal",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "cookies": "Cookies",
+    "rules": "Rules",
+    "profile": "My profile",
+    "signin": "Access my profile",
+    "signup": "Create profile",
+    "signout": "Sign out",
+    "passwordRecovery": "Password recovery",
+    "settings": "Settings",
+    "preferences": "Preferences",
+    "myAccount": "My account"
+  },
+  "chat": {
+    "sameDay": "Today",
+    "lastDay": "Yesterday"
+  },
+  "commons": {
+    "coins": "Coins",
+    "seeAll": "See all",
+    "accept": "Accept the connection request?",
+    "waiting": "Waiting",
+    "zodiac": "Zodiac",
+    "age": "Age",
+    "years": "Years",
+    "warning": "Warning",
+    "welcome": "Welcome",
+    "appearance": "Appearance",
+    "signin": "Signin",
+    "signup": "Signup",
+    "passwordRecovery": "Password",
+    "registrationData": "Registration data",
+    "relationship": "Relationship",
+    "location": "Location",
+    "verification": "Verification",
+    "profile": "Profile",
+    "viewMyProfile": "View my profile",
+    "myPictures": "My pictures",
+    "addPictures": "Add pictures",
+    "loading": "Loading",
+    "informations": "Informations",
+    "email": "Email",
+    "password": "Password",
+    "gallery": "Gallery",
+    "sendPicture": "Send picture",
+    "restricted": "Restricted",
+    "showRestricted": "View restricted",
+    "sound": "Sound",
+    "visibility": "Visibility",
+    "reserved": "Reserved",
+    "report": "Report",
+    "block": "Block",
+    "disconnect": "Disconnect",
+    "blockUser": "Block profile",
+    "disconnectFromUser": "Disconnect from profile"
+  }
+}
