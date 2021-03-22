@@ -13,7 +13,6 @@ import {
   CircularProgress,
 } from "@material-ui/core";
 
-import i18n from "../../../i18n";
 import api from "../../../services/api";
 import Info from "../../atoms/display/info";
 import Typography from "../../atoms/display/typography";
@@ -183,11 +182,10 @@ const TemplatesDialogsStore = (props) => {
                     <>
                       <Grid item xl={6} lg={6} md={6} sm={6} xs={6}>
                         <MoleculesProductsCoin
+                          id={el?._id}
                           selected={el?._id === selectedItem}
                           onClick={setSelectedItem}
-                          id={el?._id}
-                          description={el?.description[i18n.language]}
-                          price={el?.price}
+                          data={el}
                         />
                       </Grid>
                     </>

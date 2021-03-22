@@ -2,6 +2,7 @@ import React, { memo } from "react";
 import { CardActionArea } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
+import i18n from "../../../i18n";
 import Typography from "../../atoms/display/typography";
 
 const MoleculesProductsCoin = (props) => {
@@ -37,9 +38,12 @@ const MoleculesProductsCoin = (props) => {
         }}
       >
         <img src={"./coin.png"} width={44} height={44} alt="coin" />
-        <Typography variant="body1">{props.description}</Typography>
+        <Typography variant="body1">
+          {props.data?.description[i18n.language]}
+        </Typography>
         <Typography variant="body2">
-          US${parseInt(props.price / 100)}
+          {props.data?.currencyFormated[i18n.language]}
+          {parseInt(props.data?.ammount[i18n.language] / 100)}
         </Typography>
       </CardActionArea>
     </>
