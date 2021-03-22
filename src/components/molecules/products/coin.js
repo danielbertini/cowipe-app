@@ -43,7 +43,7 @@ const MoleculesProductsCoin = (props) => {
         </Typography>
         <Typography variant="body2">
           {props.data?.currencyFormated[i18n.language]}
-          {parseInt(props.data?.ammount[i18n.language] / 100)}
+          {parseInt(props.data?.amount[i18n.language] / 100)}
         </Typography>
       </CardActionArea>
     </>
