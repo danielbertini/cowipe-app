@@ -39,7 +39,7 @@ const TemplatesDialogsStore = (props) => {
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
   const [processing, setProcessing] = useState(false);
-  const stripePromise = loadStripe("pk_test_YyKvghf2xaxe13EPRltPiuNr");
+  const stripePromise = loadStripe(process.env.REACT_APP_STRIPE);
 
   const getBalance = useCallback(() => {
     api({ method: "GET", url: `coins/getBalance` })
