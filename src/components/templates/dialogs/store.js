@@ -1,5 +1,5 @@
-import React, { useState, useEffect, memo } from "react";
-
+import React, { useState, useCallback, useEffect, memo } from "react";
+import { useTheme } from "@material-ui/core/styles";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useTranslation } from "react-i18next";
@@ -16,6 +16,7 @@ import {
 import i18n from "../../../i18n";
 import api from "../../../services/api";
 import Info from "../../atoms/display/info";
+import Typography from "../../atoms/display/typography";
 import Snackbar from "../../atoms/feedback/snackbar";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 import MoleculesProductsCoin from "../../molecules/products/coin";
@@ -24,10 +25,12 @@ import DialogTitle from "../dialogs/dialogTitle";
 
 const TemplatesDialogsStore = (props) => {
   const { t } = useTranslation();
+  const theme = useTheme();
   const [loading, setLoading] = useState(true);
   const [loadingClientSecret, setLoadingClientSecret] = useState(false);
   const [snackbar, setSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [balance, setBalance] = useState();
   const [coins, setCoins] = useState([]);
   const [selectedItem, setSelectedItem] = useState();
   const [clientSecret, setClientSecret] = useState(null);
@@ -38,7 +41,29 @@ const TemplatesDialogsStore = (props) => {
   const [processing, setProcessing] = useState(false);
   const stripePromise = loadStripe("pk_test_YyKvghf2xaxe13EPRltPiuNr");
 
-  useEffect(() => {
+  const getBalance = useCallback(() => {
+    api({ method: "GET", url: `coins/getBalance` })
+      .then((response) => {
+        setLoading(false);
+        if (response.data.success) {
+          setBalance(response.data.balance);
+        } else {
+          if (response.data.message) {
+            setSnackbarMessage(response.data.message);
+            setSnackbar(true);
+          }
+        }
+      })
+      .catch((error) => {
+        setSnackbarMessage(t("alerts.unavailableService"));
+        setSnackbar(true);
+        setTimeout(() => {
+          props.open(false);
+        }, 3000);
+      });
+  }, [props, t]);
+
+  const getCoins = useCallback(() => {
     api({ method: "GET", url: `coins/getCoins` })
       .then((response) => {
         setLoading(false);
@@ -55,10 +80,15 @@ const TemplatesDialogsStore = (props) => {
         setSnackbarMessage(t("alerts.unavailableService"));
         setSnackbar(true);
         setTimeout(() => {
-          props.handleClose(false);
+          props.open(false);
         }, 3000);
       });
   }, [props, t]);
+
+  useEffect(() => {
+    getCoins();
+    getBalance();
+  }, [succeeded, getBalance, getCoins, props, t]);
 
   const getClientSecret = () => {
     setLoadingClientSecret(true);
@@ -94,7 +124,7 @@ const TemplatesDialogsStore = (props) => {
                 {succeeded ? (
                   <>
                     <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                      <Info text="Pagamento realizado com sucesso!" />
+                      <Info text={t("alerts.processingPayment")} />
                     </Grid>
                   </>
                 ) : (
@@ -118,6 +148,25 @@ const TemplatesDialogsStore = (props) => {
                         </Grid>
                       </>
                     )}
+                    <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                      <img
+                        src={
+                          theme.palette.type === "dark"
+                            ? "./stripe-white.png"
+                            : "./stripe-black.png"
+                        }
+                        style={{
+                          height: 22,
+                          opacity: 0.5,
+                          marginTop: 0,
+                          marginBottom: 5,
+                        }}
+                        alt="Stripe"
+                      />
+                      <Typography variant="body2">
+                        {t("alerts.secureInfo")}
+                      </Typography>
+                    </Grid>
                   </>
                 )}
               </Grid>
@@ -144,6 +193,13 @@ const TemplatesDialogsStore = (props) => {
                     </>
                   );
                 })}
+                {balance && (
+                  <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                    <Info
+                      text={t("alerts.yourBalance", { balance: balance })}
+                    />
+                  </Grid>
+                )}
               </Grid>
             </DialogContent>
           </>

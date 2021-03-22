@@ -80,7 +80,10 @@
     "pictureLimit": "You have reached your available photo limit.",
     "isGeolocationAvailable": "Your browser does not offer geolocation support. For this reason we are unable to display people who are close to you.",
     "isGeolocationEnabled": "Enable geolocation in your browser so that we can show people who are close to you with greater precision.",
-    "isGeolocationCoordsUnavailable": "Enable geolocation in your browser so that we can show people who are close to you with greater precision."
+    "isGeolocationCoordsUnavailable": "Enable geolocation in your browser so that we can show people who are close to you with greater precision.",
+    "yourBalance": "Your current balance is {{balance}} coins.",
+    "secureInfo": "All payments are processed by Stripe in a secure environment. After your payment has been completed the coins will be automatically counted and we will send a receipt to your email.",
+    "processingPayment": "Thanks! Your payment is being processed, this usually takes a few minutes at most. As soon as it is completed, we will send you a receipt to your email and the coins will be counted automatically."
   },
   "fields": {
     "message": {
