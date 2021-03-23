@@ -30,6 +30,7 @@ const Component = (props) => {
     return (
       <>
         <DialogContent>
+          <GiftButton userId={props.userId} />
           <TableContainer>
             <Table size="small">
               <TableHead>
@@ -414,7 +415,6 @@ const Component = (props) => {
               />
             )}
           </div>
-          <GiftButton />
           <div
             style={{
               width: "100%",

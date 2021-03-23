@@ -14,8 +14,8 @@ import api from "../../../services/api";
 import Info from "../../atoms/display/info";
 import Typography from "../../atoms/display/typography";
 import Picture from "../../atoms/display/picture";
-import GiftButton from "../../atoms/inputs/giftButton";
 import Gallery from "../../organisms/pictures/gallery";
+import GiftButton from "../../atoms/inputs/giftButton";
 import ConnectButton from "./connectButton";
 import ActionButton from "./actionButton";
 import LinearProgress from "../../atoms/feedback/linearProgress";
@@ -177,6 +177,7 @@ const OrganismsProfilePictures = (props) => {
       return (
         <>
           <DialogContent>
+            <GiftButton userId={props.userId} />
             {!connection ||
               (connection !== 4 && restrictedsCount > 0 && (
                 <>
@@ -213,7 +214,6 @@ const OrganismsProfilePictures = (props) => {
                 />
               )}
             </div>
-            <GiftButton />
             <div
               style={{
                 width: "100%",

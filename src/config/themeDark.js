@@ -32,6 +32,7 @@ const palette = {
     "#9AC355", // green
     "#e63946", // red
   ],
+  fab: "#FD3259",
   backdrop: "rgba(12,12,12,.9)",
   divider: "rgba(255,255,245,.03)",
 };

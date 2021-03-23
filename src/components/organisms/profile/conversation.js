@@ -23,9 +23,9 @@ import { setActiveRoom } from "../../../store/activeRoom/activeRoom.actions";
 import Info from "../../atoms/display/info";
 import TextField from "../../atoms/inputs/textfield";
 import CircularProgress from "../../atoms/feedback/circularProgress";
+import GiftButton from "../../atoms/inputs/giftButton";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 import IconButton from "../../atoms/inputs/iconButton";
-import GiftButton from "../../atoms/inputs/giftButton";
 import BalloonMe from "../../molecules/ballons/balloonMe";
 import BalloonOther from "../../molecules/ballons/balloonOther";
 import ConnectButton from "./connectButton";
@@ -171,6 +171,7 @@ const Component = (props) => {
                   : "column",
             }}
           >
+            <GiftButton userId={props.userId} />
             {renderConversation()}
           </DialogContent>
           <DialogActions
@@ -193,7 +194,6 @@ const Component = (props) => {
                 />
               )}
             </div>
-            <GiftButton />
             <div
               style={{
                 width: "100%",
