@@ -14,6 +14,7 @@ import {
 
 import i18n from "../../../i18n";
 import Typography from "../../atoms/display/typography";
+import GiftButton from "../../atoms/inputs/giftButton";
 import ActionButton from "./actionButton";
 import ConnectButton from "./connectButton";
 
@@ -413,6 +414,7 @@ const Component = (props) => {
               />
             )}
           </div>
+          <GiftButton />
           <div
             style={{
               width: "100%",

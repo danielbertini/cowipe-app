@@ -47,7 +47,7 @@ import {
   PersonAddRounded as ReservedOnIcon,
   PersonAddDisabledRounded as ReservedOffIcon,
   VpnKeyRounded as MyAccountIcon,
-  LocalMallRounded as BagIcon,
+  CardGiftcardRounded as BagIcon,
   StorefrontRounded as ShoppingIcon,
 } from "@material-ui/icons";
 

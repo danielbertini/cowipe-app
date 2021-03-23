@@ -14,6 +14,7 @@ import api from "../../../services/api";
 import Info from "../../atoms/display/info";
 import Typography from "../../atoms/display/typography";
 import Picture from "../../atoms/display/picture";
+import GiftButton from "../../atoms/inputs/giftButton";
 import Gallery from "../../organisms/pictures/gallery";
 import ConnectButton from "./connectButton";
 import ActionButton from "./actionButton";
@@ -212,6 +213,7 @@ const OrganismsProfilePictures = (props) => {
                 />
               )}
             </div>
+            <GiftButton />
             <div
               style={{
                 width: "100%",

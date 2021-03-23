@@ -25,6 +25,7 @@ import TextField from "../../atoms/inputs/textfield";
 import CircularProgress from "../../atoms/feedback/circularProgress";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 import IconButton from "../../atoms/inputs/iconButton";
+import GiftButton from "../../atoms/inputs/giftButton";
 import BalloonMe from "../../molecules/ballons/balloonMe";
 import BalloonOther from "../../molecules/ballons/balloonOther";
 import ConnectButton from "./connectButton";
@@ -192,6 +193,7 @@ const Component = (props) => {
                 />
               )}
             </div>
+            <GiftButton />
             <div
               style={{
                 width: "100%",
