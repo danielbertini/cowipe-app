@@ -1,6 +1,6 @@
 import React, { memo, useState } from "react";
 
-import { SwipeableDrawer, Fab, Grow } from "@material-ui/core";
+import { SwipeableDrawer, Fab, Zoom } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 
 import { CardGiftcardRounded as GiftIcon } from "@material-ui/icons";
@@ -17,9 +17,21 @@ const Component = (props) => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
 
+  const transitionDuration = {
+    enter: theme.transitions.duration.enteringScreen,
+    exit: theme.transitions.duration.leavingScreen,
+  };
+
   return (
     <>
-      <Grow in={true}>
+      <Zoom
+        in={true}
+        timeout={transitionDuration}
+        unmountOnExit
+        style={{
+          transitionDelay: `${true ? transitionDuration.exit : 0}ms`,
+        }}
+      >
         <Fab
           // size="medium"
           style={{
@@ -43,7 +55,7 @@ const Component = (props) => {
         )} */}
           <GiftIcon style={{ color: "#fff" }} />
         </Fab>
-      </Grow>
+      </Zoom>
       <SwipeableDrawer
         anchor="bottom"
         open={open}
