@@ -22,6 +22,7 @@ import DialogTitle from "../dialogs/dialogTitle";
 const Component = (props) => {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(true);
+  const [form, setForm] = useState({});
   const [formError, setFormError] = useState({});
   const [snackbar, setSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
@@ -54,6 +55,14 @@ const Component = (props) => {
         }, 3000);
       });
   }, [props, t]);
+
+  const inputHandle = (event) => {
+    event.persist();
+    setForm((form) => ({
+      ...form,
+      [event?.target?.name]: event?.target?.value,
+    }));
+  };
 
   const handleSubmit = () => {
     setFormError({});
@@ -128,7 +137,8 @@ const Component = (props) => {
                   label={t("fields.complaintTypes.label")}
                   placeholder={t("fields.complaintTypes.placeHolder")}
                   name="complaintType"
-                  defaultValue=""
+                  value={form.complaintType ? form.complaintType : ""}
+                  onChange={inputHandle}
                   inputRef={inputComplaintTypeRef}
                   error={formError?.complaintType ? true : false}
                   helperText={
