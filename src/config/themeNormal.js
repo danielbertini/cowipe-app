@@ -1,7 +1,7 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 const shape = {
-  borderRadius: 5,
+  borderRadius: 4,
   scrollSize: 1,
 };
 

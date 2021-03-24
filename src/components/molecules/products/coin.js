@@ -9,7 +9,7 @@ const MoleculesProductsCoin = (props) => {
   const useStyles = makeStyles((theme) => ({
     root: {
       width: "100%",
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.divider,
       borderRadius: theme.shape.borderRadius,
       boxShadow: theme.shadows[1],
       padding: 10,
@@ -18,7 +18,7 @@ const MoleculesProductsCoin = (props) => {
     },
     selected: {
       width: "100%",
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.divider,
       borderRadius: theme.shape.borderRadius,
       padding: 10,
       overflow: "hidden",

@@ -76,8 +76,8 @@ const Component = (props) => {
         }}
       >
         <Fab
+          color="secondary"
           style={{
-            backgroundColor: theme.palette.fab,
             position: "absolute",
             zIndex: 20,
             top: 150,

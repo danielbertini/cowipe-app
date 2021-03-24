@@ -177,6 +177,13 @@ const TemplatesDialogsStore = (props) => {
           <>
             <DialogContent style={{ zIndex: 8 }}>
               <Grid container direction="row" spacing={2} justify="center">
+                {balance && (
+                  <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                    <Info
+                      text={t("alerts.yourBalance", { balance: balance })}
+                    />
+                  </Grid>
+                )}
                 {coins?.map((el) => {
                   return (
                     <>
@@ -191,13 +198,6 @@ const TemplatesDialogsStore = (props) => {
                     </>
                   );
                 })}
-                {balance && (
-                  <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                    <Info
-                      text={t("alerts.yourBalance", { balance: balance })}
-                    />
-                  </Grid>
-                )}
               </Grid>
             </DialogContent>
           </>
