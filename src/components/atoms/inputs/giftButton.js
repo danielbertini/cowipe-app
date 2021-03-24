@@ -28,9 +28,9 @@ const Component = (props) => {
   const [snackbar, setSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [profile, setProfile] = useState([]);
-  const [gifts, setGifts] = useState([]);
   const [balance, setBalance] = useState(0);
   const [dialogStore, setDialogStore] = useState(false);
+  const [items, setItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
 
   const load = () => {
@@ -41,7 +41,7 @@ const Component = (props) => {
         if (response.data.success) {
           setOpen(true);
           setProfile(response.data.profile);
-          setGifts(response.data.gifts);
+          setItems(response.data.gifts);
           setBalance(response.data.balance);
         } else {
           if (response.data.message) {
@@ -144,16 +144,18 @@ const Component = (props) => {
               flexWrap: "nowrap",
             }}
           >
-            {gifts?.map((el) => {
+            {items?.map((el) => {
               return (
-                <div style={{ flexGrow: 0, marginRight: 10 }}>
-                  <Gift
-                    id={el?._id}
-                    selected={el?._id === selectedItem}
-                    onClick={setSelectedItem}
-                    data={el}
-                  />
-                </div>
+                <>
+                  <div style={{ flexGrow: 0, marginRight: 10 }}>
+                    <Gift
+                      id={el?._id}
+                      selected={el?._id === selectedItem}
+                      onClick={setSelectedItem}
+                      data={el}
+                    />
+                  </div>
+                </>
               );
             })}
           </div>
