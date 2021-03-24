@@ -326,6 +326,8 @@
     "block": "Bloquear",
     "disconnect": "Desconectar",
     "blockUser": "Bloquear usuário",
-    "disconnectFromUser": "Desconectar do usuário"
+    "disconnectFromUser": "Desconectar do usuário",
+    "sendAGift": "Envie um presente para {{name}}.",
+    "to": "para"
   }
 }

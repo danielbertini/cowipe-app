@@ -318,6 +318,8 @@
     "block": "Block",
     "disconnect": "Disconnect",
     "blockUser": "Block profile",
-    "disconnectFromUser": "Disconnect from profile"
+    "disconnectFromUser": "Disconnect from profile",
+    "sendAGift": "Send a gift to {{name}}.",
+    "to": "to"
   }
 }

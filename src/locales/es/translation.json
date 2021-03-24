@@ -326,6 +326,8 @@
     "block": "Cuadra",
     "disconnect": "Desconectar",
     "blockUser": "Bloquear usuario",
-    "disconnectFromUser": "Desconectarse del usuario"    
+    "disconnectFromUser": "Desconectarse del usuario",
+    "sendAGift": "Enviar un regalo a {{name}}.",
+    "to": "a"
   }
 }
