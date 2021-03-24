@@ -81,7 +81,7 @@
     "isGeolocationAvailable": "Su navegador no es compatible con la geolocalización. Por esta razón, no podemos mostrar a personas cercanas a usted.",
     "isGeolocationEnabled": "Habilite la geolocalización en su navegador para que podamos mostrarle a las personas cercanas a usted con mayor precisión.",
     "isGeolocationCoordsUnavailable": "Habilite la geolocalización en su navegador para que podamos mostrarle a las personas cercanas a usted con mayor precisión.",
-    "yourBalance": "Su saldo actual es de {{balance}} monedas.",
+    "yourBalance": "Su saldo es de {{balance}} monedas.",
     "secureInfo": "Stripe procesa todos los pagos en un entorno seguro. Una vez que se haya completado su pago, las monedas se contarán automáticamente y le enviaremos un recibo a su correo electrónico.",
     "processingPayment": "¡Gracias! Su pago se está procesando, esto generalmente demora unos minutos como máximo. Tan pronto como se complete, le enviaremos un recibo a su correo electrónico y las monedas se contarán automáticamente."
   },
@@ -327,7 +327,7 @@
     "disconnect": "Desconectar",
     "blockUser": "Bloquear usuario",
     "disconnectFromUser": "Desconectarse del usuario",
-    "sendAGift": "Enviar un regalo a {{name}}.",
+    "sendAGift": "Regalo a {{name}}.",
     "to": "a"
   }
 }
