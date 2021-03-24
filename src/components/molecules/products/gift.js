@@ -17,6 +17,16 @@ const MoleculesProductsCoin = (props) => {
       overflow: "hidden",
       textAlign: "center",
     },
+    disabled: {
+      width: 125,
+      backgroundColor: theme.palette.divider,
+      borderRadius: theme.shape.borderRadius,
+      boxShadow: theme.shadows[1],
+      padding: 10,
+      overflow: "hidden",
+      textAlign: "center",
+      opacity: 0.5,
+    },
     selected: {
       width: 125,
       backgroundColor: theme.palette.divider,
@@ -34,8 +44,15 @@ const MoleculesProductsCoin = (props) => {
   return (
     <>
       <CardActionArea
+        disabled={props.data?.amount > props.balance}
         style={props.style}
-        className={props.selected ? classes.selected : classes.root}
+        className={
+          props.selected
+            ? classes.selected
+            : props.data?.amount > props.balance
+            ? classes.disabled
+            : classes.root
+        }
         onClick={() => {
           props.onClick(props.id);
         }}

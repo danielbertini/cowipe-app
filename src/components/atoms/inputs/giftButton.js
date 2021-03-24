@@ -18,6 +18,23 @@ const Component = (props) => {
     root: {
       padding: 30,
     },
+    items: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "flex-start",
+      flexWrap: "nowrap",
+      overflowX: "auto",
+      scrollBehavior: "smooth",
+      paddingBottom: 10,
+      "&::-webkit-scrollbar": {
+        height: theme.shape.scrollSize,
+        width: theme.shape.scrollSize,
+      },
+      "&::-webkit-scrollbar-thumb": {
+        backgroundColor: theme.palette.secondary.main,
+        borderRadius: theme.shape.scrollRadius,
+      },
+    },
   }));
 
   const { t } = useTranslation();
@@ -114,7 +131,10 @@ const Component = (props) => {
                 {t("commons.sendAGift", { name: profile?.username })}
               </Typography>
               <Typography variant="body2">
-                {t("alerts.yourBalance", { balance: balance })}
+                {!balance || balance === 0
+                  ? t("alerts.yourBalanceIsNull")
+                  : t("alerts.yourBalance", { balance: balance })}
+                {/* {t("alerts.yourBalance", { balance: balance })} */}
               </Typography>
             </div>
             <div style={{ display: "flex", flexDirection: "row" }}>
@@ -136,14 +156,7 @@ const Component = (props) => {
             </div>
           </div>
           <Divider style={{ marginTop: 10, marginBottom: 10 }} />
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "flex-start",
-              flexWrap: "nowrap",
-            }}
-          >
+          <div className={classes.items}>
             {items?.map((el) => {
               return (
                 <>
@@ -153,6 +166,7 @@ const Component = (props) => {
                       selected={el?._id === selectedItem}
                       onClick={setSelectedItem}
                       data={el}
+                      balance={balance}
                     />
                   </div>
                 </>
