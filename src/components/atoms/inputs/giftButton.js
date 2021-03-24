@@ -10,6 +10,8 @@ import Snackbar from "../../atoms/feedback/snackbar";
 import CircularProgress from "../../atoms/feedback/circularProgress";
 import IconButton from "../../atoms/inputs/iconButton";
 import Button from "../../atoms/inputs/button";
+import Gift from "../../molecules/products/gift";
+import DialogStore from "../../templates/dialogs/store";
 
 const Component = (props) => {
   const useStyles = makeStyles((theme) => ({
@@ -26,7 +28,10 @@ const Component = (props) => {
   const [snackbar, setSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [profile, setProfile] = useState([]);
+  const [gifts, setGifts] = useState([]);
   const [balance, setBalance] = useState(0);
+  const [dialogStore, setDialogStore] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const load = () => {
     setLoading(true);
@@ -36,6 +41,7 @@ const Component = (props) => {
         if (response.data.success) {
           setOpen(true);
           setProfile(response.data.profile);
+          setGifts(response.data.gifts);
           setBalance(response.data.balance);
         } else {
           if (response.data.message) {
@@ -78,6 +84,7 @@ const Component = (props) => {
             right: 30,
           }}
           onClick={() => {
+            setSelectedItem(null);
             load();
           }}
         >
@@ -111,7 +118,7 @@ const Component = (props) => {
               </Typography>
             </div>
             <div style={{ display: "flex", flexDirection: "row" }}>
-              <IconButton>
+              <IconButton onClick={() => setDialogStore(true)}>
                 <img
                   src={"./coin.png"}
                   style={{ width: 24, height: 24 }}
@@ -119,14 +126,40 @@ const Component = (props) => {
                 />
               </IconButton>
               <div style={{ width: 10 }} />
-              <Button disabled={true} variant="contained" color="secondary">
+              <Button
+                disabled={selectedItem ? false : true}
+                variant="contained"
+                color="secondary"
+              >
                 {t("buttons.send")}
               </Button>
             </div>
           </div>
           <Divider style={{ marginTop: 10, marginBottom: 10 }} />
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "flex-start",
+              flexWrap: "nowrap",
+            }}
+          >
+            {gifts?.map((el) => {
+              return (
+                <div style={{ flexGrow: 0, marginRight: 10 }}>
+                  <Gift
+                    id={el?._id}
+                    selected={el?._id === selectedItem}
+                    onClick={setSelectedItem}
+                    data={el}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </SwipeableDrawer>
+      {dialogStore && <DialogStore open={setDialogStore} />}
       {snackbar && (
         <Snackbar
           anchorOrigin={{

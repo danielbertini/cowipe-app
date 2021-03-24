@@ -282,6 +282,7 @@
     "lastDay": "Yesterday"
   },
   "commons": {
+    "coin": "Coin",
     "coins": "Coins",
     "seeAll": "See all",
     "accept": "Accept the connection request?",

@@ -290,6 +290,7 @@
     "lastDay": "Ontem"
   },
   "commons": {
+    "coin": "Moeda",
     "coins": "Moedas",
     "seeAll": "Ver tudo",
     "accept": "Aceitar o pedido de conexão?",
