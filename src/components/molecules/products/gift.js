@@ -25,7 +25,7 @@ const MoleculesProductsCoin = (props) => {
       padding: 10,
       overflow: "hidden",
       textAlign: "center",
-      opacity: 0.5,
+      opacity: 0.3,
     },
     selected: {
       width: 125,

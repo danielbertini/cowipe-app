@@ -25,7 +25,7 @@ const StripeCheckoutForm = (props) => {
         fontFamily: theme.typography.fontFamily,
         fontSize: theme.typography.fontSize,
         "::placeholder": {
-          color: theme.palette.text.secondary,
+          color: theme.palette.text.primary,
         },
       },
       invalid: {

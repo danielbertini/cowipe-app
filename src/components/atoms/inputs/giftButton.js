@@ -3,6 +3,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { CardGiftcardRounded as GiftIcon } from "@material-ui/icons";
 import { useTranslation } from "react-i18next";
 import { SwipeableDrawer, Fab, Zoom, Divider } from "@material-ui/core";
+import ScrollContainer from "react-indiana-drag-scroll";
 
 import api from "../../../services/api";
 import Typography from "../display/typography";
@@ -26,6 +27,7 @@ const Component = (props) => {
       overflowX: "auto",
       scrollBehavior: "smooth",
       paddingBottom: 10,
+      cursor: "grab",
       "&::-webkit-scrollbar": {
         height: theme.shape.scrollSize,
         width: theme.shape.scrollSize,
@@ -156,7 +158,7 @@ const Component = (props) => {
             </div>
           </div>
           <Divider style={{ marginTop: 10, marginBottom: 10 }} />
-          <div className={classes.items}>
+          <ScrollContainer className={classes.items} hideScrollbars={false}>
             {items?.map((el) => {
               return (
                 <>
@@ -172,7 +174,7 @@ const Component = (props) => {
                 </>
               );
             })}
-          </div>
+          </ScrollContainer>
         </div>
       </SwipeableDrawer>
       {dialogStore && <DialogStore open={setDialogStore} />}
