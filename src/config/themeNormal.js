@@ -38,11 +38,11 @@ const palette = {
 };
 
 const font = {
-  size: 13,
+  size: 14,
   weight: {
     light: 300,
     regular: 400,
-    bold: 750,
+    bold: 700,
     black: 900,
   },
   lineHeight: "1.5",
@@ -52,7 +52,6 @@ const font = {
 const typography = {
   useNextVariants: true,
   fontFamily: [
-    "Mulish",
     "Roboto",
     "system-ui",
     "-apple-system",
