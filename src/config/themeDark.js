@@ -1,7 +1,7 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 const shape = {
-  borderRadius: 6,
+  borderRadius: 4,
   scrollSize: 1,
 };
 
@@ -52,6 +52,7 @@ const font = {
 const typography = {
   useNextVariants: true,
   fontFamily: [
+    "IBM Plex Sans",
     "Roboto",
     "system-ui",
     "-apple-system",
@@ -232,11 +233,6 @@ export const dark = createMuiTheme({
     MuiTableBody: {
       root: {
         borderBottom: `0px solid ${palette.divider}`,
-      },
-    },
-    MuiSnackbar: {
-      root: {
-        zIndex: 9999999,
       },
     },
     MuiSnackbarContent: {
