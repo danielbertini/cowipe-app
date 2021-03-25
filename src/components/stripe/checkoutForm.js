@@ -31,6 +31,8 @@ const StripeCheckoutForm = (props) => {
         },
       },
       invalid: {
+        fontFamily: theme.typography.fontFamily,
+        fontSize: theme.typography.fontSize,
         color: theme.palette.error.main,
         iconColor: theme.palette.error.main,
       },
