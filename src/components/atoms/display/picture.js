@@ -6,7 +6,7 @@ const Component = (props) => {
     root: {
       minWidth: props.width,
       minHeight: props.height,
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: theme.palette.divider,
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center center",
@@ -16,7 +16,7 @@ const Component = (props) => {
     rootSelected: {
       minWidth: props.width,
       minHeight: props.height,
-      backgroundColor: theme.palette.background.paper,
+      backgroundColor: theme.palette.divider,
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
       backgroundPosition: "center center",
