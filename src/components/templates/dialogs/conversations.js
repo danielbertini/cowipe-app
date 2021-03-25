@@ -265,7 +265,7 @@ const Component = (props) => {
     <>
       <Dialog
         fullWidth
-        maxWidth="sm"
+        maxWidth={room ? "sm" : "xs"}
         fullScreen={isMobile}
         open={props.open ? true : false}
         onClose={() => props.open(false)}

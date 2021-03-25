@@ -75,6 +75,7 @@ import DialogSettings from "../../templates/dialogs/settings";
 import DialogPictures from "../../templates/dialogs/pictures";
 import DialogConversations from "../../templates/dialogs/conversations";
 import DialogStore from "../../templates/dialogs/store";
+import DialogGifts from "../../templates/dialogs/gifts";
 import messageSound from "../../../sounds/message.mp3";
 
 const OrganismsMenusMainAuthenticated = (props) => {
@@ -193,6 +194,7 @@ const OrganismsMenusMainAuthenticated = (props) => {
   const [dialogPictures, setDialogPictures] = useState(false);
   const [dialogConversations, setDialogConversations] = useState(false);
   const [dialogStore, setDialogStore] = useState(false);
+  const [dialogGifts, setDialogGifts] = useState(false);
   const [preloadingProfile, setPreloadingProfile] = useState(false);
   const [expandedMenuLeft, setExpandedMenuLeft] = useState(0);
   const [expandedMenuRight, setExpandedRight] = useState(0);
@@ -855,6 +857,7 @@ const OrganismsMenusMainAuthenticated = (props) => {
           <IconButton
             onClick={() => {
               setNewGift(false);
+              setDialogGifts(true);
             }}
           >
             <NewGiftBadge
@@ -903,6 +906,7 @@ const OrganismsMenusMainAuthenticated = (props) => {
         <DialogConversations open={setDialogConversations} />
       )}
       {dialogStore && <DialogStore open={setDialogStore} />}
+      {dialogGifts && <DialogGifts open={setDialogGifts} />}
       {alertDialogOpen && (
         <AlertDialog
           open={alertDialogOpen}

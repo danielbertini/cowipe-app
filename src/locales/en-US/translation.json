@@ -258,6 +258,15 @@
       "tab3": {
         "title": "Chat"
       }
+    },
+    "gifts": {
+      "title": "Gifts",
+      "tab1": {
+        "title": "Sent"
+      },
+      "tab2": {
+        "title": "Received"
+      }
     }
   },
   "mainMenu": {
