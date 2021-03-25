@@ -38,7 +38,7 @@ const palette = {
 };
 
 const font = {
-  size: 13,
+  size: 14,
   weight: {
     light: 300,
     regular: 400,
