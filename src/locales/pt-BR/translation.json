@@ -85,7 +85,9 @@
     "yourBalanceIsNull": "Você não tem moedas.",
     "secureInfo": "Todos os pagamentos são processados pela Stripe em ambiente seguro. Após seu pagamento ter sido concluído as moedas serão contabilizadas automaticamente e enviaremos um recibo para seu e-mail.",
     "processingPayment": "Obrigado! Seu pagamento está sendo processado, isso geralmente ocorre em no máximo alguns minutos. Assim que for concluído enviaremos um recibo para seu e-mail e as moedas serão contabilizadas automaticamente.",
-    "giftSent": "Presente enviado"
+    "giftSent": "Presente enviado",
+    "noGiftsSent": "Nenhum presente enviado.",
+    "noGiftsReceived": "Nenhum presente recebido."
   },
   "fields": {
     "message": {
