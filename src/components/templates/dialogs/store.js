@@ -45,7 +45,7 @@ const TemplatesDialogsStore = (props) => {
       .then((response) => {
         setLoading(false);
         if (response.data.success) {
-          setBalance(response.data.balance);
+          setBalance(response.data.balance > 0 ? response.data.balance : null);
         } else {
           if (response.data.message) {
             setSnackbarMessage(response.data.message);
@@ -177,7 +177,7 @@ const TemplatesDialogsStore = (props) => {
           <>
             <DialogContent style={{ zIndex: 8 }}>
               <Grid container direction="row" spacing={2} justify="center">
-                {balance && (
+                {balance && balance > 0 && (
                   <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                     <Info
                       text={t("alerts.yourBalance", { balance: balance })}

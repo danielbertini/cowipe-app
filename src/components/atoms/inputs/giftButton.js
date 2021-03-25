@@ -19,6 +19,19 @@ const Component = (props) => {
     root: {
       padding: 30,
     },
+    title: {
+      width: "100%",
+      overflow: "hidden",
+      maxWidth: "100%",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap",
+      "& > *": {
+        overflow: "hidden",
+        maxWidth: "100%",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap",
+      },
+    },
     items: {
       display: "flex",
       flexDirection: "row",
@@ -163,7 +176,7 @@ const Component = (props) => {
               justifyContent: "space-between",
             }}
           >
-            <div>
+            <div className={classes.title}>
               <Typography variant="h6">
                 {t("commons.sendAGift", { name: profile?.username })}
               </Typography>
