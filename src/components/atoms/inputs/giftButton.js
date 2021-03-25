@@ -95,10 +95,8 @@ const Component = (props) => {
         if (response.data.success) {
           setSelectedItem(null);
           setBalance(response.data.newBalance);
-          // setOpen(true);
-          // setProfile(response.data.profile);
-          // setItems(response.data.gifts);
-          // setBalance(response.data.balance);
+          setSnackbarMessage(t("alerts.giftSent"));
+          setSnackbar(true);
         } else {
           if (response.data.message) {
             setSnackbarMessage(response.data.message);
@@ -166,7 +164,7 @@ const Component = (props) => {
             }}
           >
             <div>
-              <Typography variant="body1">
+              <Typography variant="h6">
                 {t("commons.sendAGift", { name: profile?.username })}
               </Typography>
               <Typography variant="body2">

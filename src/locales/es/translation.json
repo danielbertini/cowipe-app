@@ -84,7 +84,8 @@
     "yourBalance": "Su saldo es de {{balance}} monedas.",
     "yourBalanceIsNull": "No tienes monedas.",
     "secureInfo": "Stripe procesa todos los pagos en un entorno seguro. Una vez que se haya completado su pago, las monedas se contarán automáticamente y le enviaremos un recibo a su correo electrónico.",
-    "processingPayment": "¡Gracias! Su pago se está procesando, esto generalmente demora unos minutos como máximo. Tan pronto como se complete, le enviaremos un recibo a su correo electrónico y las monedas se contarán automáticamente."
+    "processingPayment": "¡Gracias! Su pago se está procesando, esto generalmente demora unos minutos como máximo. Tan pronto como se complete, le enviaremos un recibo a su correo electrónico y las monedas se contarán automáticamente.",
+    "giftSent": "Regalo enviado"
   },
   "fields": {
     "message": {
