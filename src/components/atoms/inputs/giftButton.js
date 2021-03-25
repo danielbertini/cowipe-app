@@ -43,6 +43,7 @@ const Component = (props) => {
   const theme = useTheme();
   const classes = useStyles();
   const [loading, setLoading] = useState(false);
+  const [putting, setPutting] = useState(false);
   const [open, setOpen] = useState(false);
   const [snackbar, setSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
@@ -71,6 +72,42 @@ const Component = (props) => {
       })
       .catch((error) => {
         setLoading(false);
+        setSnackbarMessage(t("alerts.unavailableService"));
+        setSnackbar(true);
+        setTimeout(() => {
+          setOpen(false);
+        }, 3000);
+      });
+  };
+
+  const putGift = () => {
+    setPutting(true);
+    api({
+      method: "POST",
+      url: `gifts/putGift`,
+      data: {
+        userId: props.userId,
+        giftId: selectedItem,
+      },
+    })
+      .then((response) => {
+        setPutting(false);
+        if (response.data.success) {
+          setSelectedItem(null);
+          setBalance(response.data.newBalance);
+          // setOpen(true);
+          // setProfile(response.data.profile);
+          // setItems(response.data.gifts);
+          // setBalance(response.data.balance);
+        } else {
+          if (response.data.message) {
+            setSnackbarMessage(response.data.message);
+            setSnackbar(true);
+          }
+        }
+      })
+      .catch((error) => {
+        setPutting(false);
         setSnackbarMessage(t("alerts.unavailableService"));
         setSnackbar(true);
         setTimeout(() => {
@@ -136,7 +173,6 @@ const Component = (props) => {
                 {!balance || balance === 0
                   ? t("alerts.yourBalanceIsNull")
                   : t("alerts.yourBalance", { balance: balance })}
-                {/* {t("alerts.yourBalance", { balance: balance })} */}
               </Typography>
             </div>
             <div style={{ display: "flex", flexDirection: "row" }}>
@@ -149,11 +185,16 @@ const Component = (props) => {
               </IconButton>
               <div style={{ width: 10 }} />
               <Button
-                disabled={selectedItem ? false : true}
+                disabled={!selectedItem || putting ? true : false}
                 variant="contained"
                 color="secondary"
+                onClick={() => putGift()}
               >
-                {t("buttons.send")}
+                {putting ? (
+                  <CircularProgress size={25} color="secondary" />
+                ) : (
+                  t("buttons.send")
+                )}
               </Button>
             </div>
           </div>

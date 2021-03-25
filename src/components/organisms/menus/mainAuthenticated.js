@@ -47,7 +47,7 @@ import {
   PersonAddRounded as ReservedOnIcon,
   PersonAddDisabledRounded as ReservedOffIcon,
   VpnKeyRounded as MyAccountIcon,
-  CardGiftcardRounded as BagIcon,
+  CardGiftcardRounded as GiftIcon,
   StorefrontRounded as ShoppingIcon,
 } from "@material-ui/icons";
 
@@ -199,6 +199,7 @@ const OrganismsMenusMainAuthenticated = (props) => {
   const [snackbar, setSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [unreadMessages, setUnreadMessages] = useState(false);
+  const [newGift, setNewGift] = useState(false);
   const [playMessageSound] = useSound(messageSound);
   const [userIp, setUserIp] = useState(false);
 
@@ -264,6 +265,13 @@ const OrganismsMenusMainAuthenticated = (props) => {
     });
     return () => socket.disconnect();
   }, [dispatch, socket]);
+
+  useEffect(() => {
+    socket.on("newGift", () => {
+      preferences?.sound && playMessageSound();
+      setNewGift(true);
+    });
+  }, [playMessageSound, preferences?.sound, socket]);
 
   useEffect(() => {
     if (!dialogConversations) {
@@ -345,6 +353,17 @@ const OrganismsMenusMainAuthenticated = (props) => {
   const NotificationBadge = withStyles((theme) => ({
     badge: {
       display: unreadMessages ? "block" : "none",
+      backgroundColor: theme.palette.status[1],
+      width: 16,
+      height: 16,
+      borderRadius: "50%",
+      border: `3px solid ${theme.palette.primary.main}`,
+    },
+  }))(Badge);
+
+  const NewGiftBadge = withStyles((theme) => ({
+    badge: {
+      display: newGift ? "block" : "none",
       backgroundColor: theme.palette.status[1],
       width: 16,
       height: 16,
@@ -828,18 +847,23 @@ const OrganismsMenusMainAuthenticated = (props) => {
         <div style={{ display: "flex", flexWrap: "nowrap" }}>
           <IconButton
             onClick={() => {
-              setUnreadMessages(false);
-              setDialogConversations(true);
-            }}
-          >
-            <BagIcon />
-          </IconButton>
-          <IconButton
-            onClick={() => {
               setDialogStore(true);
             }}
           >
             <ShoppingIcon />
+          </IconButton>
+          <IconButton
+            onClick={() => {
+              setNewGift(false);
+            }}
+          >
+            <NewGiftBadge
+              overlap="circle"
+              variant="dot"
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            >
+              <GiftIcon />
+            </NewGiftBadge>
           </IconButton>
           <IconButton
             onClick={() => {
