@@ -16,7 +16,6 @@ import Info from "../../atoms/display/info";
 import CircularProgress from "../../atoms/feedback/circularProgress";
 import DialogTitle from "../dialogs/dialogTitle";
 import ListItemToUpload from "../../organisms/pictures/listItemToUpload";
-import Snackbar from "../../atoms/feedback/snackbar";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 
 const Component = (props) => {
@@ -30,8 +29,6 @@ const Component = (props) => {
   const [plan, setPlan] = useState([]);
   const [total, setTotal] = useState();
   const [picturesToUploadProgress, setPicturesToUploadProgress] = useState([]);
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage] = useState("");
   const loadingRef = useRef([]);
 
   const getPlan = () => {
@@ -348,16 +345,6 @@ const Component = (props) => {
         />
         {renderContent()}
       </Dialog>
-      <Snackbar
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        open={snackbar}
-        onClose={() => setSnackbar(false)}
-        autoHideDuration={3000}
-        message={snackbarMessage}
-      />
     </>
   );
 };

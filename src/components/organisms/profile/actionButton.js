@@ -3,18 +3,17 @@ import { useTranslation } from "react-i18next";
 import { useTheme } from "@material-ui/core/styles";
 import { Menu, MenuItem, CircularProgress } from "@material-ui/core";
 import { MoreVertRounded as OptionsIcon } from "@material-ui/icons";
+import { useSnackbar } from "notistack";
 
 import api from "../../../services/api";
-import Snackbar from "../../atoms/feedback/snackbar";
 import IconButton from "../../atoms/inputs/iconButton";
 import AlertDialog from "../../atoms/feedback/alertDialog";
 import ReportDialog from "../../templates/dialogs/report";
 
 const Component = (props) => {
   const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
   const theme = useTheme();
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [blocking, setBlocking] = useState(false);
   const [connection, setConnection] = useState();
   const [disconnecting, setDisconnecting] = useState(false);
@@ -47,22 +46,18 @@ const Component = (props) => {
           setConnection(1);
           props.connectionUpdate(1);
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "success" });
           } else {
-            setSnackbarMessage(t("alerts.blocked"));
-            setSnackbar(true);
+            enqueueSnackbar(t("alerts.blocked"), { variant: "info" });
           }
         } else {
-          setSnackbarMessage(response.data.message);
-          setSnackbar(true);
+          enqueueSnackbar(response.data.message, { variant: "error" });
         }
       })
       .catch((error) => {
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
       });
-  }, [props, t]);
+  }, [enqueueSnackbar, props, t]);
 
   const handleDisconnect = useCallback(() => {
     setDisconnecting(true);
@@ -78,15 +73,13 @@ const Component = (props) => {
         if (response.data.success) {
           setConnection(1);
           props.connectionUpdate(1);
-          setSnackbarMessage(t("alerts.disconnected"));
-          setSnackbar(true);
+          enqueueSnackbar(t("alerts.disconnected"), { variant: "success" });
         }
       })
       .catch((error) => {
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
       });
-  }, [props, t]);
+  }, [enqueueSnackbar, props, t]);
 
   const renderMenu = () => {
     return (
@@ -171,18 +164,6 @@ const Component = (props) => {
           text={t("alerts.disconnect")}
           handleClose={setDisconnectAlertDialog}
           handleAgree={handleDisconnect}
-        />
-      )}
-      {snackbar && (
-        <Snackbar
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "center",
-          }}
-          open={snackbar}
-          onClose={() => setSnackbar(false)}
-          autoHideDuration={3000}
-          message={snackbarMessage}
         />
       )}
     </>

@@ -235,14 +235,6 @@ export const dark = createMuiTheme({
         borderBottom: `0px solid ${palette.divider}`,
       },
     },
-    MuiSnackbarContent: {
-      root: {
-        margin: 25,
-        backgroundColor: "rgba(0,0,0,.8)",
-        fontSize: typography.fontSize,
-        color: palette.text.primary,
-      },
-    },
     MuiListItemText: {
       primary: {
         fontWeight: typography.fontWeightBold,

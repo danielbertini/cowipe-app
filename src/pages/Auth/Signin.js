@@ -3,11 +3,11 @@ import { useHistory } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 import { Container, Grid, Divider } from "@material-ui/core";
+import { useSnackbar } from "notistack";
+import { useDispatch, useSelector } from "react-redux";
 
 import StoreContext from "../../context/Context";
 import api from "../../services/api";
-import { useDispatch, useSelector } from "react-redux";
-
 import { setUser } from "../../store/user/user.actions";
 import { setPreferences } from "../../store/preferences/preferences.actions";
 import TextField from "../../components/atoms/inputs/textfield";
@@ -15,19 +15,16 @@ import Button from "../../components/atoms/inputs/button";
 import Title from "../../components/atoms/display/title";
 import Typography from "../../components/atoms/display/typography";
 import CircularProgress from "../../components/atoms/feedback/circularProgress";
-import Snackbar from "../../components/atoms/feedback/snackbar";
 import MainMenu from "../../components/organisms/menus/main";
 
 const Signin = ({ t }) => {
   const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
+  const { setToken } = useContext(StoreContext);
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [formError, setFormError] = useState({});
-  const [snackbar, setSnackbar] = React.useState(false);
-  const [snackbarMessage, setSnackbarMessage] = React.useState("");
-  const { setToken } = useContext(StoreContext);
   const userIp = useSelector((state) => state.ip);
-
   const inputEmailRef = useRef();
   const inputPasswordRef = useRef();
 
@@ -50,8 +47,7 @@ const Signin = ({ t }) => {
           return history.push("/dashboard");
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
           if (response.data.errors) {
             Object.keys(response.data.errors).map((e) => {
@@ -151,16 +147,6 @@ const Signin = ({ t }) => {
           </Grid>
         </Grid>
       </Container>
-      <Snackbar
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        open={snackbar}
-        onClose={() => setSnackbar(false)}
-        autoHideDuration={3000}
-        message={snackbarMessage}
-      />
     </>
   );
 };

@@ -10,11 +10,11 @@ import { isMobile } from "react-device-detect";
 import { Tabs, Tab, Grid, Dialog, DialogContent } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import jwtDecode from "jwt-decode";
+import { useSnackbar } from "notistack";
 
 import StoreContext from "../../../context/Context";
 import SocketContext from "../../../context/SocketContext";
 import api from "../../../services/api";
-import Snackbar from "../../atoms/feedback/snackbar";
 import Info from "../../atoms/display/info";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 import AvatarConversation from "../../molecules/avatars/conversation";
@@ -26,12 +26,11 @@ import DialogTitle from "../dialogs/dialogTitle";
 const Component = (props) => {
   const theme = useTheme();
   const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
   const { token } = useContext(StoreContext);
   const { socket } = useContext(SocketContext);
   const [loading, setLoading] = useState(false);
   const [loadingProfile, setLoadingProfile] = useState(false);
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [conversations, setConversations] = useState([]);
   const [tabValue, setTabValue] = useState(0);
   const [room, setRoom] = useState();
@@ -136,30 +135,29 @@ const Component = (props) => {
             }
           } else {
             if (response.data.blocked) {
-              setSnackbarMessage(t("alerts.unavailableProfile"));
-              setSnackbar(true);
+              enqueueSnackbar(t("alerts.unavailableProfile"), {
+                variant: "info",
+              });
               setTimeout(() => {
                 props.open(false);
               }, 3000);
             } else {
               if (response.data.message) {
+                enqueueSnackbar(response.data.message, { variant: "error" });
                 setLoadingProfile(false);
-                setSnackbarMessage(response.data.message);
-                setSnackbar(true);
               }
             }
           }
         })
         .catch((error) => {
+          enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
           setLoadingProfile(false);
-          setSnackbarMessage(t("alerts.unavailableService"));
-          setSnackbar(true);
           setTimeout(() => {
             props.open(false);
           }, 3000);
         });
     },
-    [props, t]
+    [enqueueSnackbar, props, t]
   );
 
   const renderTabs = () => {
@@ -289,16 +287,6 @@ const Component = (props) => {
         {room && renderTabs()}
         {room && renderTabContent()}
       </Dialog>
-      <Snackbar
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        open={snackbar}
-        onClose={() => setSnackbar(false)}
-        autoHideDuration={3000}
-        message={snackbarMessage}
-      />
     </>
   );
 };

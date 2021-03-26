@@ -26,6 +26,7 @@ import {
   Badge,
   Switch,
 } from "@material-ui/core";
+import { useSnackbar } from "notistack";
 
 import {
   ChatRounded as ConversationsIcon,
@@ -67,7 +68,6 @@ import IconButton from "../../atoms/inputs/iconButton";
 import AlertDialog from "../../atoms/feedback/alertDialog";
 import AvatarUser from "../../molecules/avatars/userMenu";
 import AvatarCompany from "../../molecules/avatars/companyMenu";
-import Snackbar from "../../atoms/feedback/snackbar";
 import DialogRegistrationData from "../../templates/dialogs/registrationData";
 import DialogRelationship from "../../templates/dialogs/relationship";
 import DialogAppearance from "../../templates/dialogs/appearance";
@@ -176,6 +176,7 @@ const OrganismsMenusMainAuthenticated = (props) => {
 
   const theme = useTheme();
   const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
   const { token, setToken } = useContext(StoreContext);
   const { socket } = useContext(SocketContext);
   const classes = useStyles();
@@ -198,8 +199,6 @@ const OrganismsMenusMainAuthenticated = (props) => {
   const [preloadingProfile, setPreloadingProfile] = useState(false);
   const [expandedMenuLeft, setExpandedMenuLeft] = useState(0);
   const [expandedMenuRight, setExpandedRight] = useState(0);
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [unreadMessages, setUnreadMessages] = useState(false);
   const [newGift, setNewGift] = useState(false);
   const [playMessageSound] = useSound(messageSound);
@@ -575,8 +574,7 @@ const OrganismsMenusMainAuthenticated = (props) => {
                 dispatch(setUser(response.data.document));
               } else {
                 if (response.data.message) {
-                  setSnackbarMessage(response.data.message);
-                  setSnackbar(true);
+                  enqueueSnackbar(response.data.message, { variant: "error" });
                 }
               }
               setPreloadingProfile(false);
@@ -916,16 +914,6 @@ const OrganismsMenusMainAuthenticated = (props) => {
           handleAgree={signout}
         />
       )}
-      <Snackbar
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        open={snackbar}
-        onClose={() => setSnackbar(false)}
-        autoHideDuration={3000}
-        message={snackbarMessage}
-      />
     </>
   );
 };

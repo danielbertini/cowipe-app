@@ -1,17 +1,16 @@
 import React, { memo, useCallback, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, CircularProgress } from "@material-ui/core";
+import { useSnackbar } from "notistack";
 
 import api from "../../../services/api";
-import Snackbar from "../../atoms/feedback/snackbar";
 
 const Component = (props) => {
   const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
   const [accepting, setAccepting] = useState(false);
   const [refusing, setRefusing] = useState(false);
   const [connecting, setConnecting] = useState(false);
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [connection, setConnection] = useState();
 
   const handleConnect = useCallback(() => {
@@ -28,17 +27,15 @@ const Component = (props) => {
           setConnection(response.data.connection);
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
         }
       })
       .catch((error) => {
         setConnecting(false);
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
       });
-  }, [props, t]);
+  }, [enqueueSnackbar, props, t]);
 
   const handleAccept = useCallback(() => {
     setAccepting(true);
@@ -55,17 +52,15 @@ const Component = (props) => {
           setConnection(response.data.connection);
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
         }
       })
       .catch((error) => {
         setAccepting(false);
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
       });
-  }, [props, t]);
+  }, [enqueueSnackbar, props, t]);
 
   const handleRefuse = useCallback(() => {
     setRefusing(true);
@@ -81,17 +76,15 @@ const Component = (props) => {
           setConnection(response.data.connection);
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
         }
       })
       .catch((error) => {
         setRefusing(false);
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
       });
-  }, [props, t]);
+  }, [enqueueSnackbar, props, t]);
 
   const renderButton = () => {
     var result = "";
@@ -168,23 +161,7 @@ const Component = (props) => {
     setConnection(props.connection);
   }, [props.connection]);
 
-  return (
-    <>
-      {renderButton()}
-      {snackbar && (
-        <Snackbar
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "center",
-          }}
-          open={snackbar}
-          onClose={() => setSnackbar(false)}
-          autoHideDuration={3000}
-          message={snackbarMessage}
-        />
-      )}
-    </>
-  );
+  return <>{renderButton()}</>;
 };
 
 export default memo(Component);

@@ -3,10 +3,10 @@ import { useTranslation } from "react-i18next";
 import { Divider } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import moment from "moment";
+import { useSnackbar } from "notistack";
 
 import api from "../../../services/api";
 import Picture from "../../atoms/display/picture";
-import Snackbar from "../../atoms/feedback/snackbar";
 import Typography from "../../atoms/display/typography";
 import Button from "../../atoms/inputs/button";
 import CircularProgress from "../../atoms/feedback/circularProgress";
@@ -51,13 +51,11 @@ const Component = (props) => {
   }));
 
   const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
   const classes = useStyles();
-
   const [blocked, setBlocked] = useState(true);
   const [unblocking, setUnblocking] = useState(false);
   const [unblockAlertDialog, setUnblockAlertDialog] = useState(false);
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
 
   const handleUnblock = useCallback(() => {
     setUnblocking(true);
@@ -74,16 +72,14 @@ const Component = (props) => {
           setBlocked(false);
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
         }
       })
       .catch((error) => {
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
       });
-  }, [props, t]);
+  }, [enqueueSnackbar, props.id, t]);
 
   const parsePicture = () => {
     if (props.data.picture) {
@@ -132,18 +128,6 @@ const Component = (props) => {
               })}
               handleClose={setUnblockAlertDialog}
               handleAgree={handleUnblock}
-            />
-          )}
-          {snackbar && (
-            <Snackbar
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "center",
-              }}
-              open={snackbar}
-              onClose={() => setSnackbar(false)}
-              autoHideDuration={3000}
-              message={snackbarMessage}
             />
           )}
         </>

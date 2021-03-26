@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 import NumberFormat from "react-number-format";
 import { useDispatch, useSelector } from "react-redux";
+import { useSnackbar } from "notistack";
 
 import { setUser } from "../../store/user/user.actions";
 import { setPreferences } from "../../store/preferences/preferences.actions";
@@ -13,7 +14,6 @@ import Button from "../../components/atoms/inputs/button";
 import SelectField from "../../components/atoms/inputs/selectfield";
 import TextField from "../../components/atoms/inputs/textfield";
 import Title from "../../components/atoms/display/title";
-import Snackbar from "../../components/atoms/feedback/snackbar";
 import MainMenu from "../../components/organisms/menus/main";
 
 import {
@@ -26,10 +26,9 @@ import {
 
 const Signup = ({ t }) => {
   const dispatch = useDispatch();
+  const { enqueueSnackbar } = useSnackbar();
   const [loading, setLoading] = useState(false);
   const [formError, setFormError] = useState({});
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [step, setStep] = useState(1);
   const [steps] = useState(4);
   const [genders, setGenders] = useState([]);
@@ -126,8 +125,7 @@ const Signup = ({ t }) => {
           }
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
           if (response.data.errors) {
             Object.keys(response.data.errors).map((e) => {
@@ -512,16 +510,6 @@ const Signup = ({ t }) => {
           </Grid>
         </Grid>
       </Container>
-      <Snackbar
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        open={snackbar}
-        onClose={() => setSnackbar(false)}
-        autoHideDuration={3000}
-        message={snackbarMessage}
-      />
     </>
   );
 };

@@ -9,21 +9,20 @@ import {
   Grid,
   CircularProgress,
 } from "@material-ui/core";
+import { useSnackbar } from "notistack";
 
 import api from "../../../services/api";
 import SelectField from "../../../components/atoms/inputs/selectfield";
-import Snackbar from "../../atoms/feedback/snackbar";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 import DialogTitle from "../dialogs/dialogTitle";
 
 const Component = (props) => {
   const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
   const [loading, setLoading] = useState(false);
   const [preLoading, setPreLoading] = useState(true);
   const [form, setForm] = useState({});
   const [formError, setFormError] = useState({});
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [genders, setGenders] = useState([]);
   const [orientationTypes, setOrientationTypes] = useState([]);
   const [maritalStatus, setMaritalStatus] = useState([]);
@@ -53,19 +52,17 @@ const Component = (props) => {
           });
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
         }
       })
       .catch((error) => {
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setTimeout(() => {
           props.open(false);
         }, 3000);
       });
-  }, [props, t]);
+  }, [enqueueSnackbar, props, t]);
 
   const inputHandle = (event) => {
     event.persist();
@@ -86,12 +83,12 @@ const Component = (props) => {
       .then((response) => {
         setLoading(false);
         if (response.data.success) {
-          setSnackbarMessage(t("alerts.savedInformations"));
-          setSnackbar(true);
+          enqueueSnackbar(t("alerts.savedInformations"), {
+            variant: "success",
+          });
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
           if (response.data.errors) {
             Object.keys(response.data.errors).map((e) => {
@@ -104,8 +101,7 @@ const Component = (props) => {
         }
       })
       .catch((error) => {
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setTimeout(() => {
           props.open(false);
         }, 3000);
@@ -248,16 +244,6 @@ const Component = (props) => {
         {renderContent()}
         {renderActions()}
       </Dialog>
-      <Snackbar
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        open={snackbar}
-        onClose={() => setSnackbar(false)}
-        autoHideDuration={3000}
-        message={snackbarMessage}
-      />
     </>
   );
 };

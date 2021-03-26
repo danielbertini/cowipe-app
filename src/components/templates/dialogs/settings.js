@@ -203,14 +203,8 @@ const Component = (props) => {
     if (!preLoading) {
       return (
         <>
-          <div hidden={tabValue !== 0}>
-            {/* <DialogActions>
-            </DialogActions> */}
-          </div>
-          <div hidden={tabValue !== 1}>
-            {/* <DialogActions>
-            </DialogActions> */}
-          </div>
+          <div hidden={tabValue !== 0}></div>
+          <div hidden={tabValue !== 1}></div>
         </>
       );
     }

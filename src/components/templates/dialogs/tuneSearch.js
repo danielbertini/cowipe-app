@@ -15,12 +15,12 @@ import {
   Divider,
 } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { useSnackbar } from "notistack";
 
 import api from "../../../services/api";
 import SelectField from "../../../components/atoms/inputs/selectfield";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 import DialogTitle from "../dialogs/dialogTitle";
-import Snackbar from "../../atoms/feedback/snackbar";
 
 const TemplatesDialogTuneSearch = (props) => {
   const useStyles = makeStyles((theme) => ({
@@ -37,6 +37,7 @@ const TemplatesDialogTuneSearch = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
   const [loading, setLoading] = useState(true);
   const [form, setForm] = useState([]);
   const [formError, setFormError] = useState({});
@@ -53,8 +54,6 @@ const TemplatesDialogTuneSearch = (props) => {
   const [maritalStatus, setMaritalStatus] = useState([]);
   const [relationshipTypes, setRelationShipTypes] = useState([]);
   const [sugarTypes, setSugarTypes] = useState([]);
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
 
   const handleChangeUsersWithPhoto = (event) => {
     setUsersWithPhotoValue(event.target.checked);
@@ -112,14 +111,14 @@ const TemplatesDialogTuneSearch = (props) => {
       .then((response) => {
         setSubmiting(false);
         if (response.data.success) {
+          enqueueSnackbar(t("alerts.savedInformations"), {
+            variant: "success",
+          });
           props.updateSearch();
           props.handleClose(false);
-          setSnackbarMessage(t("alerts.savedInformations"));
-          setSnackbar(true);
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
           if (response.data.errors) {
             Object.keys(response.data.errors).map((e) => {
@@ -139,6 +138,7 @@ const TemplatesDialogTuneSearch = (props) => {
   }, [
     ageValue,
     distanceValue,
+    enqueueSnackbar,
     form.bodyType,
     form.eyeColor,
     form.hairColor,
@@ -476,16 +476,6 @@ const TemplatesDialogTuneSearch = (props) => {
         {renderContent()}
         {renderActions()}
       </Dialog>
-      <Snackbar
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        open={snackbar}
-        onClose={() => setSnackbar(false)}
-        autoHideDuration={3000}
-        message={snackbarMessage}
-      />
     </>
   );
 };

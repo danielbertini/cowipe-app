@@ -15,19 +15,20 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
+import { useSnackbar } from "notistack";
 
 import api from "../../../services/api";
 import { setUser } from "../../../store/user/user.actions";
 import Typography from "../../atoms/display/typography";
 import TextField from "../../atoms/inputs/textfield";
-import Snackbar from "../../atoms/feedback/snackbar";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 import DialogTitle from "../dialogs/dialogTitle";
 
 const Component = (props) => {
-  const { t } = useTranslation();
   const theme = useTheme();
   const dispatch = useDispatch();
+  const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
   const [loadingInformations, setLoadingInformations] = useState(false);
   const [loadingEmail, setLoadingEmail] = useState(false);
   const [loadingCancelEmailChange, setLoadingCancelEmailChange] = useState(
@@ -39,8 +40,6 @@ const Component = (props) => {
   const [form, setForm] = useState({});
   const [formError, setFormError] = useState({});
   const [emailToChange, setEmailToChange] = useState(false);
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [tabValue, setTabValue] = useState(0);
 
   useEffect(() => {
@@ -57,14 +56,12 @@ const Component = (props) => {
           });
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
         }
       })
       .catch((error) => {
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setTimeout(() => {
           props.open(false);
         }, 3000);
@@ -80,20 +77,17 @@ const Component = (props) => {
           }
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
         }
       })
       .catch((error) => {
-        console.error(error);
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setTimeout(() => {
           props.open(false);
         }, 3000);
       });
-  }, [props, t]);
+  }, [enqueueSnackbar, props, t]);
 
   const updateRegistrationData = () => {
     api({ method: "GET", url: `user/registrationData` })
@@ -109,14 +103,12 @@ const Component = (props) => {
           });
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
         }
       })
       .catch((error) => {
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setTimeout(() => {
           props.open(false);
         }, 3000);
@@ -146,12 +138,12 @@ const Component = (props) => {
         setLoadingInformations(false);
         if (response.data.success) {
           dispatch(setUser(response.data.document));
-          setSnackbarMessage(t("alerts.savedInformations"));
-          setSnackbar(true);
+          enqueueSnackbar(t("alerts.savedInformations"), {
+            variant: "success",
+          });
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
           if (response.data.errors) {
             Object.keys(response.data.errors).map((e) => {
@@ -164,9 +156,8 @@ const Component = (props) => {
         }
       })
       .catch((error) => {
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setLoadingInformations(false);
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
         setTimeout(() => {
           props.open(false);
         }, 3000);
@@ -184,13 +175,13 @@ const Component = (props) => {
       .then((response) => {
         setLoadingEmail(false);
         if (response.data.success) {
+          enqueueSnackbar(t("alerts.savedInformations"), {
+            variant: "success",
+          });
           setEmailToChange(true);
-          setSnackbarMessage(t("alerts.savedInformations"));
-          setSnackbar(true);
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
           if (response.data.errors) {
             Object.keys(response.data.errors).map((e) => {
@@ -203,9 +194,8 @@ const Component = (props) => {
         }
       })
       .catch((error) => {
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setLoadingEmail(false);
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
         setTimeout(() => {
           props.open(false);
         }, 3000);
@@ -223,14 +213,14 @@ const Component = (props) => {
       .then((response) => {
         setLoadingCancelEmailChange(false);
         if (response.data.success) {
+          enqueueSnackbar(t("alerts.savedInformations"), {
+            variant: "success",
+          });
           updateRegistrationData();
           setEmailToChange(false);
-          setSnackbarMessage(t("alerts.savedInformations"));
-          setSnackbar(true);
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
           if (response.data.errors) {
             Object.keys(response.data.errors).map((e) => {
@@ -243,9 +233,8 @@ const Component = (props) => {
         }
       })
       .catch((error) => {
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setLoadingCancelEmailChange(false);
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
         setTimeout(() => {
           props.open(false);
         }, 3000);
@@ -263,13 +252,13 @@ const Component = (props) => {
       .then((response) => {
         setLoadingCode(false);
         if (response.data.success) {
+          enqueueSnackbar(t("alerts.savedInformations"), {
+            variant: "success",
+          });
           setEmailToChange(false);
-          setSnackbarMessage(t("alerts.savedInformations"));
-          setSnackbar(true);
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
           if (response.data.errors) {
             Object.keys(response.data.errors).map((e) => {
@@ -282,8 +271,7 @@ const Component = (props) => {
         }
       })
       .catch((error) => {
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setTimeout(() => {
           props.open(false);
         }, 3000);
@@ -301,18 +289,18 @@ const Component = (props) => {
       .then((response) => {
         setLoadingPassword(false);
         if (response.data.success) {
+          enqueueSnackbar(t("alerts.savedInformations"), {
+            variant: "success",
+          });
           setForm((form) => ({
             ...form,
             currentPassword: "",
             newPassword: "",
             passwordRepeat: "",
           }));
-          setSnackbarMessage(t("alerts.savedInformations"));
-          setSnackbar(true);
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(t(response.data.message), { variant: "error" });
           }
           if (response.data.errors) {
             Object.keys(response.data.errors).map((e) => {
@@ -325,8 +313,7 @@ const Component = (props) => {
         }
       })
       .catch((error) => {
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setTimeout(() => {
           props.open(false);
         }, 3000);
@@ -658,16 +645,6 @@ const Component = (props) => {
         {renderContent()}
         {renderActions()}
       </Dialog>
-      <Snackbar
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        open={snackbar}
-        onClose={() => setSnackbar(false)}
-        autoHideDuration={3000}
-        message={snackbarMessage}
-      />
     </>
   );
 };

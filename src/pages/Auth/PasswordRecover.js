@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 import NumberFormat from "react-number-format";
 import { Container, Grid, Divider, LinearProgress } from "@material-ui/core";
+import { useSnackbar } from "notistack";
 
 import api from "../../services/api";
 import TextField from "../../components/atoms/inputs/textfield";
@@ -10,16 +11,14 @@ import Button from "../../components/atoms/inputs/button";
 import Title from "../../components/atoms/display/title";
 import Typography from "../../components/atoms/display/typography";
 import CircularProgress from "../../components/atoms/feedback/circularProgress";
-import Snackbar from "../../components/atoms/feedback/snackbar";
 import MainMenu from "../../components/organisms/menus/main";
 
 const PasswordRecover = ({ t }) => {
+  const { enqueueSnackbar } = useSnackbar();
   const [loading, setLoading] = useState(false);
   const [step, setStep] = React.useState(1);
   const [steps] = React.useState(2);
   const [formError, setFormError] = useState({});
-  const [snackbar, setSnackbar] = React.useState(false);
-  const [snackbarMessage, setSnackbarMessage] = React.useState("");
   const history = useHistory();
   const inputUsernameRef = useRef();
   const inputEmailRef = useRef();
@@ -50,8 +49,7 @@ const PasswordRecover = ({ t }) => {
           }
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
           if (response.data.errors) {
             Object.keys(response.data.errors).map((e) => {
@@ -247,16 +245,6 @@ const PasswordRecover = ({ t }) => {
           </Grid>
         </Grid>
       </Container>
-      <Snackbar
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        open={snackbar}
-        onClose={() => setSnackbar(false)}
-        autoHideDuration={3000}
-        message={snackbarMessage}
-      />
     </>
   );
 };

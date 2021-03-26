@@ -15,6 +15,7 @@ import {
   RefreshRounded as RefreshIcon,
   DeleteRounded as DeleteIcon,
 } from "@material-ui/icons";
+import { useSnackbar } from "notistack";
 
 import api from "../../../services/api";
 import LinearProgress from "../../atoms/feedback/linearProgress";
@@ -23,7 +24,6 @@ import AlertDialog from "../../atoms/feedback/alertDialog";
 import DialogTitle from "../dialogs/dialogTitle";
 import Info from "../../atoms/display/info";
 import ListItemToEdit from "../../organisms/pictures/listItemToEdit";
-import Snackbar from "../../atoms/feedback/snackbar";
 import MoleculesSearchSearchBar from "../../molecules/search/searchBar";
 import IconButton from "../../atoms/inputs/iconButton";
 
@@ -32,14 +32,13 @@ import PicturesUpload from "./picturesUpload";
 const Component = (props) => {
   const theme = useTheme();
   const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
   const [refreshing, setRefreshing] = useState(false);
   const [preLoading, setPreLoading] = useState(true);
   const [loadingDelete, setLoadingDelete] = useState(false);
   const [alertDialogOpen, setAlertDialogOpen] = useState(false);
   const [pictures, setPictures] = useState([]);
   const [uploadDialog, setUploadDialog] = useState(false);
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(24);
   const [total, setTotal] = useState(0);
@@ -54,20 +53,18 @@ const Component = (props) => {
           setTotal(response?.data?.result?.length);
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
         }
       })
       .catch((error) => {
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setRefreshing(false);
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
         setTimeout(() => {
           props.open(false);
         }, 3000);
       });
-  }, [limit, props, skip, t]);
+  }, [enqueueSnackbar, limit, props, skip, t]);
 
   const deletePictures = useCallback(() => {
     setLoadingDelete(true);
@@ -75,24 +72,21 @@ const Component = (props) => {
       .then((response) => {
         setLoadingDelete(false);
         if (response.data.success) {
-          setSnackbarMessage(t("alerts.picturesRemoved"));
-          setSnackbar(true);
+          enqueueSnackbar(t("alerts.picturesRemoved"), { variant: "success" });
           getPictures();
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
         }
       })
       .catch((error) => {
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setTimeout(() => {
           props.open(false);
         }, 3000);
       });
-  }, [getPictures, props, t]);
+  }, [enqueueSnackbar, getPictures, props, t]);
 
   useEffect(() => {
     getPictures();
@@ -311,16 +305,6 @@ const Component = (props) => {
           handleAgree={deletePictures}
         />
       )}
-      <Snackbar
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        open={snackbar}
-        onClose={() => setSnackbar(false)}
-        autoHideDuration={3000}
-        message={snackbarMessage}
-      />
     </>
   );
 };

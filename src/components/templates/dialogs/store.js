@@ -12,11 +12,11 @@ import {
   Grid,
   CircularProgress,
 } from "@material-ui/core";
+import { useSnackbar } from "notistack";
 
 import api from "../../../services/api";
 import Info from "../../atoms/display/info";
 import Typography from "../../atoms/display/typography";
-import Snackbar from "../../atoms/feedback/snackbar";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 import MoleculesProductsCoin from "../../molecules/products/coin";
 import StripeCheckoutForm from "../../stripe/checkoutForm";
@@ -24,11 +24,10 @@ import DialogTitle from "../dialogs/dialogTitle";
 
 const TemplatesDialogsStore = (props) => {
   const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
   const theme = useTheme();
   const [loading, setLoading] = useState(true);
   const [loadingClientSecret, setLoadingClientSecret] = useState(false);
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [balance, setBalance] = useState();
   const [coins, setCoins] = useState([]);
   const [selectedItem, setSelectedItem] = useState();
@@ -48,19 +47,17 @@ const TemplatesDialogsStore = (props) => {
           setBalance(response.data.balance > 0 ? response.data.balance : null);
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
         }
       })
       .catch((error) => {
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setTimeout(() => {
           props.open(false);
         }, 3000);
       });
-  }, [props, t]);
+  }, [enqueueSnackbar, props, t]);
 
   const getCoins = useCallback(() => {
     api({ method: "GET", url: `coins/getCoins` })
@@ -70,19 +67,17 @@ const TemplatesDialogsStore = (props) => {
           setCoins(response.data.result);
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
         }
       })
       .catch((error) => {
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setTimeout(() => {
           props.open(false);
         }, 3000);
       });
-  }, [props, t]);
+  }, [enqueueSnackbar, props, t]);
 
   useEffect(() => {
     getCoins();
@@ -101,6 +96,7 @@ const TemplatesDialogsStore = (props) => {
         setClientSecret(response.data.clientSecret);
       })
       .catch((error) => {
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setLoadingClientSecret(false);
       });
   };
@@ -280,16 +276,6 @@ const TemplatesDialogsStore = (props) => {
         {renderContent()}
         {renderActions()}
       </Dialog>
-      <Snackbar
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        open={snackbar}
-        onClose={() => setSnackbar(false)}
-        autoHideDuration={3000}
-        message={snackbarMessage}
-      />
     </>
   );
 };

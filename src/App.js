@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { SnackbarProvider } from "notistack";
 
 import StoreProvider from "./context/Provider";
 import SocketProvider from "./context/SocketProvider";
@@ -20,15 +21,24 @@ const App = () => {
   return (
     <Router>
       <StoreProvider>
-        <SocketProvider token={"teste"}>
-          <Switch>
-            <RoutesPrivate path="/dashboard" component={Dashboard} />
-            <Route path="/signin" component={Signin} />
-            <Route path="/signup" component={Signup} />
-            <Route path="/password-recover" component={PasswordRecover} />
-            <Route path="/" component={Home} />
-          </Switch>
-        </SocketProvider>
+        <SnackbarProvider
+          autoHideDuration={3000}
+          maxSnack={6}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+        >
+          <SocketProvider token={"teste"}>
+            <Switch>
+              <RoutesPrivate path="/dashboard" component={Dashboard} />
+              <Route path="/signin" component={Signin} />
+              <Route path="/signup" component={Signup} />
+              <Route path="/password-recover" component={PasswordRecover} />
+              <Route path="/" component={Home} />
+            </Switch>
+          </SocketProvider>
+        </SnackbarProvider>
       </StoreProvider>
     </Router>
   );

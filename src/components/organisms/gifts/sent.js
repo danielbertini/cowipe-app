@@ -3,11 +3,11 @@ import { useTranslation } from "react-i18next";
 import { DialogActions, DialogContent } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import { RefreshRounded as RefreshIcon } from "@material-ui/icons";
+import { useSnackbar } from "notistack";
 
 import api from "../../../services/api";
 import Info from "../../atoms/display/info";
 import CircularProgress from "../../atoms/feedback/circularProgress";
-import Snackbar from "../../atoms/feedback/snackbar";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 import AvatarGift from "../../molecules/avatars/gift";
 import MoleculesSearchSearchBar from "../../molecules/search/searchBar";
@@ -16,11 +16,10 @@ import IconButton from "../../atoms/inputs/iconButton";
 const OrganismsGiftsSent = (props) => {
   const theme = useTheme();
   const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [data, setData] = useState([]);
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [skip, setSkip] = useState(0);
   const [limit, setLimit] = useState(15);
   const [total, setTotal] = useState(0);
@@ -38,26 +37,19 @@ const OrganismsGiftsSent = (props) => {
           setData(response?.data?.result);
           setTotal(response?.data?.result?.length);
         } else {
-          if (response.data.blocked) {
-            setSnackbarMessage(t("alerts.unavailableProfile"));
-            setSnackbar(true);
-          } else {
-            if (response.data.message) {
-              setLoading(false);
-              setRefreshing(false);
-              setSnackbarMessage(response.data.message);
-              setSnackbar(true);
-            }
+          if (response.data.message) {
+            enqueueSnackbar(response.data.message, { variant: "error" });
+            setLoading(false);
+            setRefreshing(false);
           }
         }
       })
       .catch((error) => {
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setLoading(false);
         setRefreshing(false);
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
       });
-  }, [limit, skip, t]);
+  }, [enqueueSnackbar, limit, skip, t]);
 
   useEffect(() => {
     getData();
@@ -146,18 +138,6 @@ const OrganismsGiftsSent = (props) => {
             />
           </div>
         </DialogActions>
-        {snackbar && (
-          <Snackbar
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "center",
-            }}
-            open={snackbar}
-            onClose={() => setSnackbar(false)}
-            autoHideDuration={3000}
-            message={snackbarMessage}
-          />
-        )}
       </>
     );
   };

@@ -1,11 +1,11 @@
-import React, { memo, useState, useCallback } from "react";
+import React, { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { FormControlLabel, Switch, CardActionArea } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { useSnackbar } from "notistack";
 
 import api from "../../../services/api";
 import Picture from "../../atoms/display/picture";
-import Snackbar from "../../atoms/feedback/snackbar";
 
 const Component = (props) => {
   const useStyles = makeStyles((theme) => ({
@@ -20,8 +20,7 @@ const Component = (props) => {
 
   const { t } = useTranslation();
   const classes = useStyles();
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
+  const { enqueueSnackbar } = useSnackbar();
 
   const handleRestrictedChange = useCallback(
     (event) => {
@@ -38,17 +37,15 @@ const Component = (props) => {
           if (response.data.success) {
           } else {
             if (response.data.message) {
-              setSnackbarMessage(response.data.message);
-              setSnackbar(true);
+              enqueueSnackbar(response.data.message, { variant: "error" });
             }
           }
         })
         .catch((error) => {
-          setSnackbarMessage(t("alerts.unavailableService"));
-          setSnackbar(true);
+          enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         });
     },
-    [props, t]
+    [enqueueSnackbar, props, t]
   );
 
   const handleSelectedChange = useCallback(() => {
@@ -65,16 +62,14 @@ const Component = (props) => {
         if (response.data.success) {
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message, { variant: "error" });
           }
         }
       })
       .catch((error) => {
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
       });
-  }, [props, t]);
+  }, [enqueueSnackbar, props, t]);
 
   const renderItem = useCallback(() => {
     return (
@@ -106,16 +101,6 @@ const Component = (props) => {
         </CardActionArea>
         <div style={{ width: "100%", marginTop: 5 }}>{renderItem()}</div>
       </div>
-      <Snackbar
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        open={snackbar}
-        onClose={() => setSnackbar(false)}
-        autoHideDuration={3000}
-        message={snackbarMessage}
-      />
     </>
   );
 };

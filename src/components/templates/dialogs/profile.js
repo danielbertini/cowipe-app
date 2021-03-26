@@ -3,9 +3,9 @@ import { useTranslation } from "react-i18next";
 import { isMobile } from "react-device-detect";
 import { useTheme } from "@material-ui/core/styles";
 import { Dialog, DialogContent, Tabs, Tab } from "@material-ui/core";
+import { useSnackbar } from "notistack";
 
 import api from "../../../services/api";
-import Snackbar from "../../atoms/feedback/snackbar";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 import ProfileAbout from "../../organisms/profile/about";
 import ProfilePictures from "../../organisms/profile/pictures";
@@ -15,10 +15,9 @@ import DialogTitle from "../dialogs/dialogTitle";
 const Component = (props) => {
   const theme = useTheme();
   const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
   const [loading, setLoading] = useState(true);
   const [connection, setConnection] = useState();
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [profile, setProfile] = useState([]);
   const [tabValue, setTabValue] = useState(0);
   const [room, setRoom] = useState();
@@ -39,28 +38,27 @@ const Component = (props) => {
           }
         } else {
           if (response.data.blocked) {
-            setSnackbarMessage(t("alerts.unavailableProfile"));
-            setSnackbar(true);
+            enqueueSnackbar(t("alerts.unavailableProfile"), {
+              variant: "error",
+            });
             setTimeout(() => {
               props.open(false);
             }, 3000);
           } else {
             if (response.data.message) {
+              enqueueSnackbar(response.data.message, { variant: "error" });
               setLoading(false);
-              setSnackbarMessage(response.data.message);
-              setSnackbar(true);
             }
           }
         }
       })
       .catch((error) => {
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setTimeout(() => {
           props.open(false);
         }, 3000);
       });
-  }, [props, t]);
+  }, [enqueueSnackbar, props, t]);
 
   const renderContent = useCallback(() => {
     if (loading || !connection) {
@@ -154,18 +152,6 @@ const Component = (props) => {
         {renderTabs()}
         {renderContent()}
       </Dialog>
-      {snackbar && (
-        <Snackbar
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "center",
-          }}
-          open={snackbar}
-          onClose={() => setSnackbar(false)}
-          autoHideDuration={3000}
-          message={snackbarMessage}
-        />
-      )}
     </>
   );
 };

@@ -4,10 +4,10 @@ import { CardGiftcardRounded as GiftIcon } from "@material-ui/icons";
 import { useTranslation } from "react-i18next";
 import { SwipeableDrawer, Fab, Zoom, Divider } from "@material-ui/core";
 import ScrollContainer from "react-indiana-drag-scroll";
+import { useSnackbar } from "notistack";
 
 import api from "../../../services/api";
 import Typography from "../display/typography";
-import Snackbar from "../../atoms/feedback/snackbar";
 import CircularProgress from "../../atoms/feedback/circularProgress";
 import IconButton from "../../atoms/inputs/iconButton";
 import Button from "../../atoms/inputs/button";
@@ -53,13 +53,12 @@ const Component = (props) => {
   }));
 
   const { t } = useTranslation();
+  const { enqueueSnackbar } = useSnackbar();
   const theme = useTheme();
   const classes = useStyles();
   const [loading, setLoading] = useState(false);
   const [putting, setPutting] = useState(false);
   const [open, setOpen] = useState(false);
-  const [snackbar, setSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
   const [profile, setProfile] = useState([]);
   const [balance, setBalance] = useState(0);
   const [dialogStore, setDialogStore] = useState(false);
@@ -78,15 +77,13 @@ const Component = (props) => {
           setBalance(response.data.balance);
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message);
           }
         }
       })
       .catch((error) => {
         setLoading(false);
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setTimeout(() => {
           setOpen(false);
         }, 3000);
@@ -108,19 +105,16 @@ const Component = (props) => {
         if (response.data.success) {
           setSelectedItem(null);
           setBalance(response.data.newBalance);
-          setSnackbarMessage(t("alerts.giftSent"));
-          setSnackbar(true);
+          enqueueSnackbar(t("alerts.giftSent"), { variant: "success" });
         } else {
           if (response.data.message) {
-            setSnackbarMessage(response.data.message);
-            setSnackbar(true);
+            enqueueSnackbar(response.data.message);
           }
         }
       })
       .catch((error) => {
         setPutting(false);
-        setSnackbarMessage(t("alerts.unavailableService"));
-        setSnackbar(true);
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
         setTimeout(() => {
           setOpen(false);
         }, 3000);
@@ -230,18 +224,6 @@ const Component = (props) => {
         </div>
       </SwipeableDrawer>
       {dialogStore && <DialogStore open={setDialogStore} />}
-      {snackbar && (
-        <Snackbar
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "center",
-          }}
-          open={snackbar}
-          onClose={() => setSnackbar(false)}
-          autoHideDuration={3000}
-          message={snackbarMessage}
-        />
-      )}
     </>
   );
 };
