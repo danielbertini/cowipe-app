@@ -1,13 +1,14 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { CardActionArea, CircularProgress } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { ArrowForwardRounded as RightIcon } from "@material-ui/icons";
+import { LaunchRounded as RightIcon } from "@material-ui/icons";
 
 import i18n from "../../../i18n";
 import Avatar from "../../molecules/avatars/user";
 import Typography from "../../atoms/display/typography";
 import IconButton from "../../atoms/inputs/iconButton";
+import DialogProfile from "../../templates/dialogs/profile";
 
 const Component = (props) => {
   const useStyles = makeStyles((theme) => ({
@@ -39,6 +40,7 @@ const Component = (props) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const theme = useTheme();
+  const [dialogProfile, setDialogProfile] = useState(false);
 
   const renderContent = () => {
     return (
@@ -90,7 +92,10 @@ const Component = (props) => {
 
   return (
     <>
-      <CardActionArea className={classes.root} onClick={props.onClick}>
+      <CardActionArea
+        className={classes.root}
+        onClick={() => setDialogProfile(true)}
+      >
         {renderContent()}
         <div style={{ width: 10 }} />
         <IconButton>
@@ -104,6 +109,9 @@ const Component = (props) => {
           )}
         </IconButton>
       </CardActionArea>
+      {dialogProfile && (
+        <DialogProfile data={props.user} open={setDialogProfile} />
+      )}
     </>
   );
 };
