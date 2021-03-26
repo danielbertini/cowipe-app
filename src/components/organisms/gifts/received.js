@@ -6,6 +6,7 @@ import api from "../../../services/api";
 import Info from "../../atoms/display/info";
 import Snackbar from "../../atoms/feedback/snackbar";
 import LinearProgress from "../../atoms/feedback/linearProgress";
+import AvatarGift from "../../molecules/avatars/gift";
 
 const OrganismsGiftsReceived = (props) => {
   const { t } = useTranslation();
@@ -13,9 +14,15 @@ const OrganismsGiftsReceived = (props) => {
   const [data, setData] = useState([]);
   const [snackbar, setSnackbar] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
+  const [skip, setSkip] = useState(0);
+  const [limit, setLimit] = useState(15);
 
   const getData = useCallback(() => {
-    api({ method: "POST", url: `gifts/getReceived` })
+    api({
+      method: "POST",
+      url: `gifts/getReceived`,
+      data: { skip: skip, limit: limit },
+    })
       .then((response) => {
         if (response.data.success) {
           setLoading(false);
@@ -37,7 +44,7 @@ const OrganismsGiftsReceived = (props) => {
         setSnackbarMessage(t("alerts.unavailableService"));
         setSnackbar(true);
       });
-  }, [t]);
+  }, [limit, skip, t]);
 
   useEffect(() => {
     getData();
@@ -47,15 +54,28 @@ const OrganismsGiftsReceived = (props) => {
     if (loading) {
       return (
         <>
-          <LinearProgress />
+          <DialogContent>
+            <LinearProgress />
+          </DialogContent>
         </>
       );
     } else {
       if (data.length > 0) {
+        return (
+          <>
+            <DialogContent style={{ padding: 0 }}>
+              {data?.map((el) => {
+                return <AvatarGift gift={el.gift[0]} user={el.user[0]} />;
+              })}
+            </DialogContent>
+          </>
+        );
       } else {
         return (
           <>
-            <Info text={t("alerts.noGiftsReceived")} />
+            <DialogContent>
+              <Info text={t("alerts.noGiftsReceived")} />
+            </DialogContent>
           </>
         );
       }
@@ -65,7 +85,7 @@ const OrganismsGiftsReceived = (props) => {
   const renderComponent = () => {
     return (
       <>
-        <DialogContent>{renderContent()}</DialogContent>
+        {renderContent()}
         {/* <DialogActions
           style={{
             display: "flex",

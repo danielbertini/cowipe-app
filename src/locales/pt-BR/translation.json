@@ -342,6 +342,7 @@
     "blockUser": "Bloquear usuário",
     "disconnectFromUser": "Desconectar do usuário",
     "sendAGift": "Presente para {{name}}",
-    "to": "para"
+    "to": "para",
+    "receiveGiftFrom": "Te enviou \"{{name}}\""
   }
 }

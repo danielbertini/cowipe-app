@@ -334,6 +334,7 @@
     "blockUser": "Block profile",
     "disconnectFromUser": "Disconnect from profile",
     "sendAGift": "Gift to {{name}}",
-    "to": "to"
+    "to": "to",
+    "receiveGiftFrom": "Sent you a \"{{name}}\""
   }
 }
