@@ -189,7 +189,7 @@ const Component = (props) => {
             <div style={{ display: "flex", flexDirection: "row" }}>
               <IconButton onClick={() => setDialogStore(true)}>
                 <img
-                  src={"./coin.png"}
+                  src={`${process.env.REACT_APP_CDN}/ui/coin.png`}
                   style={{ width: 24, height: 24 }}
                   alt="coin"
                 />

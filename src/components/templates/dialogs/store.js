@@ -151,8 +151,8 @@ const TemplatesDialogsStore = (props) => {
                       <img
                         src={
                           theme.palette.type === "dark"
-                            ? "./stripe-white.png"
-                            : "./stripe-black.png"
+                            ? `${process.env.REACT_APP_CDN}/ui/stripe-white.png`
+                            : `${process.env.REACT_APP_CDN}/ui/stripe-black.png`
                         }
                         style={{
                           height: 22,

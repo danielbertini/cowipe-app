@@ -58,7 +58,7 @@ const Component = (props) => {
           }}
         >
           <img
-            src={`./gifts/${props.gift?._id}-small.png`}
+            src={`${process.env.REACT_APP_CDN}/ui/gifts/${props.gift?._id}-small.png`}
             alt="gift"
             style={{
               width: "70%",

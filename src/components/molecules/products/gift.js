@@ -58,7 +58,7 @@ const MoleculesProductsCoin = (props) => {
         }}
       >
         <img
-          src={`./gifts/${props.data?._id}.png`}
+          src={`${process.env.REACT_APP_CDN}/ui/gifts/${props.data?._id}.png`}
           width={72}
           height={72}
           alt="gift"

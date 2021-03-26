@@ -37,7 +37,12 @@ const MoleculesProductsCoin = (props) => {
           props.onClick(props.id);
         }}
       >
-        <img src={"./coin.png"} width={44} height={44} alt="coin" />
+        <img
+          src={`${process.env.REACT_APP_CDN}/ui/coin.png`}
+          width={44}
+          height={44}
+          alt="coin"
+        />
         <Typography variant="body1">
           {props.data?.description[i18n.language]}
         </Typography>
