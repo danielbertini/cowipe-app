@@ -272,10 +272,10 @@
     "gifts": {
       "title": "Regalos",
       "tab1": {
-        "title": "Expedido"
+        "title": "Recibido"
       },
       "tab2": {
-        "title": "Recibido"
+        "title": "Expedido"
       }
     }
   },
@@ -341,7 +341,7 @@
     "disconnect": "Desconectar",
     "blockUser": "Bloquear usuario",
     "disconnectFromUser": "Desconectarse del usuario",
-    "sendAGift": "Regalo a {{name}}.",
+    "sendAGift": "Regalo a {{name}}",
     "to": "a"
   }
 }

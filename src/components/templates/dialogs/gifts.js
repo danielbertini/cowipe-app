@@ -55,8 +55,8 @@ const TemplatesDialogsGifts = (props) => {
           }}
         />
         {renderTabs()}
-        <OrganismsGiftsSent display={tabValue === 0} />
-        <OrganismsGiftsReceived display={tabValue === 1} />
+        <OrganismsGiftsReceived display={tabValue === 0} />
+        <OrganismsGiftsSent display={tabValue === 1} />
       </Dialog>
     </>
   );
