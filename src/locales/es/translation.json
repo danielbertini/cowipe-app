@@ -343,6 +343,7 @@
     "disconnectFromUser": "Desconectarse del usuario",
     "sendAGift": "Regalo a {{name}}",
     "to": "a",
-    "receiveGiftFrom": "Te envié un \"{{name}}\""
+    "receiveGiftFrom": "Usted recibió \"{{name}}\"",
+    "sendGiftFrom": "Usted envió \"{{name}}\""
   }
 }

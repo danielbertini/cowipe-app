@@ -58,7 +58,7 @@ const Component = (props) => {
           }}
         >
           <img
-            src={`./gifts/${props.gift?._id}.png`}
+            src={`./gifts/${props.gift?._id}-small.png`}
             alt="gift"
             style={{
               width: "70%",
@@ -74,9 +74,14 @@ const Component = (props) => {
         <div className={classes.content}>
           <Typography variant="body1">{props.user?.username}</Typography>
           <Typography variant="body2">
-            {t("commons.receiveGiftFrom", {
-              name: props.gift?.name[i18n.language],
-            })}
+            {t(
+              props.action === "sent"
+                ? "commons.sendGiftFrom"
+                : "commons.receiveGiftFrom",
+              {
+                name: props.gift?.name[i18n.language],
+              }
+            )}
           </Typography>
         </div>
       </>

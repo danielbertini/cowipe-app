@@ -335,6 +335,7 @@
     "disconnectFromUser": "Disconnect from profile",
     "sendAGift": "Gift to {{name}}",
     "to": "to",
-    "receiveGiftFrom": "Sent you a \"{{name}}\""
+    "receiveGiftFrom": "You receive a \"{{name}}\"",
+    "sendGiftFrom": "You sent a \"{{name}}\""
   }
 }
