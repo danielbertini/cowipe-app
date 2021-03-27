@@ -22,7 +22,7 @@ const CustomThemeProvider = (props) => {
       color: "#fff",
       boxShadow: theme.shadows[3],
       borderRadius: theme.shape.borderRadius,
-      backgroundColor: theme.palette.success.main,
+      backgroundColor: `${theme.palette.success.main}!important`,
     },
     info: {
       fontFamily: theme.typography.fontFamily,
@@ -31,7 +31,7 @@ const CustomThemeProvider = (props) => {
       color: "#fff",
       boxShadow: theme.shadows[3],
       borderRadius: theme.shape.borderRadius,
-      backgroundColor: theme.palette.info.main,
+      backgroundColor: `${theme.palette.info.main}!important`,
     },
     error: {
       fontFamily: theme.typography.fontFamily,
@@ -40,7 +40,7 @@ const CustomThemeProvider = (props) => {
       color: "#fff",
       boxShadow: theme.shadows[3],
       borderRadius: theme.shape.borderRadius,
-      backgroundColor: theme.palette.error.main,
+      backgroundColor: `${theme.palette.error.main}!important`,
     },
     warning: {
       fontFamily: theme.typography.fontFamily,
@@ -49,7 +49,7 @@ const CustomThemeProvider = (props) => {
       color: "#fff",
       boxShadow: theme.shadows[3],
       borderRadius: theme.shape.borderRadius,
-      backgroundColor: theme.palette.warning.main,
+      backgroundColor: `${theme.palette.warning.main}!important`,
     },
     anchorOriginTopCenter: {
       left: "50% !important",

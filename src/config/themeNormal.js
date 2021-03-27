@@ -14,16 +14,16 @@ const palette = {
     main: "#FD3259",
   },
   error: {
-    main: "#f44336 !important",
+    main: "#f44336",
   },
   success: {
-    main: "#4CAF50 !important",
+    main: "#4CAF50",
   },
   info: {
-    main: "#2196F3 !important",
+    main: "#2196F3",
   },
   warning: {
-    main: "#FF9800 !important",
+    main: "#FF9800",
   },
   background: {
     default: "#edecea",

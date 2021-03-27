@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect, memo } from "react";
 import { useTheme } from "@material-ui/core/styles";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+
 import { useTranslation } from "react-i18next";
 import { isMobile } from "react-device-detect";
 import {
@@ -37,7 +38,10 @@ const TemplatesDialogsStore = (props) => {
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
   const [processing, setProcessing] = useState(false);
+
   const stripePromise = loadStripe(process.env.REACT_APP_STRIPE);
+
+  console.log(stripePromise);
 
   const getBalance = useCallback(() => {
     api({ method: "GET", url: `coins/getBalance` })
