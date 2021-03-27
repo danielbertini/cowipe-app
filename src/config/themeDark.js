@@ -17,7 +17,7 @@ const palette = {
     main: "#e63946",
   },
   success: {
-    main: "#4dbf7e",
+    main: "#9AC355",
   },
   background: {
     default: "#121212",
