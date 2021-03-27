@@ -44,7 +44,7 @@ const palette = {
 };
 
 const font = {
-  size: 14,
+  size: 13,
   weight: {
     light: 300,
     regular: 400,
@@ -58,7 +58,7 @@ const font = {
 const typography = {
   useNextVariants: true,
   fontFamily: [
-    "IBM Plex Sans",
+    "Inter",
     "Roboto",
     "system-ui",
     "-apple-system",
