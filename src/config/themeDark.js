@@ -14,10 +14,16 @@ const palette = {
     main: "#8F48FF",
   },
   error: {
-    main: "#e63946",
+    main: "#f44336 !important",
   },
   success: {
-    main: "#9AC355",
+    main: "#4CAF50 !important",
+  },
+  info: {
+    main: "#2196F3 !important",
+  },
+  warning: {
+    main: "#FF9800 !important",
   },
   background: {
     default: "#121212",
@@ -29,8 +35,8 @@ const palette = {
     tertiary: "rgba(255,255,245,.3)",
   },
   status: [
-    "#9AC355", // green
-    "#e63946", // red
+    "#4CAF50", // green
+    "#f44336", // red
   ],
   fab: "#FD3259",
   backdrop: "rgba(12,12,12,.9)",
@@ -38,7 +44,7 @@ const palette = {
 };
 
 const font = {
-  size: 14,
+  size: 13,
   weight: {
     light: 300,
     regular: 400,
@@ -52,7 +58,7 @@ const font = {
 const typography = {
   useNextVariants: true,
   fontFamily: [
-    "IBM Plex Sans",
+    "Inter",
     "Roboto",
     "system-ui",
     "-apple-system",
