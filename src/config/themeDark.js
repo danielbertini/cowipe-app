@@ -199,6 +199,22 @@ export const dark = createMuiTheme({
   palette: palette,
   shadows: shadows,
   overrides: {
+    MuiSnackbar: {
+      root: {
+        fontSize: 80,
+      },
+      variantSuccess: {
+        fontSize: 80,
+      },
+    },
+    MuiSnackbarContent: {
+      root: {
+        fontSize: 80,
+      },
+      variantSuccess: {
+        fontSize: 80,
+      },
+    },
     MuiDrawer: {
       paper: {
         elevation: 3,
@@ -233,22 +249,6 @@ export const dark = createMuiTheme({
     MuiTableBody: {
       root: {
         borderBottom: `0px solid ${palette.divider}`,
-      },
-    },
-    MuiSnackbarContent: {
-      root: {
-        margin: 25,
-        backgroundColor: "rgba(0,0,0,.8)",
-        fontSize: typography.fontSize,
-        color: palette.text.primary,
-      },
-    },
-    MuiSnackbar: {
-      root: {
-        margin: 25,
-        backgroundColor: "rgba(0,0,0,.8)",
-        fontSize: typography.fontSize,
-        color: palette.text.primary,
       },
     },
     MuiListItemText: {
