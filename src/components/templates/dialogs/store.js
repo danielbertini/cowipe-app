@@ -41,8 +41,6 @@ const TemplatesDialogsStore = (props) => {
 
   const stripePromise = loadStripe(process.env.REACT_APP_STRIPE);
 
-  console.log(stripePromise);
-
   const getBalance = useCallback(() => {
     api({ method: "GET", url: `coins/getBalance` })
       .then((response) => {
