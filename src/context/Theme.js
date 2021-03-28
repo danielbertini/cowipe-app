@@ -17,8 +17,7 @@ const CustomThemeProvider = (props) => {
   const useStyles = makeStyles(() => ({
     success: {
       fontFamily: theme.typography.fontFamily,
-      fontWeight: theme.typography.fontWeightBold,
-      fontSize: theme.typography.fontSize - 2,
+      fontSize: theme.typography.fontSize,
       color: "#fff",
       boxShadow: theme.shadows[3],
       borderRadius: theme.shape.borderRadius,
@@ -26,8 +25,7 @@ const CustomThemeProvider = (props) => {
     },
     info: {
       fontFamily: theme.typography.fontFamily,
-      fontWeight: theme.typography.fontWeightBold,
-      fontSize: theme.typography.fontSize - 2,
+      fontSize: theme.typography.fontSize,
       color: "#fff",
       boxShadow: theme.shadows[3],
       borderRadius: theme.shape.borderRadius,
@@ -35,8 +33,7 @@ const CustomThemeProvider = (props) => {
     },
     error: {
       fontFamily: theme.typography.fontFamily,
-      fontWeight: theme.typography.fontWeightBold,
-      fontSize: theme.typography.fontSize - 2,
+      fontSize: theme.typography.fontSize,
       color: "#fff",
       boxShadow: theme.shadows[3],
       borderRadius: theme.shape.borderRadius,
@@ -44,8 +41,7 @@ const CustomThemeProvider = (props) => {
     },
     warning: {
       fontFamily: theme.typography.fontFamily,
-      fontWeight: theme.typography.fontWeightBold,
-      fontSize: theme.typography.fontSize - 2,
+      fontSize: theme.typography.fontSize,
       color: "#fff",
       boxShadow: theme.shadows[3],
       borderRadius: theme.shape.borderRadius,
@@ -82,7 +78,7 @@ const CustomThemeProvider = (props) => {
             vertical: "top",
             horizontal: "center",
           }}
-          preventDuplicate
+          // preventDuplicate
           classes={{
             variantInfo: classes.info,
             variantSuccess: classes.success,
