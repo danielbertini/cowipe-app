@@ -168,7 +168,7 @@ const PagesHome = () => {
                         variant="subtitle2"
                         style={{ marginLeft: 40 }}
                       >
-                        {t("home.resources.item4.description")}
+                        {t("home.resources.item5.description")}
                       </Typography>
                     </ListItem>
                   </List>
@@ -178,7 +178,7 @@ const PagesHome = () => {
                   <ListItemIcon>
                     <ReservedIcon />
                   </ListItemIcon>
-                  <ListItemText primary={t("home.resources.item5.title")} />
+                  <ListItemText primary={t("home.resources.item6.title")} />
                   {expandedMenu[5] ? (
                     <ExpandLess style={{ opacity: 0.25 }} />
                   ) : (
@@ -192,7 +192,7 @@ const PagesHome = () => {
                         variant="subtitle2"
                         style={{ marginLeft: 40 }}
                       >
-                        {t("home.resources.item5.description")}
+                        {t("home.resources.item6.description")}
                       </Typography>
                     </ListItem>
                   </List>
