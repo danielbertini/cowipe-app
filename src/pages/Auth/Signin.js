@@ -70,80 +70,82 @@ const Signin = ({ t }) => {
       <Container>
         <Grid container direction="row" spacing={3} justify="center">
           <Grid item xl={4} lg={4} md={6} sm={8} xs={12}>
-            <Grid container direction="row" spacing={2}>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Title variant="h1">{t("commons.signin")}</Title>
+            <div style={{ padding: 20 }}>
+              <Grid container direction="row" spacing={2}>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <Title variant="h1">{t("commons.signin")}</Title>
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}></Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <TextField
+                    id="field-email"
+                    label={t("fields.email.label")}
+                    placeholder={t("fields.email.placeHolder")}
+                    type="email"
+                    color="secondary"
+                    variant="outlined"
+                    name="email"
+                    inputRef={inputEmailRef}
+                    error={formError?.email ? true : false}
+                    helperText={formError?.email && formError.email}
+                    shrink={true}
+                    fullWidth={true}
+                  />
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <TextField
+                    id="field-password"
+                    label={t("fields.password.label")}
+                    placeholder={t("fields.password.placeHolder")}
+                    type="password"
+                    color="secondary"
+                    variant="outlined"
+                    name="password"
+                    inputRef={inputPasswordRef}
+                    error={formError?.password ? true : false}
+                    helperText={formError?.password && formError.password}
+                    shrink={true}
+                    fullWidth={true}
+                  />
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <Button
+                    size="large"
+                    variant="contained"
+                    color="secondary"
+                    fullWidth={true}
+                    onClick={() => submit()}
+                    disabled={loading}
+                  >
+                    {loading ? (
+                      <CircularProgress size={25} color="inherit" />
+                    ) : (
+                      t("buttons.access")
+                    )}
+                  </Button>
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <Button
+                    size="large"
+                    color="secondary"
+                    fullWidth={true}
+                    component={RouterLink}
+                    to="/password-recover"
+                  >
+                    {t("buttons.forgotYourPassword")}
+                  </Button>
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <Divider />
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <Typography variant="body1" gutterBottom>
+                    {t("app.copyright")}
+                  </Typography>
+                  <Typography variant="body2">{t("alerts.legal")}</Typography>
+                </Grid>
               </Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}></Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <TextField
-                  id="field-email"
-                  label={t("fields.email.label")}
-                  placeholder={t("fields.email.placeHolder")}
-                  type="email"
-                  color="secondary"
-                  variant="outlined"
-                  name="email"
-                  inputRef={inputEmailRef}
-                  error={formError?.email ? true : false}
-                  helperText={formError?.email && formError.email}
-                  shrink={true}
-                  fullWidth={true}
-                />
-              </Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <TextField
-                  id="field-password"
-                  label={t("fields.password.label")}
-                  placeholder={t("fields.password.placeHolder")}
-                  type="password"
-                  color="secondary"
-                  variant="outlined"
-                  name="password"
-                  inputRef={inputPasswordRef}
-                  error={formError?.password ? true : false}
-                  helperText={formError?.password && formError.password}
-                  shrink={true}
-                  fullWidth={true}
-                />
-              </Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Button
-                  size="large"
-                  variant="contained"
-                  color="secondary"
-                  fullWidth={true}
-                  onClick={() => submit()}
-                  disabled={loading}
-                >
-                  {loading ? (
-                    <CircularProgress size={25} color="inherit" />
-                  ) : (
-                    t("buttons.access")
-                  )}
-                </Button>
-              </Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Button
-                  size="large"
-                  color="secondary"
-                  fullWidth={true}
-                  component={RouterLink}
-                  to="/password-recover"
-                >
-                  {t("buttons.forgotYourPassword")}
-                </Button>
-              </Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Divider />
-              </Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Typography variant="body1" gutterBottom>
-                  {t("app.copyright")}
-                </Typography>
-                <Typography variant="body2">{t("alerts.legal")}</Typography>
-              </Grid>
-            </Grid>
+            </div>
           </Grid>
         </Grid>
       </Container>

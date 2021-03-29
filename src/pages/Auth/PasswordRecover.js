@@ -72,176 +72,178 @@ const PasswordRecover = ({ t }) => {
       <Container>
         <Grid container direction="row" spacing={3} justify="center">
           <Grid item xl={4} lg={4} md={6} sm={8} xs={12}>
-            <Grid container direction="row" spacing={2}>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Title variant="h1">{t("commons.passwordRecovery")}</Title>
+            <div style={{ padding: 20 }}>
+              <Grid container direction="row" spacing={2}>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <Title variant="h1">{t("commons.passwordRecovery")}</Title>
+                </Grid>
               </Grid>
-            </Grid>
-            <Grid
-              container
-              direction="row"
-              spacing={2}
-              style={{ display: step !== 1 && "none" }}
-            >
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Typography variant="body1">
-                  {t("alerts.passwordRecoverInfo")}
-                </Typography>
-              </Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <TextField
-                  id="field-username"
-                  label={t("fields.username.label")}
-                  placeholder={t("fields.username.placeHolder")}
-                  type="text"
-                  color="secondary"
-                  variant="outlined"
-                  name="username"
-                  inputRef={inputUsernameRef}
-                  error={formError?.username ? true : false}
-                  helperText={formError?.username && formError.username}
-                  shrink={true}
-                  fullWidth={true}
-                />
-              </Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <TextField
-                  id="field-email"
-                  label={t("fields.email.label")}
-                  placeholder={t("fields.email.placeHolder")}
-                  type="email"
-                  color="secondary"
-                  variant="outlined"
-                  name="email"
-                  inputRef={inputEmailRef}
-                  error={formError?.email ? true : false}
-                  helperText={formError?.email && formError.email}
-                  shrink
-                  fullWidth={true}
-                />
-              </Grid>
-            </Grid>
-            <Grid
-              container
-              direction="row"
-              spacing={2}
-              style={{ display: step !== 2 && "none" }}
-            >
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Typography variant="body1" gutterBottom>
-                  {t("alerts.passwordRecoverSuccess")}
-                </Typography>
-              </Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <NumberFormat
-                  id="field-code"
-                  label={t("fields.code.label")}
-                  placeholder={t("fields.code.placeHolder")}
-                  variant="outlined"
-                  color="secondary"
-                  type="tel"
-                  name="code"
-                  inputRef={inputCodeRef}
-                  customInput={TextField}
-                  format="######"
-                  mask=""
-                  shrink={true}
-                  fullWidth={true}
-                  error={formError?.code ? true : false}
-                  helperText={formError?.code && formError.code}
-                />
-              </Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <TextField
-                  id="field-newPassword"
-                  label={t("fields.newPassword.label")}
-                  placeholder={t("fields.newPassword.placeHolder")}
-                  type="password"
-                  color="secondary"
-                  variant="outlined"
-                  name="password"
-                  inputRef={inputPasswordRef}
-                  error={formError?.password ? true : false}
-                  helperText={formError?.password && formError.password}
-                  shrink={true}
-                  fullWidth={true}
-                />
-              </Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <TextField
-                  id="field-passwordRetype"
-                  label={t("fields.passwordRetype.label")}
-                  placeholder={t("fields.passwordRetype.placeHolder")}
-                  type="password"
-                  color="secondary"
-                  variant="outlined"
-                  name="passwordRetype"
-                  inputRef={inputPasswordRetypeRef}
-                  error={formError?.passwordRetype ? true : false}
-                  helperText={
-                    formError?.passwordRetype && formError.passwordRetype
-                  }
-                  shrink={true}
-                  fullWidth={true}
-                />
-              </Grid>
-            </Grid>
-            <div style={{ height: 15 }} />
-            <Grid container direction="row" spacing={2}>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <div
-                  style={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <div>
-                    {step > 1 && (
-                      <Button
-                        size="large"
-                        variant="outlined"
-                        color="secondary"
-                        onClick={() => setStep(step - 1)}
-                      >
-                        {t("buttons.back")}
-                      </Button>
-                    )}
-                  </div>
-                  <Button
-                    size="large"
-                    variant="contained"
+              <Grid
+                container
+                direction="row"
+                spacing={2}
+                style={{ display: step !== 1 && "none" }}
+              >
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <Typography variant="body1">
+                    {t("alerts.passwordRecoverInfo")}
+                  </Typography>
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <TextField
+                    id="field-username"
+                    label={t("fields.username.label")}
+                    placeholder={t("fields.username.placeHolder")}
+                    type="text"
                     color="secondary"
-                    disabled={loading}
-                    onClick={() => submit()}
+                    variant="outlined"
+                    name="username"
+                    inputRef={inputUsernameRef}
+                    error={formError?.username ? true : false}
+                    helperText={formError?.username && formError.username}
+                    shrink={true}
+                    fullWidth={true}
+                  />
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <TextField
+                    id="field-email"
+                    label={t("fields.email.label")}
+                    placeholder={t("fields.email.placeHolder")}
+                    type="email"
+                    color="secondary"
+                    variant="outlined"
+                    name="email"
+                    inputRef={inputEmailRef}
+                    error={formError?.email ? true : false}
+                    helperText={formError?.email && formError.email}
+                    shrink
+                    fullWidth={true}
+                  />
+                </Grid>
+              </Grid>
+              <Grid
+                container
+                direction="row"
+                spacing={2}
+                style={{ display: step !== 2 && "none" }}
+              >
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <Typography variant="body1" gutterBottom>
+                    {t("alerts.passwordRecoverSuccess")}
+                  </Typography>
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <NumberFormat
+                    id="field-code"
+                    label={t("fields.code.label")}
+                    placeholder={t("fields.code.placeHolder")}
+                    variant="outlined"
+                    color="secondary"
+                    type="tel"
+                    name="code"
+                    inputRef={inputCodeRef}
+                    customInput={TextField}
+                    format="######"
+                    mask=""
+                    shrink={true}
+                    fullWidth={true}
+                    error={formError?.code ? true : false}
+                    helperText={formError?.code && formError.code}
+                  />
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <TextField
+                    id="field-newPassword"
+                    label={t("fields.newPassword.label")}
+                    placeholder={t("fields.newPassword.placeHolder")}
+                    type="password"
+                    color="secondary"
+                    variant="outlined"
+                    name="password"
+                    inputRef={inputPasswordRef}
+                    error={formError?.password ? true : false}
+                    helperText={formError?.password && formError.password}
+                    shrink={true}
+                    fullWidth={true}
+                  />
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <TextField
+                    id="field-passwordRetype"
+                    label={t("fields.passwordRetype.label")}
+                    placeholder={t("fields.passwordRetype.placeHolder")}
+                    type="password"
+                    color="secondary"
+                    variant="outlined"
+                    name="passwordRetype"
+                    inputRef={inputPasswordRetypeRef}
+                    error={formError?.passwordRetype ? true : false}
+                    helperText={
+                      formError?.passwordRetype && formError.passwordRetype
+                    }
+                    shrink={true}
+                    fullWidth={true}
+                  />
+                </Grid>
+              </Grid>
+              <div style={{ height: 15 }} />
+              <Grid container direction="row" spacing={2}>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <div
+                    style={{ display: "flex", justifyContent: "space-between" }}
                   >
-                    {loading ? (
-                      <CircularProgress size={25} color="secondary" />
-                    ) : step === steps ? (
-                      t("buttons.conclude")
-                    ) : (
-                      t("buttons.continue")
-                    )}
-                  </Button>
-                </div>
+                    <div>
+                      {step > 1 && (
+                        <Button
+                          size="large"
+                          variant="outlined"
+                          color="secondary"
+                          onClick={() => setStep(step - 1)}
+                        >
+                          {t("buttons.back")}
+                        </Button>
+                      )}
+                    </div>
+                    <Button
+                      size="large"
+                      variant="contained"
+                      color="secondary"
+                      disabled={loading}
+                      onClick={() => submit()}
+                    >
+                      {loading ? (
+                        <CircularProgress size={25} color="secondary" />
+                      ) : step === steps ? (
+                        t("buttons.conclude")
+                      ) : (
+                        t("buttons.continue")
+                      )}
+                    </Button>
+                  </div>
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <LinearProgress
+                    variant="determinate"
+                    value={(step * 100) / steps}
+                    color="secondary"
+                  />
+                  <div style={{ height: 5 }} />
+                  <Typography variant="body2" component="p" color="secondary">
+                    passo {step} de {steps}
+                  </Typography>
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <Divider />
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <Typography variant="body1" gutterBottom>
+                    {t("app.copyright")}
+                  </Typography>
+                  <Typography variant="body2">{t("alerts.legal")}</Typography>
+                </Grid>
               </Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <LinearProgress
-                  variant="determinate"
-                  value={(step * 100) / steps}
-                  color="secondary"
-                />
-                <div style={{ height: 5 }} />
-                <Typography variant="body2" component="p" color="secondary">
-                  passo {step} de {steps}
-                </Typography>
-              </Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Divider />
-              </Grid>
-              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                <Typography variant="body1" gutterBottom>
-                  {t("app.copyright")}
-                </Typography>
-                <Typography variant="body2">{t("alerts.legal")}</Typography>
-              </Grid>
-            </Grid>
+            </div>
           </Grid>
         </Grid>
       </Container>

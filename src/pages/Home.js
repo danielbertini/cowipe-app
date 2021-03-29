@@ -45,7 +45,7 @@ const PagesHome = () => {
       <Container>
         <Grid container direction="row" spacing={2} justify="center">
           <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-            <div style={{ padding: 30 }}>
+            <div style={{ padding: 20 }}>
               <Title variant="h1">{t("home.resources.title")}</Title>
               <div style={{ height: 15 }} />
               <Typography variant="subtitle2">
@@ -202,7 +202,7 @@ const PagesHome = () => {
             </div>
           </Grid>
           <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-            <div style={{ padding: 30 }}>
+            <div style={{ padding: 20 }}>
               <Title variant="h1">{t("home.gifts.title")}</Title>
               <div style={{ height: 15 }} />
               <Typography variant="subtitle2">
