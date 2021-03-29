@@ -31,8 +31,8 @@ const palette = {
   },
   text: {
     primary: "rgba(255,255,245,1)",
-    secondary: "rgba(255,255,245,.3)",
-    tertiary: "rgba(255,255,245,.15)",
+    secondary: "rgba(255,255,245,.4)",
+    tertiary: "rgba(255,255,245,.2)",
   },
   status: [
     "#4CAF50", // green

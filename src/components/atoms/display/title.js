@@ -9,7 +9,7 @@ const Component = (props) => {
       height: 3,
       backgroundColor: theme.palette.secondary.main,
       borderRadius: 2,
-      marginTop: 2,
+      marginTop: 5,
     },
   }));
 

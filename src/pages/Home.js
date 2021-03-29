@@ -48,9 +48,11 @@ const PagesHome = () => {
             <Title variant="h1">{"Recursos gratuitos"}</Title>
             <div style={{ height: 15 }} />
             <Typography variant="subtitle2">
-              Nossa missão é conectar as pessoas e acreditamso que oferecer
-              recursos para isso de forma gratuíta é essencial para criar um
-              ambiente mais justo e democrático para todos.
+              Somos um site de relacionamentos e nossa missão é conectar
+              pessoas. Por isso acreditamos que oferecer recursos de forma
+              gratuíta é essencial para criar um ambiente mais justo para todos
+              e coerente com nossa missão. Sem mensalidades ou cobrança de
+              taxas, conheça abaixo todos os rescursos disponíveis:
             </Typography>
             <div style={{ height: 15 }} />
             <List component="nav" disablePadding={true}>
@@ -196,8 +198,16 @@ const PagesHome = () => {
             <div style={{ height: 20 }} />
           </Grid>
           <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-            <Title variant="h1">{"Envie presentes"}</Title>
+            <Title variant="h1">{"Envio de presentes"}</Title>
             <div style={{ height: 15 }} />
+            <Typography variant="subtitle2">
+              Você pode enviar presentes para as pessoas que tiver interesse
+              mesmo antes de ter feito uma conexão. É uma forma interessante de
+              chamar a atenção e começar um bom relacionamento. O envio de
+              presentes é a única funcionalidade paga no site. Conheça mais
+              detalhes sobre como funciona o envio de presentes abaixo:
+            </Typography>
+            <div style={{ height: 20 }} />
           </Grid>
         </Grid>
       </Container>
