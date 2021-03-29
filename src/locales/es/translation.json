@@ -346,5 +346,39 @@
     "to": "a",
     "receiveGiftFrom": "Usted recibió \"{{name}}\"",
     "sendGiftFrom": "Usted envió \"{{name}}\""
-  }
+  },
+  "home": {
+    "resources": {
+      "title": "Recursos gratuitos",
+      "subtitle": "Somos un sitio de redes sociales y nuestra misión es conectar a las personas. Por eso creemos que ofrecer recursos de forma gratuita es fundamental para crear un entorno más justo para todos y coherente con nuestra misión. Sin cuotas ni cuotas mensuales, consulte a continuación todos los recursos disponibles:",
+      "item1": {
+        "title": "Encuentra personas cercanas",
+        "description": "Encuentra personas cercanas a ti o que se cruzaron contigo y aprovecha las oportunidades que se te presenten."
+      },
+      "item2": {
+        "title": "Actividades en tu perfil",
+        "description": "Entérate de todo lo que está pasando, quién accedió a tu perfil, quién solicitó una conexión y más, todo en tiempo real."
+      } ,
+      "item3": {
+        "title": "Visibilidad de tu perfil",
+        "description": "Siempre que lo desee, puede optar por permanecer invisible en las búsquedas y mantenerse en contacto solo con las personas que ya se han conectado."
+      } ,
+      "item4": {
+        "title": "Conversaciones ilimitadas",
+        "description": "Puede chatear a través de nuestro chat tan pronto como la otra persona acepte la solicitud de conexión, sin ninguna limitación."
+      } ,
+      "item5": {
+        "title": "Fotos restringidas",
+        "description": "Puede establecer fotos restringidas, por lo que solo las personas con las que acepta conectarse podrán ver las fotos que ha marcado como restringidas."
+      },
+      "item6": {
+        "title": "Modo reservado",
+        "description": "Al activar el modo reservado, solo usted podrá solicitar una conexión, esto garantiza un mayor nivel de respeto y privacidad."
+      } 
+    },
+    "gifts": {
+      "title": "Envío de regalos",
+      "subtitle": "Puede enviar obsequios a las personas que le interesan incluso antes de haber establecido una conexión. Es una forma interesante de llamar la atención y comenzar una buena relación. El envío de regalos es la única función de pago del sitio. Descubra más detalles sobre cómo funciona el envío de regalos a continuación:"
+    }
+  }  
 }

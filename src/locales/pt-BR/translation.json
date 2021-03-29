@@ -346,5 +346,39 @@
     "to": "para",
     "receiveGiftFrom": "Você recebeu \"{{name}}\"",
     "sendGiftFrom": "Você enviou \"{{name}}\""
+  },
+  "home": {
+    "resources": {
+      "title": "Recursos gratuitos",
+      "subtitle": "Somos um site de relacionamentos e nossa missão é conectar pessoas. Por isso acreditamos que oferecer recursos de forma gratuíta é essencial para criar um ambiente mais justo para todos e coerente com nossa missão. Sem mensalidades ou cobrança de taxas, conheça abaixo todos os rescursos disponíveis:",
+      "item1": {
+        "title": "Encontre pessoas por perto",
+        "description": "Encontre pessoas por proximidade ou que cruzaram com você e aproveite as oportunidades que surgem no seu caminho."
+      },
+      "item2": {
+        "title": "Atividades no seu perfil",
+        "description": "Saiba tudo que está acontecendo, quem acessou seu perfil, quem solicitou uma conexão e muito mais, tudo em tempo real."
+      } ,
+      "item3": {
+        "title": "Visibilidade do seu perfil",
+        "description": "Sempre que desejar você pode escolher ficar invisível nas buscas e manter contato apenas com as pessoas que já fez conexão."
+      } ,
+      "item4": {
+        "title": "Conversas ilimitadas",
+        "description": "Você pode conversar através no nosso chat assim que a outra pessoa aceitar o pedido de conexão, sem nenhuma limitação."
+      } ,
+      "item5": {
+        "title": "Fotos restritas",
+        "description": "Você pode definir fotos restritas, assim apenas as pessoas que você aceitar conexão poderão ver as fotos que você marcou como restrita."
+      },
+      "item6": {
+        "title": "Modo reservado",
+        "description": "Ativando o modo reservado, apenas você poderá solicitar uma conexão, isso garante um maior nível de respeito e privacidade."
+      } 
+    },
+    "gifts": {
+      "title": "Envio de presentes",
+      "subtitle": "Você pode enviar presentes para as pessoas que tiver interesse mesmo antes de ter feito uma conexão. É uma forma interessante de chamar a atenção e começar um bom relacionamento. O envio de presentes é a única funcionalidade paga no site. Conheça mais detalhes sobre como funciona o envio de presentes abaixo:"
+    }
   }
 }

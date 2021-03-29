@@ -338,5 +338,39 @@
     "to": "to",
     "receiveGiftFrom": "You receive a \"{{name}}\"",
     "sendGiftFrom": "You sent a \"{{name}}\""
+  },
+  "home": {
+    "resources": {
+      "title": "Free resources",
+      "subtitle": "We are a social networking site and our mission is to connect people. That is why we believe that offering resources for free is essential to create a fairer environment for everyone and consistent with our mission. No monthly fees or fees, see below all available resources:",
+      "item1": {
+        "title": "Find people nearby",
+        "description": "Find people who are close to you or who crossed paths with you and take advantage of the opportunities that come your way."
+      },
+      "item2": {
+        "title": "Activities on your profile",
+        "description": "Find out everything that is happening, who accessed your profile, who requested a connection and more, all in real time."
+      } ,
+      "item3": {
+        "title": "Visibility of your profile",
+        "description": "Whenever you wish, you can choose to remain invisible in searches and keep in touch only with people who have already connected."
+      } ,
+      "item4": {
+        "title": "Unlimited conversations",
+        "description": "You can chat through our chat as soon as the other person accepts the connection request, without any limitation."
+      } ,
+      "item5": {
+        "title": "Restricted Photos",
+        "description": "You can set restricted photos, so only people you accept to connect to will be able to see the photos you've marked as restricted."
+      },
+      "item6": {
+        "title": "Reserved mode",
+        "description": "By activating the reserved mode, only you will be able to request a connection, this guarantees a higher level of respect and privacy."
+      } 
+    },
+    "gifts": {
+      "title": "Sending gifts",
+      "subtitle": "You can send gifts to the people you are interested in even before you have made a connection. It's an interesting way to get attention and start a good relationship. Sending gifts is the only paid feature on the site. Find out more details about how gift sending works below:"
+    }
   }
 }

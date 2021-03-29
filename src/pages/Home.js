@@ -45,169 +45,170 @@ const PagesHome = () => {
       <Container>
         <Grid container direction="row" spacing={2} justify="center">
           <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-            <Title variant="h1">{"Recursos gratuitos"}</Title>
-            <div style={{ height: 15 }} />
-            <Typography variant="subtitle2">
-              Somos um site de relacionamentos e nossa missão é conectar
-              pessoas. Por isso acreditamos que oferecer recursos de forma
-              gratuíta é essencial para criar um ambiente mais justo para todos
-              e coerente com nossa missão. Sem mensalidades ou cobrança de
-              taxas, conheça abaixo todos os rescursos disponíveis:
-            </Typography>
-            <div style={{ height: 15 }} />
-            <List component="nav" disablePadding={true}>
-              <Divider />
-              <ListItem button onClick={() => handleCollapseMenu(0)}>
-                <ListItemIcon>
-                  <GeolocationIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Encontre pessoas por perto"} />
-                {expandedMenu[0] ? (
-                  <ExpandLess style={{ opacity: 0.25 }} />
-                ) : (
-                  <ExpandMore style={{ opacity: 0.25 }} />
-                )}
-              </ListItem>
-              <Collapse in={expandedMenu[0]} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding={true}>
-                  <ListItem>
-                    <Typography variant="subtitle2" style={{ marginLeft: 40 }}>
-                      Encontre pessoas por proximidade ou que cruzaram com você
-                      e aproveite as oportunidades que surgem no seu caminho.
-                    </Typography>
-                  </ListItem>
-                </List>
-              </Collapse>
-              <Divider />
-              <ListItem button onClick={() => handleCollapseMenu(1)}>
-                <ListItemIcon>
-                  <ActivitiesIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Atividades no seu perfil"} />
-                {expandedMenu[1] ? (
-                  <ExpandLess style={{ opacity: 0.25 }} />
-                ) : (
-                  <ExpandMore style={{ opacity: 0.25 }} />
-                )}
-              </ListItem>
-              <Collapse in={expandedMenu[1]} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding={true}>
-                  <ListItem>
-                    <Typography variant="subtitle2" style={{ marginLeft: 40 }}>
-                      Saiba tudo que está acontecendo, quem acessou seu perfil,
-                      quem solicitou uma conexão e muito mais, tudo em tempo
-                      real.
-                    </Typography>
-                  </ListItem>
-                </List>
-              </Collapse>
-              <Divider />
-              <ListItem button onClick={() => handleCollapseMenu(2)}>
-                <ListItemIcon>
-                  <VisibilityOnIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Visibilidade do seu perfil"} />
-                {expandedMenu[2] ? (
-                  <ExpandLess style={{ opacity: 0.25 }} />
-                ) : (
-                  <ExpandMore style={{ opacity: 0.25 }} />
-                )}
-              </ListItem>
-              <Collapse in={expandedMenu[2]} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding={true}>
-                  <ListItem>
-                    <Typography variant="subtitle2" style={{ marginLeft: 40 }}>
-                      Sempre que desejar você pode escolher ficar invisível nas
-                      buscas e manter contato apenas com as pessoas que já fez
-                      conexão.
-                    </Typography>
-                  </ListItem>
-                </List>
-              </Collapse>
-              <Divider />
-              <ListItem button onClick={() => handleCollapseMenu(3)}>
-                <ListItemIcon>
-                  <ConversationsIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Conversas ilimitadas"} />
-                {expandedMenu[3] ? (
-                  <ExpandLess style={{ opacity: 0.25 }} />
-                ) : (
-                  <ExpandMore style={{ opacity: 0.25 }} />
-                )}
-              </ListItem>
-              <Collapse in={expandedMenu[3]} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding={true}>
-                  <ListItem>
-                    <Typography variant="subtitle2" style={{ marginLeft: 40 }}>
-                      Você pode conversar através no nosso chat assim que a
-                      outra pessoa aceitar o pedido de conexão, sem nenhuma
-                      limitação.
-                    </Typography>
-                  </ListItem>
-                </List>
-              </Collapse>
-              <Divider />
-              <ListItem button onClick={() => handleCollapseMenu(4)}>
-                <ListItemIcon>
-                  <PhotoIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Fotos restritas"} />
-                {expandedMenu[4] ? (
-                  <ExpandLess style={{ opacity: 0.25 }} />
-                ) : (
-                  <ExpandMore style={{ opacity: 0.25 }} />
-                )}
-              </ListItem>
-              <Collapse in={expandedMenu[4]} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding={true}>
-                  <ListItem>
-                    <Typography variant="subtitle2" style={{ marginLeft: 40 }}>
-                      Você pode definir fotos restritas, assim apenas as pessoas
-                      que você aceitar conexão poderão ver as fotos que você
-                      marcou como restrita.
-                    </Typography>
-                  </ListItem>
-                </List>
-              </Collapse>
-              <Divider />
-              <ListItem button onClick={() => handleCollapseMenu(5)}>
-                <ListItemIcon>
-                  <ReservedIcon />
-                </ListItemIcon>
-                <ListItemText primary={"Modo reservado"} />
-                {expandedMenu[5] ? (
-                  <ExpandLess style={{ opacity: 0.25 }} />
-                ) : (
-                  <ExpandMore style={{ opacity: 0.25 }} />
-                )}
-              </ListItem>
-              <Collapse in={expandedMenu[5]} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding={true}>
-                  <ListItem>
-                    <Typography variant="subtitle2" style={{ marginLeft: 40 }}>
-                      Ativando o modo reservado, apenas você poderá solicitar
-                      uma conexão, isso garante um maior nível de respeito e
-                      privacidade.
-                    </Typography>
-                  </ListItem>
-                </List>
-              </Collapse>
-              <Divider />
-            </List>
-            <div style={{ height: 20 }} />
+            <div style={{ padding: 30 }}>
+              <Title variant="h1">{t("home.resources.title")}</Title>
+              <div style={{ height: 15 }} />
+              <Typography variant="subtitle2">
+                {t("home.resources.subtitle")}
+              </Typography>
+              <div style={{ height: 15 }} />
+              <List component="nav" disablePadding={true}>
+                <Divider />
+                <ListItem button onClick={() => handleCollapseMenu(0)}>
+                  <ListItemIcon>
+                    <GeolocationIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={t("home.resources.item1.title")} />
+                  {expandedMenu[0] ? (
+                    <ExpandLess style={{ opacity: 0.25 }} />
+                  ) : (
+                    <ExpandMore style={{ opacity: 0.25 }} />
+                  )}
+                </ListItem>
+                <Collapse in={expandedMenu[0]} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding={true}>
+                    <ListItem>
+                      <Typography
+                        variant="subtitle2"
+                        style={{ marginLeft: 40 }}
+                      >
+                        {t("home.resources.item1.description")}
+                      </Typography>
+                    </ListItem>
+                  </List>
+                </Collapse>
+                <Divider />
+                <ListItem button onClick={() => handleCollapseMenu(1)}>
+                  <ListItemIcon>
+                    <ActivitiesIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={t("home.resources.item2.title")} />
+                  {expandedMenu[1] ? (
+                    <ExpandLess style={{ opacity: 0.25 }} />
+                  ) : (
+                    <ExpandMore style={{ opacity: 0.25 }} />
+                  )}
+                </ListItem>
+                <Collapse in={expandedMenu[1]} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding={true}>
+                    <ListItem>
+                      <Typography
+                        variant="subtitle2"
+                        style={{ marginLeft: 40 }}
+                      >
+                        {t("home.resources.item2.description")}
+                      </Typography>
+                    </ListItem>
+                  </List>
+                </Collapse>
+                <Divider />
+                <ListItem button onClick={() => handleCollapseMenu(2)}>
+                  <ListItemIcon>
+                    <VisibilityOnIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={t("home.resources.item3.title")} />
+                  {expandedMenu[2] ? (
+                    <ExpandLess style={{ opacity: 0.25 }} />
+                  ) : (
+                    <ExpandMore style={{ opacity: 0.25 }} />
+                  )}
+                </ListItem>
+                <Collapse in={expandedMenu[2]} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding={true}>
+                    <ListItem>
+                      <Typography
+                        variant="subtitle2"
+                        style={{ marginLeft: 40 }}
+                      >
+                        {t("home.resources.item3.description")}
+                      </Typography>
+                    </ListItem>
+                  </List>
+                </Collapse>
+                <Divider />
+                <ListItem button onClick={() => handleCollapseMenu(3)}>
+                  <ListItemIcon>
+                    <ConversationsIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={t("home.resources.item4.title")} />
+                  {expandedMenu[3] ? (
+                    <ExpandLess style={{ opacity: 0.25 }} />
+                  ) : (
+                    <ExpandMore style={{ opacity: 0.25 }} />
+                  )}
+                </ListItem>
+                <Collapse in={expandedMenu[3]} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding={true}>
+                    <ListItem>
+                      <Typography
+                        variant="subtitle2"
+                        style={{ marginLeft: 40 }}
+                      >
+                        {t("home.resources.item4.description")}
+                      </Typography>
+                    </ListItem>
+                  </List>
+                </Collapse>
+                <Divider />
+                <ListItem button onClick={() => handleCollapseMenu(4)}>
+                  <ListItemIcon>
+                    <PhotoIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={t("home.resources.item5.title")} />
+                  {expandedMenu[4] ? (
+                    <ExpandLess style={{ opacity: 0.25 }} />
+                  ) : (
+                    <ExpandMore style={{ opacity: 0.25 }} />
+                  )}
+                </ListItem>
+                <Collapse in={expandedMenu[4]} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding={true}>
+                    <ListItem>
+                      <Typography
+                        variant="subtitle2"
+                        style={{ marginLeft: 40 }}
+                      >
+                        {t("home.resources.item4.description")}
+                      </Typography>
+                    </ListItem>
+                  </List>
+                </Collapse>
+                <Divider />
+                <ListItem button onClick={() => handleCollapseMenu(5)}>
+                  <ListItemIcon>
+                    <ReservedIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={t("home.resources.item5.title")} />
+                  {expandedMenu[5] ? (
+                    <ExpandLess style={{ opacity: 0.25 }} />
+                  ) : (
+                    <ExpandMore style={{ opacity: 0.25 }} />
+                  )}
+                </ListItem>
+                <Collapse in={expandedMenu[5]} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding={true}>
+                    <ListItem>
+                      <Typography
+                        variant="subtitle2"
+                        style={{ marginLeft: 40 }}
+                      >
+                        {t("home.resources.item5.description")}
+                      </Typography>
+                    </ListItem>
+                  </List>
+                </Collapse>
+                <Divider />
+              </List>
+            </div>
           </Grid>
           <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
-            <Title variant="h1">{"Envio de presentes"}</Title>
-            <div style={{ height: 15 }} />
-            <Typography variant="subtitle2">
-              Você pode enviar presentes para as pessoas que tiver interesse
-              mesmo antes de ter feito uma conexão. É uma forma interessante de
-              chamar a atenção e começar um bom relacionamento. O envio de
-              presentes é a única funcionalidade paga no site. Conheça mais
-              detalhes sobre como funciona o envio de presentes abaixo:
-            </Typography>
-            <div style={{ height: 20 }} />
+            <div style={{ padding: 30 }}>
+              <Title variant="h1">{t("home.gifts.title")}</Title>
+              <div style={{ height: 15 }} />
+              <Typography variant="subtitle2">
+                {t("home.gifts.subtitle")}
+              </Typography>
+            </div>
           </Grid>
         </Grid>
       </Container>
