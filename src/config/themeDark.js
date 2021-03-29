@@ -32,7 +32,7 @@ const palette = {
   text: {
     primary: "rgba(255,255,245,1)",
     secondary: "rgba(255,255,245,.3)",
-    tertiary: "rgba(255,255,245,.3)",
+    tertiary: "rgba(255,255,245,.15)",
   },
   status: [
     "#4CAF50", // green
@@ -126,10 +126,10 @@ const typography = {
     letterSpacing: font.letterSpacing,
   },
   subtitle2: {
-    fontSize: font.size + 2,
+    fontSize: font.size,
     fontWeight: font.weight.regular,
     lineHeight: font.lineHeight,
-    color: palette.text.primary,
+    color: palette.text.secondary,
     letterSpacing: font.letterSpacing,
   },
   body1: {

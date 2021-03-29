@@ -126,10 +126,10 @@ const typography = {
     letterSpacing: font.letterSpacing,
   },
   subtitle2: {
-    fontSize: font.size + 2,
+    fontSize: font.size,
     fontWeight: font.weight.regular,
     lineHeight: font.lineHeight,
-    color: palette.text.primary,
+    color: palette.text.secondary,
     letterSpacing: font.letterSpacing,
   },
   body1: {
