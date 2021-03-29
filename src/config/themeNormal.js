@@ -1,7 +1,7 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
 const shape = {
-  borderRadius: 6,
+  borderRadius: 4,
   scrollSize: 1,
 };
 
@@ -44,7 +44,7 @@ const palette = {
 };
 
 const font = {
-  size: 14,
+  size: 13,
   weight: {
     light: 300,
     regular: 400,
@@ -58,6 +58,7 @@ const font = {
 const typography = {
   useNextVariants: true,
   fontFamily: [
+    "Inter",
     "Roboto",
     "system-ui",
     "-apple-system",
