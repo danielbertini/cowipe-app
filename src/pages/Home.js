@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-import { Container, Grid, Divider } from "@material-ui/core";
+import { Container, Grid, Badge } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import {
   PlaceRounded as GeolocationIcon,
@@ -68,13 +68,22 @@ const PagesHome = () => {
           <Grid item xl={3} lg={3} md={3} sm={6} xs={6}>
             <div className={classes.bannerMini}>
               <div className={classes.bannerMiniIcon}>
-                <div className={classes.bannerIconFrame}>
-                  <GeolocationIcon />
-                </div>
+                <Badge
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  color="secondary"
+                  badgeContent={"Grátis"}
+                >
+                  <div className={classes.bannerIconFrame}>
+                    <GeolocationIcon />
+                  </div>
+                </Badge>
                 <Typography variant="subtitle1">Geolocalização</Typography>
               </div>
               <div className={classes.bannerContent}>
-                <Typography variant="subtitle2">
+                <Typography variant="body2">
                   Encontre pessoas por proximidade ou que cruzaram com você e
                   aproveite as oportunidades que surgem no seu caminho.
                 </Typography>
@@ -84,13 +93,22 @@ const PagesHome = () => {
           <Grid item xl={3} lg={3} md={3} sm={6} xs={6}>
             <div className={classes.bannerMini}>
               <div className={classes.bannerMiniIcon}>
-                <div className={classes.bannerIconFrame}>
-                  <ActivitiesIcon />
-                </div>
+                <Badge
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  color="secondary"
+                  badgeContent={"Grátis"}
+                >
+                  <div className={classes.bannerIconFrame}>
+                    <ActivitiesIcon />
+                  </div>
+                </Badge>
                 <Typography variant="subtitle1">Atividades</Typography>
               </div>
               <div className={classes.bannerContent}>
-                <Typography variant="subtitle2">
+                <Typography variant="body2">
                   Saiba tudo que está acontecendo, quem acessou seu perfil, quem
                   solicitou uma conexão e muito mais, tudo em tempo real.
                 </Typography>
@@ -100,13 +118,22 @@ const PagesHome = () => {
           <Grid item xl={3} lg={3} md={3} sm={6} xs={6}>
             <div className={classes.bannerMini}>
               <div className={classes.bannerMiniIcon}>
-                <div className={classes.bannerIconFrame}>
-                  <VisibilityOnIcon />
-                </div>
+                <Badge
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  color="secondary"
+                  badgeContent={"Grátis"}
+                >
+                  <div className={classes.bannerIconFrame}>
+                    <VisibilityOnIcon />
+                  </div>
+                </Badge>
                 <Typography variant="subtitle1">Visibilidade</Typography>
               </div>
               <div className={classes.bannerContent}>
-                <Typography variant="subtitle2">
+                <Typography variant="body2">
                   Sempre que desejar você pode escolher ficar invisível nas
                   buscas e manter as conversas com as pessoas que já fez
                   conexão.
@@ -117,13 +144,22 @@ const PagesHome = () => {
           <Grid item xl={3} lg={3} md={3} sm={6} xs={6}>
             <div className={classes.bannerMini}>
               <div className={classes.bannerMiniIcon}>
-                <div className={classes.bannerIconFrame}>
-                  <ConversationsIcon />
-                </div>
+                <Badge
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "right",
+                  }}
+                  color="secondary"
+                  badgeContent={"Grátis"}
+                >
+                  <div className={classes.bannerIconFrame}>
+                    <ConversationsIcon />
+                  </div>
+                </Badge>
                 <Typography variant="subtitle1">Chat</Typography>
               </div>
               <div className={classes.bannerContent}>
-                <Typography variant="subtitle2">
+                <Typography variant="body2">
                   Você pode conversar através no nosso chat assim que a outra
                   pessoa aceitar o pedido de conexão, sem nenhuma limitação.
                 </Typography>
