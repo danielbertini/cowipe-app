@@ -1,12 +1,11 @@
 import React from "react";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import { Container, Grid, Badge } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 import {
   PlaceRounded as GeolocationIcon,
   RecentActors as ActivitiesIcon,
   ChatRounded as ConversationsIcon,
-  PersonAddRounded as ReservedOnIcon,
   VisibilityRounded as VisibilityOnIcon,
 } from "@material-ui/icons";
 
@@ -18,16 +17,12 @@ const PagesHome = () => {
     bannerMini: {
       width: "100%",
       overflow: "hidden",
-      // borderRadius: theme.shape.borderRadius,
-      // backgroundColor: theme.palette.background.panel,
-      // boxShadow: theme.shadows[3],
     },
     bannerMiniIcon: {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "flex-start",
-      // backgroundColor: theme.palette.secondary.main,
       padding: 15,
       paddingBottom: 5,
       "& > h6": {
@@ -51,14 +46,13 @@ const PagesHome = () => {
     },
     bannerContent: {
       padding: 15,
-      paddingTop: 5,
+      paddingTop: 0,
       textAlign: "center",
     },
   }));
 
   const { t } = useTranslation();
   const classes = useStyles();
-  const theme = useTheme();
 
   return (
     <>
@@ -68,18 +62,9 @@ const PagesHome = () => {
           <Grid item xl={3} lg={3} md={3} sm={6} xs={6}>
             <div className={classes.bannerMini}>
               <div className={classes.bannerMiniIcon}>
-                <Badge
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  color="secondary"
-                  badgeContent={"Grátis"}
-                >
-                  <div className={classes.bannerIconFrame}>
-                    <GeolocationIcon />
-                  </div>
-                </Badge>
+                <div className={classes.bannerIconFrame}>
+                  <GeolocationIcon />
+                </div>
                 <Typography variant="subtitle1">Geolocalização</Typography>
               </div>
               <div className={classes.bannerContent}>
@@ -93,18 +78,9 @@ const PagesHome = () => {
           <Grid item xl={3} lg={3} md={3} sm={6} xs={6}>
             <div className={classes.bannerMini}>
               <div className={classes.bannerMiniIcon}>
-                <Badge
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  color="secondary"
-                  badgeContent={"Grátis"}
-                >
-                  <div className={classes.bannerIconFrame}>
-                    <ActivitiesIcon />
-                  </div>
-                </Badge>
+                <div className={classes.bannerIconFrame}>
+                  <ActivitiesIcon />
+                </div>
                 <Typography variant="subtitle1">Atividades</Typography>
               </div>
               <div className={classes.bannerContent}>
@@ -118,18 +94,9 @@ const PagesHome = () => {
           <Grid item xl={3} lg={3} md={3} sm={6} xs={6}>
             <div className={classes.bannerMini}>
               <div className={classes.bannerMiniIcon}>
-                <Badge
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  color="secondary"
-                  badgeContent={"Grátis"}
-                >
-                  <div className={classes.bannerIconFrame}>
-                    <VisibilityOnIcon />
-                  </div>
-                </Badge>
+                <div className={classes.bannerIconFrame}>
+                  <VisibilityOnIcon />
+                </div>
                 <Typography variant="subtitle1">Visibilidade</Typography>
               </div>
               <div className={classes.bannerContent}>
@@ -144,18 +111,9 @@ const PagesHome = () => {
           <Grid item xl={3} lg={3} md={3} sm={6} xs={6}>
             <div className={classes.bannerMini}>
               <div className={classes.bannerMiniIcon}>
-                <Badge
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right",
-                  }}
-                  color="secondary"
-                  badgeContent={"Grátis"}
-                >
-                  <div className={classes.bannerIconFrame}>
-                    <ConversationsIcon />
-                  </div>
-                </Badge>
+                <div className={classes.bannerIconFrame}>
+                  <ConversationsIcon />
+                </div>
                 <Typography variant="subtitle1">Chat</Typography>
               </div>
               <div className={classes.bannerContent}>
