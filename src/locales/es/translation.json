@@ -280,6 +280,7 @@
     }
   },
   "mainMenu": {
+    "startPage": "Página de inicio",
     "company": "Empresa",
     "workWithUs": "Trabaja con nosotros",
     "talkWithUs": "Habla con nosotros",

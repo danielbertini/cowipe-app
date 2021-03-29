@@ -1,12 +1,9 @@
 import React, { memo } from "react";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles, useTheme } from "@material-ui/core/styles";
 import { Badge } from "@material-ui/core";
-import {
-  MenuRounded as MenuIcon,
-  ToysRounded as LogoIcon,
-} from "@material-ui/icons";
+import { MenuRounded as MenuIcon } from "@material-ui/icons";
 
-import Avatar from "../../atoms/display/avatar";
+import Avatar from "../../atoms/display/avatarCompany";
 import IconButton from "../../atoms/inputs/iconButton";
 
 const Component = (props) => {
@@ -14,14 +11,11 @@ const Component = (props) => {
     root: {
       width: 44,
       height: 44,
-      backgroundColor: theme.palette.secondary.main,
       borderRadius: "50%",
       overflow: "hidden",
       "-webkit-mask-image": "-webkit-radial-gradient(white, black)",
       cursor: "pointer",
-      "&:hover": {
-        backgroundColor: theme.palette.secondary.main,
-      },
+      "&:hover": {},
       "& > div": {
         transition: "all 150ms ease-in-out",
         transform: "translateY(0px)",
@@ -48,6 +42,7 @@ const Component = (props) => {
     },
   }))(Badge);
 
+  const theme = useTheme();
   const classes = useStyles();
 
   const renderWithMenu = () => {
@@ -74,16 +69,23 @@ const Component = (props) => {
                   flexDirection: "column",
                 }}
               >
-                <Avatar style={{ width: 44, height: 44 }}>
-                  <LogoIcon style={{ fontSize: 34, color: "#fff" }} />
-                  {/* <img
-                    src="./logo512.png"
+                <Avatar
+                  style={{
+                    width: 44,
+                    height: 44,
+                  }}
+                >
+                  {/* <LogoIcon style={{ fontSize: 34, color: "#fff" }} /> */}
+                  <img
+                    src={`https://cdn.cowipe.com/ui/${
+                      theme.palette.type === "dark" ? "logoDark" : "logoNormal"
+                    }.png`}
                     alt="Cowipe"
-                    style={{ width: 44, height: 44 }}
-                  /> */}
+                    style={{ width: 41, height: 41 }}
+                  />
                 </Avatar>
                 <IconButton onClick={props.close} color="primary">
-                  <MenuIcon style={{ color: "#fff" }} />
+                  <MenuIcon style={{ color: theme.palette.text.primary }} />
                 </IconButton>
               </div>
             </div>
@@ -117,12 +119,14 @@ const Component = (props) => {
                 }}
               >
                 <Avatar style={{ width: 44, height: 44 }}>
-                  <LogoIcon style={{ fontSize: 34, color: "#fff" }} />
-                  {/* <img
-                    src="./logo512.png"
+                  {/* <LogoIcon style={{ fontSize: 34, color: "#fff" }} /> */}
+                  <img
+                    src={`https://cdn.cowipe.com/ui/${
+                      theme.palette.type === "dark" ? "logoDark" : "logoNormal"
+                    }.png`}
                     alt="Cowipe"
-                    style={{ width: 44, height: 44 }}
-                  /> */}
+                    style={{ width: 41, height: 41 }}
+                  />
                 </Avatar>
               </div>
             </div>

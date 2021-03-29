@@ -272,6 +272,7 @@
     }
   },
   "mainMenu": {
+    "startPage": "Start page",
     "company": "Company",
     "workWithUs": "Work with us",
     "talkWithUs": "Talk with us",

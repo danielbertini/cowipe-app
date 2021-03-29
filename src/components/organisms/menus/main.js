@@ -13,6 +13,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import {
+  HomeRounded as HomeIcon,
   PersonRounded as UserIcon,
   NavigateNext as ArrowIcon,
   PersonRounded as ProfileIcon,
@@ -174,6 +175,12 @@ const Component = (props) => {
           <div className={classes.drawerMenu}>
             <div className={classes.drawerMenuMain}>
               <List component="nav" disablePadding={true}>
+                <ListItem button component="a" href={process.env.REACT_APP_URL}>
+                  <ListItemIcon>
+                    <HomeIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={t("mainMenu.startPage")} />
+                </ListItem>
                 <Divider />
                 <ListItem button onClick={() => handleCollapseMenuLeft(0)}>
                   <ListItemIcon>
