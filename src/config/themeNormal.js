@@ -58,6 +58,7 @@ const font = {
 const typography = {
   useNextVariants: true,
   fontFamily: [
+    "Inter",
     "Roboto",
     "system-ui",
     "-apple-system",
