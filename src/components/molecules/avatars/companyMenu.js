@@ -78,7 +78,9 @@ const Component = (props) => {
                   {/* <LogoIcon style={{ fontSize: 34, color: "#fff" }} /> */}
                   <img
                     src={`https://cdn.cowipe.com/ui/${
-                      theme.palette.type === "dark" ? "logoDark" : "logoNormal"
+                      theme.palette.type === "dark"
+                        ? "logo-dark"
+                        : "logo-normal"
                     }.png`}
                     alt="Cowipe"
                     style={{ width: 41, height: 41 }}
@@ -122,7 +124,9 @@ const Component = (props) => {
                   {/* <LogoIcon style={{ fontSize: 34, color: "#fff" }} /> */}
                   <img
                     src={`https://cdn.cowipe.com/ui/${
-                      theme.palette.type === "dark" ? "logoDark" : "logoNormal"
+                      theme.palette.type === "dark"
+                        ? "logo-dark"
+                        : "logo-normal"
                     }.png`}
                     alt="Cowipe"
                     style={{ width: 41, height: 41 }}
