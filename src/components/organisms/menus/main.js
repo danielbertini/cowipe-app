@@ -175,7 +175,7 @@ const Component = (props) => {
           <div className={classes.drawerMenu}>
             <div className={classes.drawerMenuMain}>
               <List component="nav" disablePadding={true}>
-                <ListItem button component="a" href={process.env.REACT_APP_URL}>
+                <ListItem button component={RouterLink} to="/">
                   <ListItemIcon>
                     <HomeIcon />
                   </ListItemIcon>
