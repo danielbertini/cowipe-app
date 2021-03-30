@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
 import {
   Container,
@@ -28,10 +27,7 @@ import Typography from "../components/atoms/display/typography";
 import MainMenu from "../components/organisms/menus/main";
 
 const PagesHome = () => {
-  const useStyles = makeStyles((theme) => ({}));
-
   const { t } = useTranslation();
-  const classes = useStyles();
   const [expandedMenu, setExpandedMenu] = useState(0);
   const [expandedMenuGifts, setExpandedMenuGifts] = useState(0);
 
