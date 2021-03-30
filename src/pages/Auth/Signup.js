@@ -152,6 +152,7 @@ const Signup = ({ t }) => {
               <Grid container direction="row" spacing={2}>
                 <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                   <Title variant="h1">{t("commons.signup")}</Title>
+                  <div style={{ height: 7 }} />
                 </Grid>
               </Grid>
               <Grid

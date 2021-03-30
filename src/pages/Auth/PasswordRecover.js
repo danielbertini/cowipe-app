@@ -76,6 +76,7 @@ const PasswordRecover = ({ t }) => {
               <Grid container direction="row" spacing={2}>
                 <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                   <Title variant="h1">{t("commons.passwordRecovery")}</Title>
+                  <div style={{ height: 9 }} />
                 </Grid>
               </Grid>
               <Grid
@@ -87,6 +88,7 @@ const PasswordRecover = ({ t }) => {
                 <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                   <Typography variant="body1">
                     {t("alerts.passwordRecoverInfo")}
+                    <div style={{ height: 10 }} />
                   </Typography>
                 </Grid>
                 <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
@@ -131,6 +133,7 @@ const PasswordRecover = ({ t }) => {
                 <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
                   <Typography variant="body1" gutterBottom>
                     {t("alerts.passwordRecoverSuccess")}
+                    <div style={{ height: 10 }} />
                   </Typography>
                 </Grid>
                 <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
