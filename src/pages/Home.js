@@ -12,6 +12,7 @@ import {
   Collapse,
 } from "@material-ui/core";
 import {
+  InfoRounded as InfoIcon,
   ExpandLessRounded as ExpandLess,
   ExpandMoreRounded as ExpandMore,
   PlaceRounded as GeolocationIcon,
@@ -32,10 +33,17 @@ const PagesHome = () => {
   const { t } = useTranslation();
   const classes = useStyles();
   const [expandedMenu, setExpandedMenu] = useState(0);
+  const [expandedMenuGifts, setExpandedMenuGifts] = useState(0);
 
   const handleCollapseMenu = (index) => {
     setExpandedMenu({
       [index]: expandedMenu[index] === true ? false : true,
+    });
+  };
+
+  const handleCollapseMenuGifts = (index) => {
+    setExpandedMenuGifts({
+      [index]: expandedMenuGifts[index] === true ? false : true,
     });
   };
 
@@ -208,6 +216,94 @@ const PagesHome = () => {
               <Typography variant="subtitle2">
                 {t("home.gifts.subtitle")}
               </Typography>
+              <div style={{ height: 15 }} />
+              <List component="nav" disablePadding={true}>
+                <Divider />
+                <ListItem button onClick={() => handleCollapseMenuGifts(0)}>
+                  <ListItemIcon>
+                    <InfoIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={t("home.gifts.item1.title")} />
+                  {expandedMenuGifts[0] ? (
+                    <ExpandLess style={{ opacity: 0.25 }} />
+                  ) : (
+                    <ExpandMore style={{ opacity: 0.25 }} />
+                  )}
+                </ListItem>
+                <Collapse
+                  in={expandedMenuGifts[0]}
+                  timeout="auto"
+                  unmountOnExit
+                >
+                  <List component="div" disablePadding={true}>
+                    <ListItem>
+                      <Typography
+                        variant="subtitle2"
+                        style={{ marginLeft: 40 }}
+                      >
+                        {t("home.gifts.item1.description")}
+                      </Typography>
+                    </ListItem>
+                  </List>
+                </Collapse>
+                <Divider />
+                <ListItem button onClick={() => handleCollapseMenuGifts(1)}>
+                  <ListItemIcon>
+                    <InfoIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={t("home.gifts.item2.title")} />
+                  {expandedMenuGifts[1] ? (
+                    <ExpandLess style={{ opacity: 0.25 }} />
+                  ) : (
+                    <ExpandMore style={{ opacity: 0.25 }} />
+                  )}
+                </ListItem>
+                <Collapse
+                  in={expandedMenuGifts[1]}
+                  timeout="auto"
+                  unmountOnExit
+                >
+                  <List component="div" disablePadding={true}>
+                    <ListItem>
+                      <Typography
+                        variant="subtitle2"
+                        style={{ marginLeft: 40 }}
+                      >
+                        {t("home.gifts.item2.description")}
+                      </Typography>
+                    </ListItem>
+                  </List>
+                </Collapse>
+                <Divider />
+                <ListItem button onClick={() => handleCollapseMenuGifts(2)}>
+                  <ListItemIcon>
+                    <InfoIcon />
+                  </ListItemIcon>
+                  <ListItemText primary={t("home.gifts.item3.title")} />
+                  {expandedMenuGifts[2] ? (
+                    <ExpandLess style={{ opacity: 0.25 }} />
+                  ) : (
+                    <ExpandMore style={{ opacity: 0.25 }} />
+                  )}
+                </ListItem>
+                <Collapse
+                  in={expandedMenuGifts[2]}
+                  timeout="auto"
+                  unmountOnExit
+                >
+                  <List component="div" disablePadding={true}>
+                    <ListItem>
+                      <Typography
+                        variant="subtitle2"
+                        style={{ marginLeft: 40 }}
+                      >
+                        {t("home.gifts.item3.description")}
+                      </Typography>
+                    </ListItem>
+                  </List>
+                </Collapse>
+                <Divider />
+              </List>
             </div>
           </Grid>
         </Grid>

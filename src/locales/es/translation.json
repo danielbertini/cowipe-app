@@ -378,7 +378,19 @@
     },
     "gifts": {
       "title": "Envío de regalos",
-      "subtitle": "Puede enviar obsequios a las personas que le interesan incluso antes de haber establecido una conexión. Es una forma interesante de llamar la atención y comenzar una buena relación. El envío de regalos es la única función de pago del sitio. Descubra más detalles sobre cómo funciona el envío de regalos a continuación:"
+      "subtitle": "Puede enviar obsequios a las personas que le interesan incluso antes de haber establecido una conexión. Es una forma interesante de llamar la atención y comenzar una buena relación. El envío de regalos es la única función de pago del sitio. Descubra más detalles sobre cómo funciona el envío de regalos a continuación:",
+      "item1": {
+        "title": "¿Quién puede comprar monedas?",
+        "description": "Todos los usuarios de nuestros servicios podrán comprar \"Monedas\" virtuales con nosotros, solo acceda al menú Tienda y compre el paquete de \"Monedas\" que desee."
+      },
+      "item2": {
+        "title": "Comprar monedas",
+        "description": "El precio de las monedas se mostrará en el momento de la compra. El pago se puede realizar con su tarjeta de crédito y todas las transacciones se realizan en un entorno seguro proporcionado por Stripe."
+      },
+      "item3": {
+        "title": "¿Cómo se pueden utilizar las monedas?",
+        "description": "Las monedas se pueden utilizar para comprar regalos virtuales \"Regalos\" que se pueden enviar a otros usuarios dentro de la plataforma."
+      }      
     }
   }  
 }

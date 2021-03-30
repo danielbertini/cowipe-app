@@ -378,7 +378,19 @@
     },
     "gifts": {
       "title": "Envio de presentes",
-      "subtitle": "Você pode enviar presentes para as pessoas que tiver interesse mesmo antes de ter feito uma conexão. É uma forma interessante de chamar a atenção e começar um bom relacionamento. O envio de presentes é a única funcionalidade paga no site. Conheça mais detalhes sobre como funciona o envio de presentes abaixo:"
+      "subtitle": "Você pode enviar presentes para as pessoas que tiver interesse mesmo antes de ter feito uma conexão. É uma forma interessante de chamar a atenção e começar um bom relacionamento. O envio de presentes é a única funcionalidade paga no site. Conheça mais detalhes sobre como funciona o envio de presentes abaixo:",
+      "item1": {
+        "title": "Quem pode comprar moedas?",
+        "description": "Todos os usuários dos nossos serviços poderão comprar \"Moedas\" virtuais connosco, basta acessar ao menu de Loja e comprar o pacote de \"Moedas\" que desejar."
+      },
+      "item2": {
+        "title": "Comprar moedas",
+        "description": "O preço das Moedas será apresentado no momento da compra. O pagamento pode ser efetuado utilizando seu cartão de crédito e toda transação é efetuada em ambiente seguro fornecido pela Stripe."
+      },
+      "item3": {
+        "title": "Como pode utilizar moedas",
+        "description": "As Moedas podem ser utilizadas para adquirir Brindes Virtuais \"Presentes\" que podem ser enviados para outros usuários dentro da plataforma."
+      }
     }
   }
 }

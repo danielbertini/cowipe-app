@@ -342,7 +342,7 @@
   "home": {
     "resources": {
       "title": "Free resources",
-      "subtitle": "We are a social networking site and our mission is to connect people. That is why we believe that offering resources for free is essential to create a fairer environment for everyone and consistent with our mission. No monthly fees or fees, see below all available resources:",
+      "subtitle": "We are a social networking site and our mission is to connect people. That is why we believe that offering resources for free is essential to create a fairer environment for everyone and consistent with our mission. No monthly or hidden fees, see below all available resources:",
       "item1": {
         "title": "Find people nearby",
         "description": "Find people who are close to you or who crossed paths with you and take advantage of the opportunities that come your way."
@@ -370,7 +370,19 @@
     },
     "gifts": {
       "title": "Sending gifts",
-      "subtitle": "You can send gifts to the people you are interested in even before you have made a connection. It's an interesting way to get attention and start a good relationship. Sending gifts is the only paid feature on the site. Find out more details about how gift sending works below:"
+      "subtitle": "You can send gifts to the people you are interested in even before you have made a connection. It's an interesting way to get attention and start a good relationship. Sending gifts is the only paid feature on the site. Find out more details about how gift sending works below:",
+      "item1": {
+        "title": "Who can buy coins?",
+        "description": "All users of our services will be able to buy virtual \"Coins\" with us, just access the Store menu and buy the package of \"Coins\" you want."
+      },
+      "item2": {
+        "title": "Buy coins",
+        "description": "The price of the Coins will be displayed at the time of purchase. Payment can be made using your credit card and all transactions are made in a secure environment provided by Stripe."
+      },
+      "item3": {
+        "title": "How you can use coins",
+        "description": "Coins can be used to purchase Virtual Gifts \"Gifts\" that can be sent to other users within the platform."
+      }      
     }
   }
 }
