@@ -5,13 +5,13 @@ import getTheme from "./ThemeBase";
 import { SnackbarProvider } from "notistack";
 
 export const CustomThemeContext = React.createContext({
-  currentTheme: "normal",
+  currentTheme: "dark",
   setTheme: null,
 });
 
 const CustomThemeProvider = (props) => {
   const { children } = props;
-  const currentTheme = localStorage.getItem("appTheme") || "normal";
+  const currentTheme = localStorage.getItem("appTheme") || "dark";
   const [themeName, _setThemeName] = useState(currentTheme);
   const theme = getTheme(themeName);
   const useStyles = makeStyles(() => ({
