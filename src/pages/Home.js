@@ -40,7 +40,6 @@ const PagesHome = () => {
       marginBottom: 28,
       width: "100%",
       height: 500,
-      boxShadow: theme.shadows[3],
       backgroundColor: "#000",
     },
     bannerPicture: {
@@ -48,23 +47,16 @@ const PagesHome = () => {
       height: 500,
       opacity: 0.3,
     },
-    bannerFrame1: {
+    bannerFrame: {
       position: "relative",
       top: -500,
       width: "100%",
       height: 500,
-      background: `linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(${
+      background: `linear-gradient(to top, ${
+        theme.palette.background.default
+      } 0%, rgba(${
         theme.palette.type === "dark" ? "143,7,255" : "253,50,89"
       },.6) 100%)`,
-    },
-    bannerFrame2: {
-      position: "relative",
-      top: -1000,
-      width: "100%",
-      height: 500,
-      background: `linear-gradient(to right, rgba(${
-        theme.palette.type === "dark" ? "143,7,255" : "253,50,89"
-      },.6) 0%, rgba(0,0,0,0) 100%)`,
     },
     bannerContent: {
       display: "flex",
@@ -72,7 +64,7 @@ const PagesHome = () => {
       alignItems: "flex-start",
       justifyContent: "flex-end",
       position: "relative",
-      top: -1500,
+      top: -1000,
       height: 500,
       width: "100%",
       textAlign: "left",
@@ -123,23 +115,16 @@ const PagesHome = () => {
           <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-12.jpg`} />
           <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-13.jpg`} />
         </AutoplaySlider>
-        <div className={classes.bannerFrame1}></div>
-        <div className={classes.bannerFrame2}></div>
+        <div className={classes.bannerFrame}></div>
         <div className={classes.bannerContent}>
           <Container>
             <Grid container direction="row" spacing={2} justify="center">
               <Grid item xl={4} lg={4} md={6} sm={8} xs={12}>
                 <div style={{ padding: 20 }}>
-                  <Typography
-                    variant="h1"
-                    style={{ color: "rgba(255,255,255,.8)", marginBottom: 0 }}
-                  >
+                  <Typography variant="h1" style={{ marginBottom: 0 }}>
                     {t("home.banner.title")}
                   </Typography>
-                  <Typography
-                    variant="body1"
-                    style={{ color: "rgba(255,255,255,.4)", marginBottom: 25 }}
-                  >
+                  <Typography variant="subtitle2" style={{ marginBottom: 25 }}>
                     {t("home.banner.description")}
                   </Typography>
                   <Button
