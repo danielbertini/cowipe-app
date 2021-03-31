@@ -23,6 +23,9 @@ import {
   PhotoCameraRounded as PhotoIcon,
   PersonAddDisabledRounded as ReservedIcon,
 } from "@material-ui/icons";
+import AwesomeSlider from "react-awesome-slider";
+import "react-awesome-slider/dist/styles.css";
+import withAutoplay from "react-awesome-slider/dist/autoplay";
 
 import Title from "../components/atoms/display/title";
 import Button from "../components/atoms/inputs/button";
@@ -36,46 +39,42 @@ const PagesHome = () => {
       marginBottom: 28,
       width: "100%",
       height: 500,
-      // boxShadow: theme.shadows[3],
-      backgroundColor: theme.palette.divider,
+      boxShadow: theme.shadows[3],
+      backgroundColor: "#000",
     },
     bannerPicture: {
       width: "100%",
       height: 500,
-      // background: `url(./cowipe-home-1.jpg)`,
-      backgroundPosition: "top center",
-      backgroundSize: "cover",
-      opacity: 0.15,
+      opacity: 0.3,
     },
     bannerFrame1: {
       position: "relative",
       top: -500,
       width: "100%",
       height: 500,
-      // backgroundColor: theme.palette.divider,
-      // background: `linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(${
-      //   theme.palette.type === "dark" ? "143,7,255" : "253,50,89"
-      // },.6) 100%)`,
+      background: `linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(${
+        theme.palette.type === "dark" ? "143,7,255" : "253,50,89"
+      },.6) 100%)`,
     },
     bannerFrame2: {
       position: "relative",
       top: -1000,
       width: "100%",
       height: 500,
-      // backgroundColor: theme.palette.divider,
-      // background: `linear-gradient(to right, rgba(${
-      //   theme.palette.type === "dark" ? "143,7,255" : "253,50,89"
-      // },.6) 0%, rgba(0,0,0,0) 100%)`,
+      background: `linear-gradient(to right, rgba(${
+        theme.palette.type === "dark" ? "143,7,255" : "253,50,89"
+      },.6) 0%, rgba(0,0,0,0) 100%)`,
     },
     bannerContent: {
       display: "flex",
       flexDirection: "column",
-      justifyContent: "center",
+      alignItems: "flex-start",
+      justifyContent: "flex-end",
       position: "relative",
       top: -1500,
       height: 500,
       width: "100%",
-      textAlign: "center",
+      textAlign: "left",
     },
   }));
 
@@ -83,6 +82,7 @@ const PagesHome = () => {
   const classes = useStyles();
   const [expandedMenu, setExpandedMenu] = useState(0);
   const [expandedMenuGifts, setExpandedMenuGifts] = useState(0);
+  const AutoplaySlider = withAutoplay(AwesomeSlider);
 
   const handleCollapseMenu = (index) => {
     setExpandedMenu({
@@ -100,14 +100,29 @@ const PagesHome = () => {
     <>
       <MainMenu />
       <div className={classes.banner}>
-        <div className={classes.bannerPicture}></div>
+        <AutoplaySlider
+          play={true}
+          interval={3000}
+          className={classes.bannerPicture}
+          bullets={false}
+          organicArrows={false}
+          buttons={false}
+        >
+          <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-1.jpg`} />
+          <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-2.jpg`} />
+          <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-3.jpg`} />
+          <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-4.jpg`} />
+          <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-5.jpg`} />
+          <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-6.jpg`} />
+          <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-7.jpg`} />
+        </AutoplaySlider>
         <div className={classes.bannerFrame1}></div>
         <div className={classes.bannerFrame2}></div>
         <div className={classes.bannerContent}>
           <Container>
             <Grid container direction="row" spacing={2} justify="center">
-              <Grid item xl={4} lg={4} md={6} sm={8} xs={10}>
-                <div style={{ padding: 20 }}>
+              <Grid item xl={4} lg={4} md={6} sm={8} xs={12}>
+                <div style={{ padding: 20, paddingBottom: 35 }}>
                   <Button
                     size="large"
                     variant="contained"
@@ -135,6 +150,7 @@ const PagesHome = () => {
                   </Typography>
                 </div>
               </Grid>
+              <Grid item xl={8} lg={8} md={6} sm={4} xs={12}></Grid>
             </Grid>
           </Container>
         </div>
