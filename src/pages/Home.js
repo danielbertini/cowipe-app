@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
+import { isMobile } from "react-device-detect";
 import { useTranslation } from "react-i18next";
 import {
   Container,
@@ -128,7 +129,19 @@ const PagesHome = () => {
           <Container>
             <Grid container direction="row" spacing={2} justify="center">
               <Grid item xl={4} lg={4} md={6} sm={8} xs={12}>
-                <div style={{ padding: 20, paddingBottom: 35 }}>
+                <div style={{ padding: 20 }}>
+                  <Typography
+                    variant="h1"
+                    style={{ color: "rgba(255,255,255,.8)", marginBottom: 0 }}
+                  >
+                    {t("home.banner.title")}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    style={{ color: "rgba(255,255,255,.4)", marginBottom: 25 }}
+                  >
+                    {t("home.banner.description")}
+                  </Typography>
                   <Button
                     size="large"
                     variant="contained"
@@ -146,20 +159,16 @@ const PagesHome = () => {
                     color="secondary"
                     component={RouterLink}
                     to="/signup"
-                    style={{ marginBottom: 15 }}
                     fullWidth
                   >
                     {t("mainMenu.signup")}
                   </Button>
-                  <Typography
-                    variant="body1"
-                    style={{ color: "rgba(255,255,255,.4)" }}
-                  >
-                    {t("home.banner.description")}
-                  </Typography>
                 </div>
               </Grid>
               <Grid item xl={8} lg={8} md={6} sm={4} xs={12}></Grid>
+              <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                <div style={{ height: isMobile ? 0 : 20 }} />
+              </Grid>
             </Grid>
           </Container>
         </div>
