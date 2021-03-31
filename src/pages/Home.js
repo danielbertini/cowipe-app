@@ -145,7 +145,10 @@ const PagesHome = () => {
                   >
                     {t("mainMenu.signup")}
                   </Button>
-                  <Typography variant="subtitle2">
+                  <Typography
+                    variant="body1"
+                    style={{ color: "rgba(255,255,255,.4)" }}
+                  >
                     {t("home.banner.description")}
                   </Typography>
                 </div>
