@@ -39,19 +39,19 @@ const PagesHome = () => {
       marginTop: -28,
       marginBottom: 28,
       width: "100%",
-      height: 500,
+      height: 600,
       backgroundColor: "#000",
     },
     bannerPicture: {
       width: "100%",
-      height: 500,
+      height: 600,
       opacity: 0.3,
     },
     bannerFrame: {
       position: "relative",
-      top: -500,
+      top: -600,
       width: "100%",
-      height: 500,
+      height: 600,
       background: `linear-gradient(to top, ${
         theme.palette.background.default
       } 0%, rgba(${
@@ -64,8 +64,8 @@ const PagesHome = () => {
       alignItems: "flex-start",
       justifyContent: "flex-end",
       position: "relative",
-      top: -1000,
-      height: 500,
+      top: -1200,
+      height: 600,
       width: "100%",
       textAlign: "left",
     },
@@ -133,14 +133,14 @@ const PagesHome = () => {
                     color="secondary"
                     component={RouterLink}
                     to="/signin"
-                    style={{ marginBottom: 10 }}
+                    style={{ marginBottom: 15 }}
                     fullWidth
                   >
                     {t("mainMenu.signin")}
                   </Button>
                   <Button
                     size="large"
-                    variant="contained"
+                    variant="outlined"
                     color="secondary"
                     component={RouterLink}
                     to="/signup"
