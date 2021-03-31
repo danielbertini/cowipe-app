@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
 import {
   Container,
@@ -27,7 +28,47 @@ import Typography from "../components/atoms/display/typography";
 import MainMenu from "../components/organisms/menus/main";
 
 const PagesHome = () => {
+  const useStyles = makeStyles((theme) => ({
+    banner: {
+      marginTop: -28,
+      marginBottom: 28,
+      width: "100%",
+      height: 500,
+      boxShadow: theme.shadows[3],
+      backgroundColor: "#000",
+    },
+    bannerPicture: {
+      width: "100%",
+      height: 500,
+      background: `url(./cowipe-home-1.jpg)`,
+      backgroundPosition: "top center",
+      backgroundSize: "cover",
+      opacity: 0.3,
+    },
+    bannerFrame1: {
+      position: "relative",
+      top: -500,
+      width: "100%",
+      height: 500,
+      // backgroundColor: theme.palette.divider,
+      background: `linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(${
+        theme.palette.type === "dark" ? "143,7,255" : "253,50,89"
+      },.6) 100%)`,
+    },
+    bannerFrame2: {
+      position: "relative",
+      top: -1000,
+      width: "100%",
+      height: 500,
+      // backgroundColor: theme.palette.divider,
+      background: `linear-gradient(to right, rgba(${
+        theme.palette.type === "dark" ? "143,7,255" : "253,50,89"
+      },.6) 0%, rgba(0,0,0,0) 100%)`,
+    },
+  }));
+
   const { t } = useTranslation();
+  const classes = useStyles();
   const [expandedMenu, setExpandedMenu] = useState(0);
   const [expandedMenuGifts, setExpandedMenuGifts] = useState(0);
 
@@ -46,6 +87,11 @@ const PagesHome = () => {
   return (
     <>
       <MainMenu />
+      <div className={classes.banner}>
+        <div className={classes.bannerPicture}></div>
+        <div className={classes.bannerFrame1}></div>
+        <div className={classes.bannerFrame2}></div>
+      </div>
       <Container>
         <Grid container direction="row" spacing={2} justify="center">
           <Grid item xl={6} lg={6} md={6} sm={12} xs={12}>
