@@ -348,6 +348,10 @@
     "sendGiftFrom": "Usted envió \"{{name}}\""
   },
   "home": {
+    "banner": {
+      "title": "Siempre libre",
+      "description": "Cumplimos con su solicitud y le entregamos los recursos que siempre quiso de un sitio de citas gratuito para siempre."
+    },    
     "resources": {
       "title": "Recursos gratuitos",
       "subtitle": "Somos un sitio de redes sociales y nuestra misión es conectar a las personas. Por eso creemos que ofrecer recursos de forma gratuita es fundamental para crear un entorno más justo para todos y coherente con nuestra misión. Sin cuotas ni cuotas mensuales, consulte a continuación todos los recursos disponibles:",

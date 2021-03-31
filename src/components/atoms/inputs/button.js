@@ -14,6 +14,7 @@ const Component = (props) => {
         component={props.component}
         to={props.to}
         onClick={props.onClick}
+        style={props.style}
       >
         {props.children}
       </Button>

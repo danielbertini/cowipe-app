@@ -348,6 +348,10 @@
     "sendGiftFrom": "Você enviou \"{{name}}\""
   },
   "home": {
+    "banner": {
+      "title": "Sempre grátis",
+      "description": "Atendemos ao seu pedido e entregamos para você os recursos que sempre quis de um site de relacionamentos de graça para sempre."
+    },
     "resources": {
       "title": "Recursos gratuitos",
       "subtitle": "Somos um site de relacionamentos e nossa missão é conectar pessoas. Por isso acreditamos que oferecer recursos de forma gratuíta é essencial para criar um ambiente mais justo para todos e coerente com nossa missão. Sem mensalidades ou cobrança de taxas, conheça abaixo todos os rescursos disponíveis:",

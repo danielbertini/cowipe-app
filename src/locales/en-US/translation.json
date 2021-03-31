@@ -340,6 +340,10 @@
     "sendGiftFrom": "You sent a \"{{name}}\""
   },
   "home": {
+    "banner": {
+      "title": "Always free",
+      "description": "We fulfill your request and deliver to you the resources you always wanted from a free dating site forever."
+    },    
     "resources": {
       "title": "Free resources",
       "subtitle": "We are a social networking site and our mission is to connect people. That is why we believe that offering resources for free is essential to create a fairer environment for everyone and consistent with our mission. No monthly or hidden fees, see below all available resources:",

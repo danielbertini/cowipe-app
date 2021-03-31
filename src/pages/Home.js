@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
 import {
@@ -24,6 +25,7 @@ import {
 } from "@material-ui/icons";
 
 import Title from "../components/atoms/display/title";
+import Button from "../components/atoms/inputs/button";
 import Typography from "../components/atoms/display/typography";
 import MainMenu from "../components/organisms/menus/main";
 
@@ -34,16 +36,16 @@ const PagesHome = () => {
       marginBottom: 28,
       width: "100%",
       height: 500,
-      boxShadow: theme.shadows[3],
-      backgroundColor: "#000",
+      // boxShadow: theme.shadows[3],
+      backgroundColor: theme.palette.divider,
     },
     bannerPicture: {
       width: "100%",
       height: 500,
-      background: `url(./cowipe-home-1.jpg)`,
+      // background: `url(./cowipe-home-1.jpg)`,
       backgroundPosition: "top center",
       backgroundSize: "cover",
-      opacity: 0.3,
+      opacity: 0.15,
     },
     bannerFrame1: {
       position: "relative",
@@ -51,9 +53,9 @@ const PagesHome = () => {
       width: "100%",
       height: 500,
       // backgroundColor: theme.palette.divider,
-      background: `linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(${
-        theme.palette.type === "dark" ? "143,7,255" : "253,50,89"
-      },.6) 100%)`,
+      // background: `linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(${
+      //   theme.palette.type === "dark" ? "143,7,255" : "253,50,89"
+      // },.6) 100%)`,
     },
     bannerFrame2: {
       position: "relative",
@@ -61,9 +63,19 @@ const PagesHome = () => {
       width: "100%",
       height: 500,
       // backgroundColor: theme.palette.divider,
-      background: `linear-gradient(to right, rgba(${
-        theme.palette.type === "dark" ? "143,7,255" : "253,50,89"
-      },.6) 0%, rgba(0,0,0,0) 100%)`,
+      // background: `linear-gradient(to right, rgba(${
+      //   theme.palette.type === "dark" ? "143,7,255" : "253,50,89"
+      // },.6) 0%, rgba(0,0,0,0) 100%)`,
+    },
+    bannerContent: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      position: "relative",
+      top: -1500,
+      height: 500,
+      width: "100%",
+      textAlign: "center",
     },
   }));
 
@@ -91,6 +103,41 @@ const PagesHome = () => {
         <div className={classes.bannerPicture}></div>
         <div className={classes.bannerFrame1}></div>
         <div className={classes.bannerFrame2}></div>
+        <div className={classes.bannerContent}>
+          <Container>
+            <Grid container direction="row" spacing={2} justify="center">
+              <Grid item xl={4} lg={4} md={6} sm={8} xs={10}>
+                <div style={{ padding: 20 }}>
+                  <Button
+                    size="large"
+                    variant="contained"
+                    color="secondary"
+                    component={RouterLink}
+                    to="/signin"
+                    style={{ marginBottom: 10 }}
+                    fullWidth
+                  >
+                    {t("mainMenu.signin")}
+                  </Button>
+                  <Button
+                    size="large"
+                    variant="contained"
+                    color="secondary"
+                    component={RouterLink}
+                    to="/signup"
+                    style={{ marginBottom: 15 }}
+                    fullWidth
+                  >
+                    {t("mainMenu.signup")}
+                  </Button>
+                  <Typography variant="subtitle2">
+                    {t("home.banner.description")}
+                  </Typography>
+                </div>
+              </Grid>
+            </Grid>
+          </Container>
+        </div>
       </div>
       <Container>
         <Grid container direction="row" spacing={2} justify="center">
