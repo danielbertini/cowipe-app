@@ -115,6 +115,12 @@ const PagesHome = () => {
           <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-5.jpg`} />
           <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-6.jpg`} />
           <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-7.jpg`} />
+          <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-8.jpg`} />
+          <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-9.jpg`} />
+          <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-10.jpg`} />
+          <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-11.jpg`} />
+          <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-12.jpg`} />
+          <div data-src={`${process.env.REACT_APP_CDN}/ui/home/home-13.jpg`} />
         </AutoplaySlider>
         <div className={classes.bannerFrame1}></div>
         <div className={classes.bannerFrame2}></div>
