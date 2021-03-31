@@ -1,6 +1,7 @@
 {
   "app": {
     "name": "Cowipe",
+    "phrase": "Sitio de citas gratuito y confiable",
     "copyright": "© 2021 Cowipe.com"
   },
   "translations": {

@@ -15,6 +15,7 @@ import SelectField from "../../components/atoms/inputs/selectfield";
 import TextField from "../../components/atoms/inputs/textfield";
 import Title from "../../components/atoms/display/title";
 import MainMenu from "../../components/organisms/menus/main";
+import OrganismsFooterAuth from "../../components/organisms/footer/auth";
 
 import {
   Container,
@@ -504,13 +505,7 @@ const Signup = ({ t }) => {
                   </Typography>
                 </Grid>
                 <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                  <Divider />
-                </Grid>
-                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                  <Typography variant="body1" gutterBottom>
-                    {t("app.copyright")}
-                  </Typography>
-                  <Typography variant="body2">{t("alerts.legal")}</Typography>
+                  <OrganismsFooterAuth />
                 </Grid>
               </Grid>
             </div>

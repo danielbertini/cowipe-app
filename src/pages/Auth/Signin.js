@@ -16,6 +16,7 @@ import Title from "../../components/atoms/display/title";
 import Typography from "../../components/atoms/display/typography";
 import CircularProgress from "../../components/atoms/feedback/circularProgress";
 import MainMenu from "../../components/organisms/menus/main";
+import OrganismsFooterAuth from "../../components/organisms/footer/auth";
 
 const Signin = ({ t }) => {
   const dispatch = useDispatch();
@@ -136,13 +137,7 @@ const Signin = ({ t }) => {
                   </Button>
                 </Grid>
                 <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                  <Divider />
-                </Grid>
-                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
-                  <Typography variant="body1" gutterBottom>
-                    {t("app.copyright")}
-                  </Typography>
-                  <Typography variant="body2">{t("alerts.legal")}</Typography>
+                  <OrganismsFooterAuth />
                 </Grid>
               </Grid>
             </div>

@@ -28,6 +28,7 @@ import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 
+import OrganismsFooterHome from "../components/organisms/footer/home";
 import Title from "../components/atoms/display/title";
 import Button from "../components/atoms/inputs/button";
 import Typography from "../components/atoms/display/typography";
@@ -416,6 +417,8 @@ const PagesHome = () => {
           </Grid>
         </Grid>
       </Container>
+      <div style={{ height: 70 }} />
+      <OrganismsFooterHome />
     </>
   );
 };

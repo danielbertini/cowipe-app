@@ -1,11 +1,13 @@
 import React, { memo, useContext } from "react";
 import { Menu, MenuItem } from "@material-ui/core";
 import { Brightness4 as DarkLightModeIcon } from "@material-ui/icons";
+import { useTranslation } from "react-i18next";
 
-import { CustomThemeContext } from "../../../store/Theme";
+import { CustomThemeContext } from "../../../context/Theme";
 import IconButton from "../../../components/atoms/inputs/iconButton";
 
-const Component = ({ t }) => {
+const MoleculesSwitchsTheme = () => {
+  const { t } = useTranslation();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [menuTheme, setMenuTheme] = React.useState(false);
   const { setTheme } = useContext(CustomThemeContext);
@@ -52,4 +54,4 @@ const Component = ({ t }) => {
   );
 };
 
-export default memo(Component);
+export default memo(MoleculesSwitchsTheme);
