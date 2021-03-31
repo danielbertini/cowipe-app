@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 import NumberFormat from "react-number-format";
-import { Container, Grid, Divider, LinearProgress } from "@material-ui/core";
+import { Container, Grid, LinearProgress } from "@material-ui/core";
 import { useSnackbar } from "notistack";
 
 import api from "../../services/api";

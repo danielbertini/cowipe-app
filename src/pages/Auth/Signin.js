@@ -2,7 +2,7 @@ import React, { useState, useContext, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
-import { Container, Grid, Divider } from "@material-ui/core";
+import { Container, Grid } from "@material-ui/core";
 import { useSnackbar } from "notistack";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -13,7 +13,6 @@ import { setPreferences } from "../../store/preferences/preferences.actions";
 import TextField from "../../components/atoms/inputs/textfield";
 import Button from "../../components/atoms/inputs/button";
 import Title from "../../components/atoms/display/title";
-import Typography from "../../components/atoms/display/typography";
 import CircularProgress from "../../components/atoms/feedback/circularProgress";
 import MainMenu from "../../components/organisms/menus/main";
 import OrganismsFooterAuth from "../../components/organisms/footer/auth";

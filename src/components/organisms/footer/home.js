@@ -26,7 +26,7 @@ const OrganismsFooterHome = () => {
               >
                 <div>
                   <Typography variant="body1">{t("app.copyright")}</Typography>
-                  <Typography variant="body2">{t("app.phrase")}</Typography>
+                  {/* <Typography variant="body2">{t("app.phrase")}</Typography> */}
                 </div>
                 <div>
                   <MoleculesSwitchsLanguage />

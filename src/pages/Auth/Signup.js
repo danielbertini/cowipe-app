@@ -4,6 +4,12 @@ import { withTranslation } from "react-i18next";
 import NumberFormat from "react-number-format";
 import { useDispatch, useSelector } from "react-redux";
 import { useSnackbar } from "notistack";
+import {
+  Container,
+  Grid,
+  CircularProgress,
+  LinearProgress,
+} from "@material-ui/core";
 
 import { setUser } from "../../store/user/user.actions";
 import { setPreferences } from "../../store/preferences/preferences.actions";
@@ -16,14 +22,6 @@ import TextField from "../../components/atoms/inputs/textfield";
 import Title from "../../components/atoms/display/title";
 import MainMenu from "../../components/organisms/menus/main";
 import OrganismsFooterAuth from "../../components/organisms/footer/auth";
-
-import {
-  Container,
-  Grid,
-  CircularProgress,
-  LinearProgress,
-  Divider,
-} from "@material-ui/core";
 
 const Signup = ({ t }) => {
   const dispatch = useDispatch();
