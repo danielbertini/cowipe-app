@@ -43,7 +43,8 @@
     "unlock": "Unlock",
     "apply": "Apply",
     "usersWithPhoto": "Only people with photo",
-    "usersOnline": "Only people online"
+    "usersOnline": "Only people online",
+    "delete": "Delete"
   },
   "alerts": {
     "blocked": "Blocked",
@@ -88,7 +89,8 @@
     "processingPayment": "Thanks! Your payment is being processed, this usually takes a few minutes at most. As soon as it is completed, we will send you a receipt to your email and the coins will be counted automatically.",
     "giftSent": "Gift sent",
     "noGiftsSent": "No gifts sent.",
-    "noGiftsReceived": "No gifts received."
+    "noGiftsReceived": "No gifts received.",
+    "eraseAccount": "When you delete your account all your information will be removed and you will not be able to recover it. Information such as: coins you have purchased, gifts sent and received, connections, conversations, photos and everything else. Are you sure you want to continue?"
   },
   "fields": {
     "message": {

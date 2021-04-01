@@ -43,7 +43,8 @@
     "unlock": "Desbloquear",
     "apply": "Aplicar",
     "usersWithPhoto": "Apenas pessoas com foto",
-    "usersOnline": "Apenas pessoas online"
+    "usersOnline": "Apenas pessoas online",
+    "delete": "Excluir"
   },
   "alerts": {
     "blocked": "Bloqueado",
@@ -88,7 +89,8 @@
     "processingPayment": "Obrigado! Seu pagamento está sendo processado, isso geralmente ocorre em no máximo alguns minutos. Assim que for concluído enviaremos um recibo para seu e-mail e as moedas serão contabilizadas automaticamente.",
     "giftSent": "Presente enviado",
     "noGiftsSent": "Nenhum presente enviado.",
-    "noGiftsReceived": "Nenhum presente recebido."
+    "noGiftsReceived": "Nenhum presente recebido.",
+    "eraseAccount": "Ao apagar sua conta todas as suas informações serão removidas e não será possível recuperá-las. Informações como: moedas que tenha comprado, presentes enviados e recebidos, conexões, conversas, fotos e tudo mais. Tem certeza que deseja continuar?"
   },
   "fields": {
     "message": {

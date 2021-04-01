@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useTranslation } from "react-i18next";
 import NumberFormat from "react-number-format";
 import { useDispatch } from "react-redux";
@@ -9,7 +9,6 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
-  Button,
   Grid,
   CircularProgress,
   Tabs,
@@ -18,22 +17,28 @@ import {
 import { useSnackbar } from "notistack";
 
 import api from "../../../services/api";
+import StoreContext from "../../../context/Context";
 import { setUser } from "../../../store/user/user.actions";
 import Typography from "../../atoms/display/typography";
 import TextField from "../../atoms/inputs/textfield";
+import Button from "../../atoms/inputs/button";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 import DialogTitle from "../dialogs/dialogTitle";
+import AlertDialog from "../../atoms/feedback/alertDialog";
 
 const Component = (props) => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
+  const { setToken } = useContext(StoreContext);
   const [loadingInformations, setLoadingInformations] = useState(false);
   const [loadingEmail, setLoadingEmail] = useState(false);
   const [loadingCancelEmailChange, setLoadingCancelEmailChange] = useState(
     false
   );
+  const [alertDialog, setAlertDialog] = useState(false);
+  const [erasingAccount, setErasingAccount] = useState(false);
   const [loadingPassword, setLoadingPassword] = useState(false);
   const [loadingCode, setLoadingCode] = useState(false);
   const [preLoading, setPreLoading] = useState(true);
@@ -320,6 +325,41 @@ const Component = (props) => {
       });
   };
 
+  const deleteAccount = () => {
+    setErasingAccount(true);
+    api({
+      method: "POST",
+      url: `user/deleteAccount`,
+      data: form,
+    })
+      .then((response) => {
+        setErasingAccount(false);
+        if (response.data.success) {
+          setToken(null);
+          localStorage.removeItem("state");
+          localStorage.removeItem("token");
+        } else {
+          if (response.data.message) {
+            enqueueSnackbar(t(response.data.message), { variant: "error" });
+          }
+          if (response.data.errors) {
+            Object.keys(response.data.errors).map((e) => {
+              return setFormError((formError) => ({
+                ...formError,
+                [e]: response.data.errors[e],
+              }));
+            });
+          }
+        }
+      })
+      .catch((error) => {
+        enqueueSnackbar(t("alerts.unavailableService"), { variant: "error" });
+        setTimeout(() => {
+          props.open(false);
+        }, 3000);
+      });
+  };
+
   const renderTabs = () => {
     if (!preLoading) {
       return (
@@ -584,12 +624,39 @@ const Component = (props) => {
     }
   };
 
+  const eraseButton = () => {
+    return (
+      <>
+        <Button
+          size="large"
+          variant="outlined"
+          color="secondary"
+          onClick={() => setAlertDialog(true)}
+        >
+          {erasingAccount ? (
+            <CircularProgress size={25} color="secondary" />
+          ) : (
+            t("buttons.delete")
+          )}
+        </Button>
+      </>
+    );
+  };
+
   const renderActions = () => {
     if (!preLoading) {
-      return (
-        <>
-          <DialogActions style={{ zIndex: 8 }}>
-            <div hidden={tabValue !== 0}>
+      if (tabValue === 0) {
+        return (
+          <>
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                flexAlign: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              {eraseButton()}
               <Button
                 size="large"
                 variant="contained"
@@ -604,8 +671,38 @@ const Component = (props) => {
                 )}
               </Button>
             </div>
-            <div hidden={tabValue !== 1}>{renderActionsToEmailChange()}</div>
-            <div hidden={tabValue !== 2}>
+          </>
+        );
+      }
+      if (tabValue === 1) {
+        return (
+          <>
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                flexAlign: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              {eraseButton()}
+              {renderActionsToEmailChange()}
+            </div>
+          </>
+        );
+      }
+      if (tabValue === 2) {
+        return (
+          <>
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                flexAlign: "center",
+                justifyContent: "space-between",
+              }}
+            >
+              {eraseButton()}
               <Button
                 size="large"
                 variant="contained"
@@ -620,9 +717,9 @@ const Component = (props) => {
                 )}
               </Button>
             </div>
-          </DialogActions>
-        </>
-      );
+          </>
+        );
+      }
     }
   };
 
@@ -643,8 +740,17 @@ const Component = (props) => {
         />
         {renderTabs()}
         {renderContent()}
-        {renderActions()}
+        <DialogActions style={{ zIndex: 8 }}>{renderActions()}</DialogActions>
       </Dialog>
+      {alertDialog && (
+        <AlertDialog
+          open={alertDialog}
+          title={t("commons.warning")}
+          text={t("alerts.eraseAccount")}
+          handleClose={setAlertDialog}
+          handleAgree={deleteAccount}
+        />
+      )}
     </>
   );
 };

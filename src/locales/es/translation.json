@@ -43,7 +43,8 @@
     "unlock": "Desbloquear",
     "apply": "Aplicar",
     "usersWithPhoto": "Solo personas con foto",
-    "usersOnline": "Solo personas en línea"
+    "usersOnline": "Solo personas en línea",
+    "delete": "Borrar"
   },
   "alerts": {
     "blocked": "Obstruido",
@@ -88,7 +89,8 @@
     "processingPayment": "¡Gracias! Su pago se está procesando, esto generalmente demora unos minutos como máximo. Tan pronto como se complete, le enviaremos un recibo a su correo electrónico y las monedas se contarán automáticamente.",
     "giftSent": "Regalo enviado",
     "noGiftsSent": "No se enviaron regalos.",
-    "noGiftsReceived": "No se recibieron regalos."
+    "noGiftsReceived": "No se recibieron regalos.",
+    "eraseAccount": "Cuando elimine su cuenta, se eliminará toda su información y no podrá recuperarla. Información como: monedas que ha comprado, regalos enviados y recibidos, conexiones, conversaciones, fotos y todo lo demás. Estás seguro de que quieres continuar?"
   },
   "fields": {
     "message": {
