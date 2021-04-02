@@ -44,7 +44,8 @@
     "apply": "Apply",
     "usersWithPhoto": "Only people with photo",
     "usersOnline": "Only people online",
-    "delete": "Delete"
+    "delete": "Delete",
+    "checkCodeLater": "Check later"
   },
   "alerts": {
     "blocked": "Blocked",
@@ -55,6 +56,7 @@
     "unavailableProfile": "Unavailable profile",
     "savedInformations": "Saved informations",
     "legal": "By accessing, you automatically declare to have read and accepted our Terms of Service, Conditions of Use and Privacy Policy available in the Legal menu, as well as declaring to be over 18 years old.",
+    "verifyInfo": "Enter your email, the verification code and click on continue to have access to your profile activated.",
     "passwordChangeInfo": "After informing a new email we will send you a six digit code so that we can continue to change your current email.",
     "passwordRecoverInfo": "Enter your username, email and click continue, we will send you a code so you can create a new password.",
     "passwordRecoverSuccess": "Enter the code that was sent to your email and create a new password.",
@@ -299,6 +301,7 @@
     "lastDay": "Yesterday"
   },
   "commons": {
+    "verify": "Verify",
     "coin": "Coin",
     "coins": "Coins",
     "seeAll": "See all",

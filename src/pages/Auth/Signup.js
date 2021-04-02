@@ -9,6 +9,8 @@ import {
   Grid,
   CircularProgress,
   LinearProgress,
+  FormControlLabel,
+  Switch,
 } from "@material-ui/core";
 
 import { setUser } from "../../store/user/user.actions";
@@ -27,13 +29,13 @@ const Signup = ({ t }) => {
   const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();
   const [loading, setLoading] = useState(false);
+  const [form, setForm] = useState({});
   const [formError, setFormError] = useState({});
   const [step, setStep] = useState(1);
   const [steps] = useState(4);
   const [genders, setGenders] = useState([]);
   const [orientations, setOrientations] = useState([]);
   const [maritalStatus, setMaritalStatus] = useState([]);
-  const [relationshipType, setRelationshipType] = useState();
   const [relationshipTypes, setRelationshipTypes] = useState([]);
   const [sugarTypes, setSugarTypes] = useState([]);
   const [bodyTypes, setBodyTypes] = useState([]);
@@ -86,10 +88,24 @@ const Signup = ({ t }) => {
     });
   }, []);
 
+  const inputHandle = (event) => {
+    setForm((form) => ({
+      ...form,
+      [event?.target?.name]: event?.target?.value,
+    }));
+  };
+
+  const handleCheckCodeLater = (event) => {
+    setForm((form) => ({
+      ...form,
+      checkCodeLater: event?.target?.checked,
+    }));
+  };
+
   const submit = () => {
     setFormError({});
     setLoading(true);
-    let form = {
+    let data = {
       username: inputUsernameRef?.current?.value,
       email: inputEmailRef?.current?.value,
       password: inputPasswordRef?.current?.value,
@@ -107,9 +123,10 @@ const Signup = ({ t }) => {
       eyeColor: inputEyeColorRef?.current?.value,
       code: inputCodeRef?.current?.value,
       userIp: userIp,
+      checkCodeLater: form.checkCodeLater,
     };
     api
-      .post(`auth/signup${step}`, form)
+      .post(`auth/signup${step}`, data)
       .then((response) => {
         setLoading(false);
         if (response.data.success) {
@@ -267,6 +284,8 @@ const Signup = ({ t }) => {
                     label={t("fields.gender.label")}
                     placeholder={t("fields.gender.placeHolder")}
                     name="gender"
+                    value={form.gender ? form.gender : ""}
+                    onChange={inputHandle}
                     inputRef={inputGenderRef}
                     error={formError?.gender ? true : false}
                     helperText={formError?.gender && formError.gender}
@@ -279,6 +298,8 @@ const Signup = ({ t }) => {
                     label={t("fields.orientation.label")}
                     placeholder={t("fields.orientation.placeHolder")}
                     name="orientation"
+                    value={form.orientation ? form.orientation : ""}
+                    onChange={inputHandle}
                     inputRef={inputOrientationRef}
                     error={formError?.orientation ? true : false}
                     helperText={formError?.orientation && formError.orientation}
@@ -290,6 +311,8 @@ const Signup = ({ t }) => {
                     label={t("fields.maritalStatus.label")}
                     placeholder={t("fields.maritalStatus.placeHolder")}
                     name="maritalStatus"
+                    value={form.maritalStatus ? form.maritalStatus : ""}
+                    onChange={inputHandle}
                     inputRef={inputMaritalStatusRef}
                     error={formError?.maritalStatus ? true : false}
                     helperText={
@@ -303,10 +326,9 @@ const Signup = ({ t }) => {
                     label={t("fields.relationship.label")}
                     placeholder={t("fields.relationship.placeHolder")}
                     name="relationship"
+                    value={form.relationship ? form.relationship : ""}
                     inputRef={inputRelationshipRef}
-                    onChange={(event) =>
-                      setRelationshipType(event.target.value)
-                    }
+                    onChange={inputHandle}
                     error={formError?.relationship ? true : false}
                     helperText={
                       formError?.relationship && formError.relationship
@@ -323,15 +345,17 @@ const Signup = ({ t }) => {
                   xs={12}
                   style={{
                     display:
-                      relationshipType &&
-                      relationshipType !== "5fa9eb3a201036a4efa3f271" &&
-                      "none",
+                      form.relationship === "5fa9eb3a201036a4efa3f271"
+                        ? "block"
+                        : "none",
                   }}
                 >
                   <SelectField
                     label={t("fields.sugar.label")}
                     placeholder={t("fields.sugar.placeHolder")}
                     name="sugar"
+                    value={form.sugar ? form.sugar : ""}
+                    onChange={inputHandle}
                     inputRef={inputSugarRef}
                     error={formError?.sugar ? true : false}
                     helperText={formError?.sugar && formError.sugar}
@@ -393,6 +417,8 @@ const Signup = ({ t }) => {
                     label={t("fields.body.label")}
                     placeholder={t("fields.body.placeHolder")}
                     name="bodyType"
+                    value={form.bodyType ? form.bodyType : ""}
+                    onChange={inputHandle}
                     inputRef={inputBodyTypeRef}
                     error={formError?.bodyType ? true : false}
                     helperText={formError?.bodyType && formError.bodyType}
@@ -404,6 +430,8 @@ const Signup = ({ t }) => {
                     label={t("fields.hairColor.label")}
                     placeholder={t("fields.hairColor.placeHolder")}
                     name="hairColor"
+                    value={form.hairColor ? form.hairColor : ""}
+                    onChange={inputHandle}
                     inputRef={inputHairColorRef}
                     error={formError?.hairColor ? true : false}
                     helperText={formError?.hairColor && formError.hairColor}
@@ -415,6 +443,8 @@ const Signup = ({ t }) => {
                     label={t("fields.eyeColor.label")}
                     placeholder={t("fields.eyeColor.placeHolder")}
                     name="eyeColor"
+                    value={form.eyeColor ? form.eyeColor : ""}
+                    onChange={inputHandle}
                     inputRef={inputEyeColorRef}
                     error={formError?.eyeColor ? true : false}
                     helperText={formError?.eyeColor && formError.eyeColor}
@@ -450,6 +480,17 @@ const Signup = ({ t }) => {
                     fullWidth={true}
                     error={formError?.code ? true : false}
                     helperText={formError?.code && formError.code}
+                  />
+                </Grid>
+                <Grid item xl={12} lg={12} md={12} sm={12} xs={12}>
+                  <FormControlLabel
+                    control={
+                      <Switch
+                        checked={form.checkCodeLater}
+                        onChange={handleCheckCodeLater}
+                      />
+                    }
+                    label={t("buttons.checkCodeLater")}
                   />
                 </Grid>
               </Grid>

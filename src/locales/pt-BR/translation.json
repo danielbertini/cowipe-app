@@ -44,7 +44,8 @@
     "apply": "Aplicar",
     "usersWithPhoto": "Apenas pessoas com foto",
     "usersOnline": "Apenas pessoas online",
-    "delete": "Excluir"
+    "delete": "Excluir",
+    "checkCodeLater": "Verificar mais tarde"
   },
   "alerts": {
     "blocked": "Bloqueado",
@@ -55,6 +56,7 @@
     "unavailableProfile": "Perfil indisponível",
     "savedInformations": "Informações salvas",
     "legal": "Ao acessar você automaticamente declara ter lido e aceito nossos Termos de Serviço, Condições de Uso e Política de Privacidade disponíveis no menu Jurídico, bem como declara ser maior de 18 anos.",
+    "verifyInfo": "Informe seu e-mail, o código de verificação e clique em continuar ter o acesso à seu perfil liberado.",
     "passwordChangeInfo": "Após informar um novo e-mail lhe enviaremos um código de seis dígitos para que possamos dar continuidade na alteração do seu e-mail atual.",
     "passwordRecoverInfo": "Informe seu nome de usuário, e-mail e clique em continuar, nós lhe enviaremos um código para que você possa criar uma senha nova.",
     "passwordRecoverSuccess": "Informe o código que foi enviado para seu e-mail e crie uma nova senha.",
@@ -307,6 +309,7 @@
     "lastDay": "Ontem"
   },
   "commons": {
+    "verify": "Verificar",
     "coin": "Moeda",
     "coins": "Moedas",
     "seeAll": "Ver tudo",
