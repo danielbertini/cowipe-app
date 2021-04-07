@@ -80,7 +80,7 @@ const PagesHome = () => {
   const AutoplaySlider = withAutoplay(AwesomeSlider);
 
   useEffect(() => {
-    ReactGA.pageview("/");
+    ReactGA.pageview("/home");
   }, []);
 
   const handleCollapseMenu = (index) => {

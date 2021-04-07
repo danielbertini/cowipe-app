@@ -245,6 +245,7 @@ const OrganismsMenusMainAuthenticated = (props) => {
   }, []);
 
   useEffect(() => {
+    ReactGA.pageview("/dashboard");
     ReactGA.event({
       category: "/dashboard",
       action: `USERNAME: ${user.username}`,
