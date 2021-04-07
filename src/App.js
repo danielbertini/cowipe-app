@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import ReactGA from "react-ga";
 
 import StoreProvider from "./context/Provider";
 import SocketProvider from "./context/SocketProvider";
@@ -15,6 +16,9 @@ import PasswordRecover from "./pages/Auth/PasswordRecover";
 
 // external
 import Home from "./pages/Home";
+
+ReactGA.initialize(process.env.REACT_APP_GA);
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 const App = () => {
   return (

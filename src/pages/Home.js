@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { isMobile } from "react-device-detect";
@@ -27,6 +27,7 @@ import {
 import AwesomeSlider from "react-awesome-slider";
 import "react-awesome-slider/dist/styles.css";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
+import ReactGA from "react-ga";
 
 import OrganismsFooterHome from "../components/organisms/footer/home";
 import Title from "../components/atoms/display/title";
@@ -77,6 +78,10 @@ const PagesHome = () => {
   const [expandedMenu, setExpandedMenu] = useState(0);
   const [expandedMenuGifts, setExpandedMenuGifts] = useState(0);
   const AutoplaySlider = withAutoplay(AwesomeSlider);
+
+  useEffect(() => {
+    ReactGA.pageview("/");
+  }, []);
 
   const handleCollapseMenu = (index) => {
     setExpandedMenu({

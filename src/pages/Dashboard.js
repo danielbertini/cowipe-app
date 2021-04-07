@@ -1,11 +1,16 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import { Container, Grid } from "@material-ui/core";
+import ReactGA from "react-ga";
 
 import MainMenu from "../components/organisms/menus/mainAuthenticated";
 import People from "../components/templates/panels/people";
 import Activities from "../components/templates/panels/activities";
 
-const Dashboard = (props) => {
+const Dashboard = () => {
+  useEffect(() => {
+    ReactGA.pageview("/dashboard");
+  }, []);
+
   return (
     <>
       <MainMenu />

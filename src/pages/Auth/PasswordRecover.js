@@ -1,9 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 import NumberFormat from "react-number-format";
 import { Container, Grid, LinearProgress } from "@material-ui/core";
 import { useSnackbar } from "notistack";
+import ReactGA from "react-ga";
 
 import api from "../../services/api";
 import TextField from "../../components/atoms/inputs/textfield";
@@ -27,6 +28,10 @@ const PasswordRecover = ({ t }) => {
   const inputPasswordRef = useRef();
   const inputPasswordRetypeRef = useRef();
 
+  useEffect(() => {
+    ReactGA.pageview("/password-recover");
+  }, []);
+
   const submit = () => {
     setFormError({});
     setLoading(true);
@@ -43,6 +48,10 @@ const PasswordRecover = ({ t }) => {
         setLoading(false);
         if (response.data.success) {
           if (step < steps) {
+            ReactGA.event({
+              category: "/password-recover",
+              action: `step ${step}`,
+            });
             setStep(step + 1);
           }
           if (step === steps) {

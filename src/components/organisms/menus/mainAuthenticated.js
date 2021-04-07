@@ -27,6 +27,7 @@ import {
   Switch,
 } from "@material-ui/core";
 import { useSnackbar } from "notistack";
+import ReactGA from "react-ga";
 
 import {
   ChatRounded as ConversationsIcon,
@@ -242,6 +243,13 @@ const OrganismsMenusMainAuthenticated = (props) => {
       }
     });
   }, []);
+
+  useEffect(() => {
+    ReactGA.event({
+      category: "/dashboard",
+      action: `USERNAME: ${user.username}`,
+    });
+  }, [user.username]);
 
   useEffect(() => {
     if (userIp) {

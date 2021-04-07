@@ -1,10 +1,11 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import { withTranslation } from "react-i18next";
 import { Link as RouterLink } from "react-router-dom";
 import { Container, Grid } from "@material-ui/core";
 import { useSnackbar } from "notistack";
 import { useDispatch, useSelector } from "react-redux";
+import ReactGA from "react-ga";
 
 import StoreContext from "../../context/Context";
 import api from "../../services/api";
@@ -27,6 +28,10 @@ const Signin = ({ t }) => {
   const userIp = useSelector((state) => state.ip);
   const inputEmailRef = useRef();
   const inputPasswordRef = useRef();
+
+  useEffect(() => {
+    ReactGA.pageview("/signin");
+  }, []);
 
   const submit = () => {
     setFormError({});

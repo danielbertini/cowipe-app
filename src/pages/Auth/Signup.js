@@ -12,6 +12,7 @@ import {
   FormControlLabel,
   Switch,
 } from "@material-ui/core";
+import ReactGA from "react-ga";
 
 import { setUser } from "../../store/user/user.actions";
 import { setPreferences } from "../../store/preferences/preferences.actions";
@@ -60,6 +61,10 @@ const Signup = ({ t }) => {
   const inputEyeColorRef = useRef();
   const inputCodeRef = useRef();
   const userIp = useSelector((state) => state.ip);
+
+  useEffect(() => {
+    ReactGA.pageview("/signup");
+  }, []);
 
   useEffect(() => {
     api.get(`commons/getGenders`).then((response) => {
@@ -132,6 +137,10 @@ const Signup = ({ t }) => {
         if (response.data.success) {
           if (step < steps) {
             setStep(step + 1);
+            ReactGA.event({
+              category: "/signup",
+              action: `step ${step}`,
+            });
           }
           if (step === steps) {
             setToken(response.data.token);
