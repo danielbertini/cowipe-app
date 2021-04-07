@@ -18,7 +18,6 @@ import PasswordRecover from "./pages/Auth/PasswordRecover";
 import Home from "./pages/Home";
 
 ReactGA.initialize(process.env.REACT_APP_GA);
-ReactGA.pageview(window.location.pathname + window.location.search);
 
 const App = () => {
   return (
