@@ -244,6 +244,32 @@
     "activities": {
       "title": "Atividades",
       "emptyMessage": "Sempre que alguém visualizar seu perfil ou realizar alguma outra atividade relacionada à seu perfil você irá visualizar aqui. Mas por enquanto não temos nada para você :("
+    },
+    "tips": {
+      "title": "Dicas",
+      "emptyMessage": "Quando você completar todos os ítems além de ter um perfil mais completo e atraente você ganha 50 moedas.",
+      "tip": {
+        "1": {
+          "title": "Foto do perfil",
+          "description": "Enviei uma foto do seu perfil. A foto do seu perfil é a primeira foto que as pessoas irão visualizar."
+        },
+        "2": {
+          "title": "Suas fotos",
+          "description": "Envie ao menos 5 fotos suas clicando em: Meu perfil > Minhas fotos."
+        },
+        "3": {
+          "title": "Solicite conexões",
+          "description": "Encontre pessoas que acha interessante e solicite uma conexão, se a pessoa aprovar vocês já podem conversar."
+        },
+        "4": {
+          "title": "Envie presentes",
+          "description": "Envie ao menos um presente para a pessoa que achar interessante e chame atenção dela."
+        },
+        "5": {
+          "title": "Inicie uma conversa",
+          "description": "Inicie uma conversa com quem já tenha aceito uma conexão com você."
+        }
+      }
     }
   },
   "dialogs": {

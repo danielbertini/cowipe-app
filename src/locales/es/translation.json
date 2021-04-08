@@ -244,7 +244,33 @@
     "activities": {
       "title": "Ocupaciones",
       "emptyMessage": "Siempre que alguien vea su perfil o realice cualquier otra actividad relacionada con su perfil, lo verá aquí. Pero por ahora no tenemos nada para ti :("
-    }
+    },
+    "tips": {
+      "title": "Consejos",
+      "emptyMessage": "Cuando completas todos los ítems además de tener un perfil más completo y atractivo, ganas 50 monedas.",
+      "tip": {
+        "1": {
+          "title": "Foto del perfil",
+          "description": "Envié una foto de tu perfil. Tu foto de perfil es la primera foto que verán las personas, tu foto de presentación."
+        },
+        "2": {
+          "title": "Mi pictures",
+          "description": "Envía al menos 5 fotos tuyas haciendo clic en: Mi perfil > Mi pictures."
+        },
+        "3": {
+          "title": "Solicitar conexiones",
+          "description": "Encuentra personas que te parezcan interesantes y solicita una conexión, si la persona lo aprueba ya puedes chatear."
+        },
+        "4": {
+          "title": "Enviar regalos",
+          "description": "Envía al menos un obsequio a la persona que te parezca interesante y llama su atención."
+        },
+        "5": {
+          "title": "Iniciar una conversación",
+          "description": "Inicie una conversación con alguien que ya haya aceptado una conexión con usted."
+        }
+      }
+    }    
   },
   "dialogs": {
     "picturesUpload": {

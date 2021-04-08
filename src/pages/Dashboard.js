@@ -4,6 +4,7 @@ import { Container, Grid } from "@material-ui/core";
 import MainMenu from "../components/organisms/menus/mainAuthenticated";
 import People from "../components/templates/panels/people";
 import Activities from "../components/templates/panels/activities";
+import TemplatesPanelsTips from "../components/templates/panels/tips";
 
 const Dashboard = () => {
   return (
@@ -16,6 +17,8 @@ const Dashboard = () => {
           </Grid>
           <Grid item xl={3} lg={3} md={3} sm={12} xs={12}>
             <Activities />
+            <div style={{ height: 16 }} />
+            <TemplatesPanelsTips />
           </Grid>
         </Grid>
       </Container>

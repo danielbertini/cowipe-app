@@ -236,6 +236,32 @@
     "activities": {
       "title": "Activities",
       "emptyMessage": "Whenever someone views your profile or performs any other activity related to your profile, you will see it here. But for now we have nothing for you :("
+    },
+    "tips": {
+      "title": "Tips",
+      "emptyMessage": "When you complete all the items in addition to having a more complete and attractive profile, you earn 50 coins.",
+      "tip": {
+        "1": {
+          "title": "Profile picture",
+          "description": "Sent a photo of your profile. Your profile photo is the first photo that people will see, your presentation photo."
+        },
+        "2": {
+          "title": "My Pictures",
+          "description": "Send at least 5 photos of yourself by clicking: My profile > My pictures."
+        },
+        "3": {
+          "title": "Request connections",
+          "description": "Find people you find interesting and request a connection, if the person approves you can already chat."
+        },
+        "4": {
+          "title": "Send gifts",
+          "description": "Send at least one gift to the person you find interesting and get their attention."
+        },
+        "5": {
+          "title": "Start a conversation",
+          "description": "Start a conversation with someone who has already accepted a connection with you."
+        }
+      }
     }
   },
   "dialogs": {
