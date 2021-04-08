@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { isMobile } from "react-device-detect";
 import { useTheme } from "@material-ui/core/styles";
@@ -23,7 +23,7 @@ import DialogTitle from "../dialogs/dialogTitle";
 import Typography from "../../atoms/display/typography";
 import { CustomThemeContext } from "../../../context/Theme";
 
-const Component = (props) => {
+const TemplatesDialogsSettings = (props) => {
   const { t } = useTranslation();
   const theme = useTheme();
   const [preLoading] = useState(false);
@@ -232,4 +232,4 @@ const Component = (props) => {
   );
 };
 
-export default Component;
+export default memo(TemplatesDialogsSettings);

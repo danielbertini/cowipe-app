@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { Alert } from "@material-ui/lab";
 
-const Component = (props) => {
+const AtomsFeedbackAlert = (props) => {
   return (
     <>
       <Alert
@@ -21,4 +21,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsFeedbackAlert);

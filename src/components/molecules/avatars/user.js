@@ -3,7 +3,7 @@ import { PersonRounded as UserIcon } from "@material-ui/icons";
 
 import Avatar from "../../atoms/display/avatar";
 
-const Component = (props) => {
+const MoleculesAvatarsUser = (props) => {
   return (
     <>
       <Avatar src={props.src} style={{ width: 44, height: 44 }}>
@@ -13,4 +13,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(MoleculesAvatarsUser);

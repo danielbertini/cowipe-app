@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { isMobile } from "react-device-detect";
 import NumberFormat from "react-number-format";
@@ -19,7 +19,7 @@ import {
   CircularProgress,
 } from "@material-ui/core";
 
-const Component = (props) => {
+const TemplatesDialogsAppearance = (props) => {
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
   const [loading, setLoading] = useState(false);
@@ -245,4 +245,4 @@ const Component = (props) => {
   );
 };
 
-export default Component;
+export default memo(TemplatesDialogsAppearance);

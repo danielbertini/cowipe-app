@@ -10,7 +10,7 @@ import IconButton from "../../atoms/inputs/iconButton";
 import AlertDialog from "../../atoms/feedback/alertDialog";
 import ReportDialog from "../../templates/dialogs/report";
 
-const Component = (props) => {
+const OrganismsProfileActionButton = (props) => {
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
   const theme = useTheme();
@@ -170,4 +170,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(OrganismsProfileActionButton);

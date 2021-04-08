@@ -1,32 +1,31 @@
 import React, { memo } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      minWidth: props.width,
-      minHeight: props.height,
-      backgroundColor: theme.palette.divider,
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      backgroundPosition: "center center",
-      borderRadius: props.radius ? theme.shape.borderRadius : 0,
-      boxShadow: theme.shadows[1],
-    },
-    rootSelected: {
-      minWidth: props.width,
-      minHeight: props.height,
-      backgroundColor: theme.palette.divider,
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-      backgroundPosition: "center center",
-      borderRadius: props.radius ? theme.shape.borderRadius : 0,
-      boxShadow: `inset 0 0 0 3px ${theme.palette.secondary.main}`,
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    minWidth: (props) => props.width,
+    minHeight: (props) => props.height,
+    backgroundColor: theme.palette.divider,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center center",
+    borderRadius: (props) => (props.radius ? theme.shape.borderRadius : 0),
+    boxShadow: theme.shadows[1],
+  },
+  rootSelected: {
+    minWidth: (props) => props.width,
+    minHeight: (props) => props.height,
+    backgroundColor: theme.palette.divider,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center center",
+    borderRadius: (props) => (props.radius ? theme.shape.borderRadius : 0),
+    boxShadow: `inset 0 0 0 3px ${theme.palette.secondary.main}`,
+  },
+}));
 
-  const classes = useStyles();
-
+const AtomsDisplayPicture = (props) => {
+  const classes = useStyles(props);
   return (
     <div
       onClick={props.onClick}
@@ -40,4 +39,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsDisplayPicture);

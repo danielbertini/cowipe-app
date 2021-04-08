@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { isMobile } from "react-device-detect";
 import { useTheme } from "@material-ui/core/styles";
@@ -26,13 +26,14 @@ import Info from "../../atoms/display/info";
 import ListItemToEdit from "../../organisms/pictures/listItemToEdit";
 import MoleculesSearchSearchBar from "../../molecules/search/searchBar";
 import IconButton from "../../atoms/inputs/iconButton";
-
 import PicturesUpload from "./picturesUpload";
 
-const Component = (props) => {
-  const theme = useTheme();
+const TemplatesDialogsPictures = (props) => {
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
+
+  const theme = useTheme();
+
   const [refreshing, setRefreshing] = useState(false);
   const [preLoading, setPreLoading] = useState(true);
   const [loadingDelete, setLoadingDelete] = useState(false);
@@ -309,4 +310,4 @@ const Component = (props) => {
   );
 };
 
-export default Component;
+export default memo(TemplatesDialogsPictures);

@@ -2,15 +2,14 @@ import React, { memo } from "react";
 import { Avatar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      backgroundColor: theme.palette.primary.main,
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: theme.palette.primary.main,
+  },
+}));
 
+const AtomsDisplayAvatarCompany = (props) => {
   const classes = useStyles();
-
   return (
     <>
       <Avatar
@@ -31,4 +30,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsDisplayAvatarCompany);

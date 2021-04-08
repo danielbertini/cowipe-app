@@ -9,8 +9,8 @@ import OrganismsGiftsReceived from "../../organisms/gifts/received";
 import DialogTitle from "../dialogs/dialogTitle";
 
 const TemplatesDialogsGifts = (props) => {
-  const theme = useTheme();
   const { t } = useTranslation();
+  const theme = useTheme();
   const [tabValue, setTabValue] = useState(0);
 
   const handleTabChange = (event, newValue) => {

@@ -16,10 +16,9 @@ const TransitionComponent = (props) => (
   <Slide direction="up" mountOnEnter unmountOnExit {...props} />
 );
 
-const Component = (props) => {
+const AtomsFeedbackAlertDialog = (props) => {
   const { t } = useTranslation();
   const theme = useTheme();
-
   return (
     <>
       <Dialog
@@ -58,4 +57,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsFeedbackAlertDialog);

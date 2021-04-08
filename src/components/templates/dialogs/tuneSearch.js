@@ -22,18 +22,18 @@ import SelectField from "../../../components/atoms/inputs/selectfield";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 import DialogTitle from "../dialogs/dialogTitle";
 
-const TemplatesDialogTuneSearch = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    fieldArea: {
-      padding: 15,
-      paddingLeft: 25,
-      paddingRight: 25,
-      paddingBottom: 5,
-      backgroundColor: theme.palette.divider,
-      borderRadius: theme.shape.borderRadius,
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  fieldArea: {
+    padding: 15,
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingBottom: 5,
+    backgroundColor: theme.palette.divider,
+    borderRadius: theme.shape.borderRadius,
+  },
+}));
 
+const TemplatesDialogTuneSearch = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const { t } = useTranslation();

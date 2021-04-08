@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { TextField } from "@material-ui/core";
 
-const Component = (props) => {
+const AtomsInputsTextField = (props) => {
   return (
     <>
       <TextField
@@ -32,4 +32,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsInputsTextField);

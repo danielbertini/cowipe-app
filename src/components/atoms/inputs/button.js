@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { Button } from "@material-ui/core";
 
-const Component = (props) => {
+const AtomsInputsButton = (props) => {
   return (
     <>
       <Button
@@ -22,4 +22,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsInputsButton);

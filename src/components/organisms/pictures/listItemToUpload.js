@@ -6,16 +6,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import Picture from "../../atoms/display/picture";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+}));
 
+const OrganismsPicturesListItemToUpload = (props) => {
   const { t } = useTranslation();
   const classes = useStyles();
 
@@ -59,4 +59,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(OrganismsPicturesListItemToUpload);

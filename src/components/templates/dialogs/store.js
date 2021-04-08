@@ -2,7 +2,6 @@ import React, { useState, useCallback, useEffect, memo } from "react";
 import { useTheme } from "@material-ui/core/styles";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-
 import { useTranslation } from "react-i18next";
 import { isMobile } from "react-device-detect";
 import {

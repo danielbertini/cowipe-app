@@ -6,38 +6,38 @@ import { useTranslation } from "react-i18next";
 import i18n from "../../../i18n";
 import Typography from "../../atoms/display/typography";
 
-const MoleculesProductsCoin = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      width: 125,
-      backgroundColor: theme.palette.divider,
-      borderRadius: theme.shape.borderRadius,
-      boxShadow: theme.shadows[1],
-      padding: 10,
-      overflow: "hidden",
-      textAlign: "center",
-    },
-    disabled: {
-      width: 125,
-      backgroundColor: theme.palette.divider,
-      borderRadius: theme.shape.borderRadius,
-      boxShadow: theme.shadows[1],
-      padding: 10,
-      overflow: "hidden",
-      textAlign: "center",
-      opacity: 0.3,
-    },
-    selected: {
-      width: 125,
-      backgroundColor: theme.palette.divider,
-      borderRadius: theme.shape.borderRadius,
-      padding: 10,
-      overflow: "hidden",
-      textAlign: "center",
-      boxShadow: `inset 0 0 0 3px ${theme.palette.secondary.main}`,
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: 125,
+    backgroundColor: theme.palette.divider,
+    borderRadius: theme.shape.borderRadius,
+    boxShadow: theme.shadows[1],
+    padding: 10,
+    overflow: "hidden",
+    textAlign: "center",
+  },
+  disabled: {
+    width: 125,
+    backgroundColor: theme.palette.divider,
+    borderRadius: theme.shape.borderRadius,
+    boxShadow: theme.shadows[1],
+    padding: 10,
+    overflow: "hidden",
+    textAlign: "center",
+    opacity: 0.3,
+  },
+  selected: {
+    width: 125,
+    backgroundColor: theme.palette.divider,
+    borderRadius: theme.shape.borderRadius,
+    padding: 10,
+    overflow: "hidden",
+    textAlign: "center",
+    boxShadow: `inset 0 0 0 3px ${theme.palette.secondary.main}`,
+  },
+}));
 
+const MoleculesProductsCoin = (props) => {
   const { t } = useTranslation();
   const classes = useStyles();
 

@@ -31,7 +31,7 @@ import BalloonOther from "../../molecules/ballons/balloonOther";
 import ConnectButton from "./connectButton";
 import ActionButton from "./actionButton";
 
-const Component = (props) => {
+const OrganismsProfileConversation = (props) => {
   const { t } = useTranslation();
   const { socket } = useContext(SocketContext);
   const { token } = useContext(StoreContext);
@@ -264,4 +264,4 @@ const Component = (props) => {
   return props.display ? renderComponent() : <></>;
 };
 
-export default memo(Component);
+export default memo(OrganismsProfileConversation);

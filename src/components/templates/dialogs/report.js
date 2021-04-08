@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { isMobile } from "react-device-detect";
 import {
@@ -19,7 +19,7 @@ import Typography from "../../atoms/display/typography";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 import DialogTitle from "../dialogs/dialogTitle";
 
-const Component = (props) => {
+const TemplatesDialogsReport = (props) => {
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
   const [loading, setLoading] = useState(true);
@@ -228,4 +228,4 @@ const Component = (props) => {
   );
 };
 
-export default Component;
+export default memo(TemplatesDialogsReport);

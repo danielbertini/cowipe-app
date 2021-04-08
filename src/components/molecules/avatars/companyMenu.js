@@ -6,33 +6,36 @@ import { MenuRounded as MenuIcon } from "@material-ui/icons";
 import Avatar from "../../atoms/display/avatarCompany";
 import IconButton from "../../atoms/inputs/iconButton";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      width: 44,
-      height: 44,
-      borderRadius: "50%",
-      overflow: "hidden",
-      "-webkit-mask-image": "-webkit-radial-gradient(white, black)",
-      cursor: "pointer",
-      "&:hover": {},
-      "& > div": {
-        transition: "all 150ms ease-in-out",
-        transform: "translateY(0px)",
-      },
-      "&:hover > div": {
-        transition: "all 150ms ease-in-out",
-        transform: "translateY(-44px)",
-      },
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: 44,
+    height: 44,
+    borderRadius: "50%",
+    overflow: "hidden",
+    "-webkit-mask-image": "-webkit-radial-gradient(white, black)",
+    cursor: "pointer",
+    "&:hover": {},
+    "& > div": {
+      transition: "all 150ms ease-in-out",
+      transform: "translateY(0px)",
     },
-    rootWithoutMenu: {
-      width: 44,
-      height: 44,
-      backgroundColor: theme.palette.background,
-      borderRadius: "50%",
-      overflow: "hidden",
+    "&:hover > div": {
+      transition: "all 150ms ease-in-out",
+      transform: "translateY(-44px)",
     },
-  }));
+  },
+  rootWithoutMenu: {
+    width: 44,
+    height: 44,
+    backgroundColor: theme.palette.background,
+    borderRadius: "50%",
+    overflow: "hidden",
+  },
+}));
+
+const MoleculesAvatarsCompanyMenu = (props) => {
+  const theme = useTheme();
+  const classes = useStyles();
 
   const StyledBadge = withStyles((theme) => ({
     badge: {
@@ -41,9 +44,6 @@ const Component = (props) => {
       borderRadius: "50%",
     },
   }))(Badge);
-
-  const theme = useTheme();
-  const classes = useStyles();
 
   const renderWithMenu = () => {
     return (
@@ -143,4 +143,4 @@ const Component = (props) => {
   return props.withoutMenu ? renderWithoutMenu() : renderWithMenu();
 };
 
-export default memo(Component);
+export default memo(MoleculesAvatarsCompanyMenu);

@@ -23,12 +23,14 @@ import ProfilePictures from "../../organisms/profile/pictures";
 import ProfileConversation from "../../organisms/profile/conversation";
 import DialogTitle from "../dialogs/dialogTitle";
 
-const Component = (props) => {
-  const theme = useTheme();
+const TemplatesDialogsConversations = (props) => {
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
   const { token } = useContext(StoreContext);
   const { socket } = useContext(SocketContext);
+
+  const theme = useTheme();
+
   const [loading, setLoading] = useState(false);
   const [loadingProfile, setLoadingProfile] = useState(false);
   const [conversations, setConversations] = useState([]);
@@ -291,4 +293,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(TemplatesDialogsConversations);

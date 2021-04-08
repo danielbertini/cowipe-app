@@ -2,19 +2,18 @@ import React, { memo } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "../display/typography";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    detail: {
-      width: 40,
-      height: 3,
-      backgroundColor: theme.palette.secondary.main,
-      borderRadius: 2,
-      marginTop: 10,
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  detail: {
+    width: 40,
+    height: 3,
+    backgroundColor: theme.palette.secondary.main,
+    borderRadius: 2,
+    marginTop: 10,
+  },
+}));
 
+const AtomsDisplayTitle = (props) => {
   const classes = useStyles();
-
   return (
     <>
       <Typography variant={props.variant} gutterBottom={props.gutterBottom}>
@@ -25,4 +24,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsDisplayTitle);

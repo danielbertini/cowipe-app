@@ -9,36 +9,38 @@ import {
 import Avatar from "../../atoms/display/avatar";
 import IconButton from "../../atoms/inputs/iconButton";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      width: 44,
-      height: 44,
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: 44,
+    height: 44,
+    backgroundColor: theme.palette.secondary.main,
+    borderRadius: "50%",
+    "-webkit-mask-image": "-webkit-radial-gradient(white, black)",
+    overflow: "hidden",
+    cursor: "pointer",
+    "&:hover": {
       backgroundColor: theme.palette.secondary.main,
-      borderRadius: "50%",
-      "-webkit-mask-image": "-webkit-radial-gradient(white, black)",
-      overflow: "hidden",
-      cursor: "pointer",
-      "&:hover": {
-        backgroundColor: theme.palette.secondary.main,
-      },
-      "& > div": {
-        transition: "all 150ms ease-in-out",
-        transform: "translateY(0px)",
-      },
-      "&:hover > div": {
-        transition: "all 150ms ease-in-out",
-        transform: "translateY(-44px)",
-      },
     },
-    rootWithoutMenu: {
-      width: 44,
-      height: 44,
-      backgroundColor: theme.palette.background,
-      borderRadius: "50%",
-      overflow: "hidden",
+    "& > div": {
+      transition: "all 150ms ease-in-out",
+      transform: "translateY(0px)",
     },
-  }));
+    "&:hover > div": {
+      transition: "all 150ms ease-in-out",
+      transform: "translateY(-44px)",
+    },
+  },
+  rootWithoutMenu: {
+    width: 44,
+    height: 44,
+    backgroundColor: theme.palette.background,
+    borderRadius: "50%",
+    overflow: "hidden",
+  },
+}));
+
+const MoleculesAvatarsUserMenu = (props) => {
+  const classes = useStyles();
 
   const StyledBadge = withStyles((theme) => ({
     badge: {
@@ -52,8 +54,6 @@ const Component = (props) => {
           : `3px solid ${theme.palette.primary.main}`,
     },
   }))(Badge);
-
-  const classes = useStyles();
 
   const renderWithMenu = () => {
     return (
@@ -137,4 +137,4 @@ const Component = (props) => {
   return props.withoutMenu ? renderWithoutMenu() : renderWithMenu();
 };
 
-export default memo(Component);
+export default memo(MoleculesAvatarsUserMenu);

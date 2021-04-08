@@ -1,6 +1,5 @@
 import React, { memo } from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
-
 import {
   InfoRounded as InfoIcon,
   WarningRounded as WarningIcon,
@@ -8,29 +7,28 @@ import {
 
 import Typography from "./typography";
 
-const AtomDisplayInfo = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      display: "flex",
-      alignItems: "flex-start",
-      width: "100%",
-      padding: 15,
-      border: `1px dashed ${theme.palette.divider}`,
-      borderRadius: theme.shape.borderRadius,
-    },
-    icon: {
-      color: theme.palette.text.secondary,
-      marginRight: 15,
-    },
-    iconError: {
-      color: theme.palette.error.main,
-      marginRight: 15,
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    alignItems: "flex-start",
+    width: "100%",
+    padding: 15,
+    border: `1px dashed ${theme.palette.divider}`,
+    borderRadius: theme.shape.borderRadius,
+  },
+  icon: {
+    color: theme.palette.text.secondary,
+    marginRight: 15,
+  },
+  iconError: {
+    color: theme.palette.error.main,
+    marginRight: 15,
+  },
+}));
 
+const AtomDisplayInfo = (props) => {
   const classes = useStyles();
   const theme = useTheme();
-
   return (
     <div className={classes.root}>
       {props.type && props.type === "error" ? (

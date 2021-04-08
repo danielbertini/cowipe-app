@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, memo } from "react";
 import { useTranslation } from "react-i18next";
 import NumberFormat from "react-number-format";
 import { useDispatch } from "react-redux";
@@ -26,12 +26,12 @@ import LinearProgress from "../../atoms/feedback/linearProgress";
 import DialogTitle from "../dialogs/dialogTitle";
 import AlertDialog from "../../atoms/feedback/alertDialog";
 
-const Component = (props) => {
-  const theme = useTheme();
-  const dispatch = useDispatch();
+const TemplatesDialogsRegistrationData = (props) => {
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
   const { setToken } = useContext(StoreContext);
+  const theme = useTheme();
+  const dispatch = useDispatch();
   const [loadingInformations, setLoadingInformations] = useState(false);
   const [loadingEmail, setLoadingEmail] = useState(false);
   const [loadingCancelEmailChange, setLoadingCancelEmailChange] = useState(
@@ -755,4 +755,4 @@ const Component = (props) => {
   );
 };
 
-export default Component;
+export default memo(TemplatesDialogsRegistrationData);

@@ -5,26 +5,26 @@ import moment from "moment";
 
 import Typography from "../../atoms/display/typography";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      width: "100%",
-      paddingTop: 10,
-      display: "flex",
-      justifyContent: "flex-end",
-    },
-    ballon: {
-      minWidth: "15%",
-      maxWidth: "60%",
-      backgroundColor: theme.palette.secondary.main,
-      borderRadius: theme.shape.borderRadius * 2,
-      borderBottomRightRadius: 0,
-      boxShadow: theme.shadows[1],
-      padding: 10,
-      overflow: "hidden",
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    paddingTop: 10,
+    display: "flex",
+    justifyContent: "flex-end",
+  },
+  ballon: {
+    minWidth: "15%",
+    maxWidth: "60%",
+    backgroundColor: theme.palette.secondary.main,
+    borderRadius: theme.shape.borderRadius * 2,
+    borderBottomRightRadius: 0,
+    boxShadow: theme.shadows[1],
+    padding: 10,
+    overflow: "hidden",
+  },
+}));
 
+const MoleculesBallonsBalloonMe = (props) => {
   const { t } = useTranslation();
   const classes = useStyles();
 
@@ -62,4 +62,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(MoleculesBallonsBalloonMe);

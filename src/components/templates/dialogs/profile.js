@@ -12,10 +12,10 @@ import ProfilePictures from "../../organisms/profile/pictures";
 import ProfileConversation from "../../organisms/profile/conversation";
 import DialogTitle from "../dialogs/dialogTitle";
 
-const Component = (props) => {
-  const theme = useTheme();
+const TemplatesDialogsProfile = (props) => {
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
+  const theme = useTheme();
   const [loading, setLoading] = useState(true);
   const [connection, setConnection] = useState();
   const [profile, setProfile] = useState([]);
@@ -156,4 +156,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(TemplatesDialogsProfile);

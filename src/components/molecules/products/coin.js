@@ -5,28 +5,28 @@ import { makeStyles } from "@material-ui/core/styles";
 import i18n from "../../../i18n";
 import Typography from "../../atoms/display/typography";
 
-const MoleculesProductsCoin = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      width: "100%",
-      backgroundColor: theme.palette.divider,
-      borderRadius: theme.shape.borderRadius,
-      boxShadow: theme.shadows[1],
-      padding: 10,
-      overflow: "hidden",
-      textAlign: "center",
-    },
-    selected: {
-      width: "100%",
-      backgroundColor: theme.palette.divider,
-      borderRadius: theme.shape.borderRadius,
-      padding: 10,
-      overflow: "hidden",
-      textAlign: "center",
-      boxShadow: `inset 0 0 0 3px ${theme.palette.secondary.main}`,
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    backgroundColor: theme.palette.divider,
+    borderRadius: theme.shape.borderRadius,
+    boxShadow: theme.shadows[1],
+    padding: 10,
+    overflow: "hidden",
+    textAlign: "center",
+  },
+  selected: {
+    width: "100%",
+    backgroundColor: theme.palette.divider,
+    borderRadius: theme.shape.borderRadius,
+    padding: 10,
+    overflow: "hidden",
+    textAlign: "center",
+    boxShadow: `inset 0 0 0 3px ${theme.palette.secondary.main}`,
+  },
+}));
 
+const MoleculesProductsCoin = (props) => {
   const classes = useStyles();
 
   return (

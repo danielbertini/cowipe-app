@@ -35,102 +35,102 @@ import AvatarUser from "../../molecules/avatars/userMenu";
 import AvatarCompany from "../../molecules/avatars/companyMenu";
 import DialogSettings from "../../templates/dialogs/settings";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      zIndex: 1000,
-      position: "fixed",
-      width: "100vw",
-      height: 72,
-      paddingLeft: isMobile ? 15 : 25,
-      paddingRight: isMobile ? 15 : 25,
-      backgroundColor: theme.palette.primary.main,
-      boxShadow: theme.shadows[3],
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      flexWrap: "nowrap",
-    },
-    logoRoot: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "flex-start",
-    },
-    logoBox: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: theme.palette.secondary.main,
-      width: 42,
-      height: 42,
-      borderRadius: "50%",
-      marginRight: 6,
-    },
-    avatarRoot: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      flexFlow: "column",
-      paddingTop: 30,
-      paddingBottom: 20,
-    },
-    avatar: {
-      margin: 0,
-      zIndex: 9,
-      borderRadius: "50%",
-      backgroundColor: theme.palette.background.default,
-      boxShadow: theme.shadows[3],
-    },
-    pictureIconRoot: {
-      position: "relative",
-      marginBottom: -42,
-      marginLeft: 120,
-      zIndex: 10,
-      width: 42,
-      height: 42,
-      borderRadius: "50%",
-      boxShadow: theme.shadows[3],
-      backgroundColor: theme.palette.secondary.main,
-    },
-    drawerMenuRoot: {
-      height: "100vh",
-    },
-    drawerAvatarRoot: {
-      width: 250,
-      paddingTop: 40,
-      paddingBottom: 40,
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    drawerMenu: {
-      width: 250,
-      display: "flex",
-      flexDirection: "row",
-      height: "100%",
-    },
-    drawerContent: {},
-    drawerMenuHeader: {
-      height: 70,
-      flex: "0 0 auto",
-      display: "flex",
-      alignItems: "center",
-      paddingLeft: 10,
-    },
-    drawerMenuMain: {
-      width: "100%",
-      position: "relative",
-      overflowY: "auto",
-    },
-    drawerMenuHeaderLeft: {
-      height: 64,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "flex-start",
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    zIndex: 1000,
+    position: "fixed",
+    width: "100vw",
+    height: 72,
+    paddingLeft: isMobile ? 15 : 25,
+    paddingRight: isMobile ? 15 : 25,
+    backgroundColor: theme.palette.primary.main,
+    boxShadow: theme.shadows[3],
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexWrap: "nowrap",
+  },
+  logoRoot: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
+  logoBox: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: theme.palette.secondary.main,
+    width: 42,
+    height: 42,
+    borderRadius: "50%",
+    marginRight: 6,
+  },
+  avatarRoot: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexFlow: "column",
+    paddingTop: 30,
+    paddingBottom: 20,
+  },
+  avatar: {
+    margin: 0,
+    zIndex: 9,
+    borderRadius: "50%",
+    backgroundColor: theme.palette.background.default,
+    boxShadow: theme.shadows[3],
+  },
+  pictureIconRoot: {
+    position: "relative",
+    marginBottom: -42,
+    marginLeft: 120,
+    zIndex: 10,
+    width: 42,
+    height: 42,
+    borderRadius: "50%",
+    boxShadow: theme.shadows[3],
+    backgroundColor: theme.palette.secondary.main,
+  },
+  drawerMenuRoot: {
+    height: "100vh",
+  },
+  drawerAvatarRoot: {
+    width: 250,
+    paddingTop: 40,
+    paddingBottom: 40,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  drawerMenu: {
+    width: 250,
+    display: "flex",
+    flexDirection: "row",
+    height: "100%",
+  },
+  drawerContent: {},
+  drawerMenuHeader: {
+    height: 70,
+    flex: "0 0 auto",
+    display: "flex",
+    alignItems: "center",
+    paddingLeft: 10,
+  },
+  drawerMenuMain: {
+    width: "100%",
+    position: "relative",
+    overflowY: "auto",
+  },
+  drawerMenuHeaderLeft: {
+    height: 64,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
+}));
 
+const OrganismsMenusMain = (props) => {
   const theme = useTheme();
   const classes = useStyles();
   const { t } = useTranslation();
@@ -393,4 +393,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(OrganismsMenusMain);

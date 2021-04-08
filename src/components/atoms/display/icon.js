@@ -3,30 +3,29 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import Typography from "./typography";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "flex-start",
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+  },
+  iconDecoration: {
+    width: 44,
+    height: 44,
+    backgroundColor: theme.palette.divider,
+    borderRadius: 22,
+    marginRight: (props) => (props.title ? 10 : 0),
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    "& > *": {
+      opacity: 0.25,
     },
-    iconDecoration: {
-      width: 44,
-      height: 44,
-      backgroundColor: theme.palette.divider,
-      borderRadius: 22,
-      marginRight: props.title ? 10 : 0,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      "& > *": {
-        opacity: 0.25,
-      },
-    },
-  }));
+  },
+}));
 
-  const classes = useStyles();
-
+const AtomsDisplayIcon = (props) => {
+  const classes = useStyles(props);
   return (
     <>
       <div className={classes.root}>
@@ -41,4 +40,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsDisplayIcon);

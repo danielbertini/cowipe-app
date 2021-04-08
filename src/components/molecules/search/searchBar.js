@@ -9,18 +9,18 @@ import {
 import IconButton from "../../atoms/inputs/iconButton";
 import CircularProgress from "../../atoms/feedback/circularProgress";
 
-const MoleculesSearchSearchBar = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      width: "100%",
-      padding: props.padding ? 15 : 0,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: props.align,
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    padding: (props) => (props.padding ? 15 : 0),
+    display: "flex",
+    alignItems: "center",
+    justifyContent: (props) => props.align,
+  },
+}));
 
-  const classes = useStyles();
+const MoleculesSearchSearchBar = (props) => {
+  const classes = useStyles(props);
   const theme = useTheme();
   const [loadingPrevious, setLoadingPrevious] = useState(false);
   const [loadingNext, setLoadingNext] = useState(false);

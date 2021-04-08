@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { Typography } from "@material-ui/core";
 
-const Component = (props) => {
+const AtomsDisplayTypography = (props) => {
   return (
     <>
       <Typography
@@ -19,4 +19,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsDisplayTypography);

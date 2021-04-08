@@ -31,30 +31,30 @@ import MoleculesSearchSearchBar from "../../molecules/search/searchBar";
 import OrganismsFiltersPeoples from "../../organisms/filters/peoples";
 import TemplatesDialogTuneSearch from "../dialogs/tuneSearch";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      width: "100%",
-      overflow: "hidden",
-      borderRadius: theme.shape.borderRadius * 2,
-      backgroundColor: theme.palette.background.panel,
-    },
-    header: {
-      width: "100%",
-      padding: 15,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-    },
-    content: {
-      width: "100%",
-      padding: 15,
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    overflow: "hidden",
+    borderRadius: theme.shape.borderRadius * 2,
+    backgroundColor: theme.palette.background.panel,
+  },
+  header: {
+    width: "100%",
+    padding: 15,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  content: {
+    width: "100%",
+    padding: 15,
+  },
+}));
 
-  const theme = useTheme();
+const TemplatesPanelsPeople = (props) => {
   const { t } = useTranslation();
   const { token } = useContext(StoreContext);
+  const theme = useTheme();
   const userId = jwtDecode(token);
   const classes = useStyles();
   const location = useSelector((state) => state.location);
@@ -252,4 +252,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(TemplatesPanelsPeople);

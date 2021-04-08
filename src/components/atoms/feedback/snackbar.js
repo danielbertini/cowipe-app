@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { Snackbar } from "@material-ui/core";
 
-const Component = (props) => {
+const AtomsFeedbackSnackbar = (props) => {
   return (
     <>
       <Snackbar
@@ -17,4 +17,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsFeedbackSnackbar);

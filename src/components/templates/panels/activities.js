@@ -31,38 +31,37 @@ import ConnectionRequest from "../../molecules/activities/connectionRequest";
 import ViewedProfile from "../../molecules/activities/viewedProfile";
 import MoleculesSearchSearchBar from "../../molecules/search/searchBar";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      width: "100%",
-      overflow: "hidden",
-      borderRadius: theme.shape.borderRadius * 2,
-      backgroundColor: theme.palette.background.panel,
-    },
-    header: {
-      width: "100%",
-      padding: 15,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-    },
-    content: {
-      width: "100%",
-      padding: 15,
-    },
-    search: {
-      width: "100%",
-      padding: 15,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    overflow: "hidden",
+    borderRadius: theme.shape.borderRadius * 2,
+    backgroundColor: theme.palette.background.panel,
+  },
+  header: {
+    width: "100%",
+    padding: 15,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  content: {
+    width: "100%",
+    padding: 15,
+  },
+  search: {
+    width: "100%",
+    padding: 15,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+}));
 
+const TemplatesPanelsActivities = (props) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const theme = useTheme();
-
   const preferences = useSelector((state) => state.preferences);
   const [loading, setLoading] = useState(true);
   const [loadingFilter, setLoadingFilter] = useState(false);
@@ -285,4 +284,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(TemplatesPanelsActivities);

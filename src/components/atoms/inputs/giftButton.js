@@ -14,44 +14,44 @@ import Button from "../../atoms/inputs/button";
 import Gift from "../../molecules/products/gift";
 import DialogStore from "../../templates/dialogs/store";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      padding: 30,
-    },
-    title: {
-      width: "100%",
+const useStyles = makeStyles((theme) => ({
+  root: {
+    padding: 30,
+  },
+  title: {
+    width: "100%",
+    overflow: "hidden",
+    maxWidth: "100%",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
+    "& > *": {
       overflow: "hidden",
       maxWidth: "100%",
       textOverflow: "ellipsis",
       whiteSpace: "nowrap",
-      "& > *": {
-        overflow: "hidden",
-        maxWidth: "100%",
-        textOverflow: "ellipsis",
-        whiteSpace: "nowrap",
-      },
     },
-    items: {
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "flex-start",
-      flexWrap: "nowrap",
-      overflowX: "auto",
-      scrollBehavior: "smooth",
-      paddingBottom: 10,
-      cursor: "grab",
-      "&::-webkit-scrollbar": {
-        height: theme.shape.scrollSize,
-        width: theme.shape.scrollSize,
-      },
-      "&::-webkit-scrollbar-thumb": {
-        backgroundColor: theme.palette.secondary.main,
-        borderRadius: theme.shape.scrollRadius,
-      },
+  },
+  items: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    flexWrap: "nowrap",
+    overflowX: "auto",
+    scrollBehavior: "smooth",
+    paddingBottom: 10,
+    cursor: "grab",
+    "&::-webkit-scrollbar": {
+      height: theme.shape.scrollSize,
+      width: theme.shape.scrollSize,
     },
-  }));
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: theme.palette.secondary.main,
+      borderRadius: theme.shape.scrollRadius,
+    },
+  },
+}));
 
+const AtomsInputsGiftButton = (props) => {
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
   const theme = useTheme();
@@ -228,4 +228,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsInputsGiftButton);

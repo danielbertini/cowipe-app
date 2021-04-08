@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { Skeleton } from "@material-ui/lab";
 
-const Component = (props) => {
+const AtomsDisplaySkeleton = (props) => {
   return (
     <>
       <Skeleton
@@ -15,4 +15,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsDisplaySkeleton);

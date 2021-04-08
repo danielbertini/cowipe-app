@@ -5,7 +5,7 @@ import { useSnackbar } from "notistack";
 
 import api from "../../../services/api";
 
-const Component = (props) => {
+const OrganismsProfileConnectButton = (props) => {
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
   const [accepting, setAccepting] = useState(false);
@@ -164,4 +164,4 @@ const Component = (props) => {
   return <>{renderButton()}</>;
 };
 
-export default memo(Component);
+export default memo(OrganismsProfileConnectButton);

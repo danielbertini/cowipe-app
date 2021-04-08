@@ -7,20 +7,20 @@ import { useSnackbar } from "notistack";
 import api from "../../../services/api";
 import Picture from "../../atoms/display/picture";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      cursor: "pointer",
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    cursor: "pointer",
+  },
+}));
 
+const OrganismsPicturesListItemToEdit = (props) => {
   const { t } = useTranslation();
-  const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
+  const classes = useStyles();
 
   const handleRestrictedChange = useCallback(
     (event) => {
@@ -105,4 +105,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(OrganismsPicturesListItemToEdit);

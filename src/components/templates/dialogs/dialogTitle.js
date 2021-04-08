@@ -9,7 +9,7 @@ import IconButton from "../../atoms/inputs/iconButton";
 import AvatarCompany from "../../molecules/avatars/companyMenu";
 import AvatarUser from "../../molecules/avatars/user";
 
-const Component = (props) => {
+const TemplatesDialogsDialogTitle = (props) => {
   return (
     <>
       <DialogTitle id="form-dialog-title" style={props.style}>
@@ -70,4 +70,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(TemplatesDialogsDialogTitle);

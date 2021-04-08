@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { isMobile } from "react-device-detect";
 import { v4 as uuid } from "uuid";
@@ -18,7 +18,7 @@ import DialogTitle from "../dialogs/dialogTitle";
 import ListItemToUpload from "../../organisms/pictures/listItemToUpload";
 import LinearProgress from "../../atoms/feedback/linearProgress";
 
-const Component = (props) => {
+const TemplatesDialogsPicturesUpload = (props) => {
   const { t } = useTranslation();
   const [preloading, setPreloading] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -349,4 +349,4 @@ const Component = (props) => {
   );
 };
 
-export default Component;
+export default memo(TemplatesDialogsPicturesUpload);

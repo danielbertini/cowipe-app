@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { LinearProgress } from "@material-ui/core";
 
-const Component = (props) => {
+const AtomsFeedbackLinearProgress = (props) => {
   return (
     <>
       <LinearProgress
@@ -14,4 +14,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsFeedbackLinearProgress);

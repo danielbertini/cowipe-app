@@ -18,7 +18,7 @@ import GiftButton from "../../atoms/inputs/giftButton";
 import ActionButton from "./actionButton";
 import ConnectButton from "./connectButton";
 
-const Component = (props) => {
+const OrganismsProfileAbout = (props) => {
   const { t } = useTranslation();
   const [connection, setConnection] = useState();
 
@@ -445,4 +445,4 @@ const Component = (props) => {
   return props.display ? renderComponent() : <></>;
 };
 
-export default memo(Component);
+export default memo(OrganismsProfileAbout);

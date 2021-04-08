@@ -3,15 +3,15 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useSelector } from "react-redux";
 
-const StripeCheckoutForm = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    cardElement: {
-      border: `1px solid ${theme.palette.divider}`,
-      borderRadius: theme.shape.borderRadius,
-      padding: 15,
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  cardElement: {
+    border: `1px solid ${theme.palette.divider}`,
+    borderRadius: theme.shape.borderRadius,
+    padding: 15,
+  },
+}));
 
+const StripeCheckoutForm = (props) => {
   const user = useSelector((state) => state.user);
   const classes = useStyles();
   const theme = useTheme();

@@ -1,6 +1,5 @@
 import React, { memo } from "react";
-import i18n from "../../../i18n";
-
+import { useTheme } from "@material-ui/core/styles";
 import {
   FormControl,
   InputLabel,
@@ -10,11 +9,10 @@ import {
   FormHelperText,
 } from "@material-ui/core";
 
-import { useTheme } from "@material-ui/core/styles";
+import i18n from "../../../i18n";
 
-const Component = (props) => {
+const AtomsInputsSelectField = (props) => {
   const theme = useTheme();
-
   return (
     <>
       <FormControl variant="outlined" color="secondary" fullWidth>
@@ -64,4 +62,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsInputsSelectField);

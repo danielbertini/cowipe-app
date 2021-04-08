@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { FormControlLabel, Checkbox } from "@material-ui/core";
 
-const Component = (props) => {
+const AtomsInputsCheckbox = (props) => {
   return (
     <>
       <FormControlLabel
@@ -19,4 +19,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsInputsCheckbox);

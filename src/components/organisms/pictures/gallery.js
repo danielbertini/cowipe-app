@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { isMobile } from "react-device-detect";
 import { Backdrop, Grow } from "@material-ui/core";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
@@ -15,7 +15,77 @@ import {
 import IconButton from "../../atoms/inputs/iconButton";
 import CircularProgress from "../../atoms/feedback/circularProgress";
 
-const Component = (props) => {
+const useStyles = makeStyles((theme) => ({
+  backdrop: {
+    zIndex: 5000,
+    backgroundColor: theme.palette.backdrop,
+  },
+  body: {
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    zIndex: 6000,
+    padding: 30,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  },
+  stage: {
+    zIndex: 6000,
+    padding: 30,
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  header: {
+    height: 64,
+    zIndex: 7000,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  content: {
+    zIndex: 7000,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  footer: {
+    zIndex: 7000,
+    height: 120,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    overflowX: "auto",
+    scrollBehavior: "smooth",
+    "&::-webkit-scrollbar": {
+      display: "none",
+      width: 5,
+    },
+    "&::-webkit-scrollbar-thumb": {
+      borderRadius: theme.shape.borderRadius,
+      backgroundColor: theme.palette.primary.main,
+    },
+  },
+  pictureFrame: {
+    zIndex: 6000,
+    transition: "all 200ms ease-in-out",
+    transform: (useStylesParams) =>
+      `scale(${useStylesParams.zoom}) rotate(${useStylesParams.rotate}deg)`,
+  },
+  picture: {
+    zIndex: 6000,
+    width: (useStylesParams) => useStylesParams.width,
+    height: (useStylesParams) => useStylesParams.height,
+    borderRadius: theme.shape.borderRadius * 2,
+    boxShadow: theme.shadows[12],
+  },
+}));
+
+const OrganismsPicturesGallery = (props) => {
   const theme = useTheme();
   const [zoom, setZoom] = useState(1);
   const [rotate, setRotate] = useState(0);
@@ -25,76 +95,13 @@ const Component = (props) => {
   const [totalPictures] = useState(props.pictures.length);
   const [width, setWidth] = useState(500);
   const [height, setHeight] = useState(500);
-
-  const useStyles = makeStyles((theme) => ({
-    backdrop: {
-      zIndex: 5000,
-      backgroundColor: theme.palette.backdrop,
-    },
-    body: {
-      position: "absolute",
-      width: "100%",
-      height: "100%",
-      zIndex: 6000,
-      padding: 30,
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "space-between",
-    },
-    stage: {
-      zIndex: 6000,
-      padding: 30,
-      position: "absolute",
-      width: "100%",
-      height: "100%",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    header: {
-      height: 64,
-      zIndex: 7000,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    content: {
-      zIndex: 7000,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-    },
-    footer: {
-      zIndex: 7000,
-      height: 120,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      overflowX: "auto",
-      scrollBehavior: "smooth",
-      "&::-webkit-scrollbar": {
-        display: "none",
-        width: 5,
-      },
-      "&::-webkit-scrollbar-thumb": {
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: theme.palette.primary.main,
-      },
-    },
-    pictureFrame: {
-      zIndex: 6000,
-      transition: "all 200ms ease-in-out",
-      transform: `scale(${zoom}) rotate(${rotate}deg)`,
-    },
-    picture: {
-      zIndex: 6000,
-      width: width,
-      height: height,
-      borderRadius: theme.shape.borderRadius * 2,
-      boxShadow: theme.shadows[12],
-    },
-  }));
-  const classes = useStyles();
+  var useStylesParams = {
+    width: width,
+    height: height,
+    zoom: zoom,
+    rotate: rotate,
+  };
+  const classes = useStyles(useStylesParams);
 
   useEffect(() => {
     if (isMobile) {
@@ -277,4 +284,4 @@ const Component = (props) => {
   );
 };
 
-export default Component;
+export default memo(OrganismsPicturesGallery);

@@ -9,52 +9,52 @@ import Picture from "../../atoms/display/picture";
 import Typography from "../../atoms/display/typography";
 import DialogProfile from "../../templates/dialogs/profile";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      width: "100%",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      backgroundColor: theme.palette.primary.main,
-      borderRadius: theme.shape.borderRadius,
-      boxShadow: theme.shadows[3],
-      overflow: "hidden",
-      cursor: "pointer",
-    },
-    content: {
-      width: "100%",
-      paddingLeft: 15,
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: theme.palette.primary.main,
+    borderRadius: theme.shape.borderRadius,
+    boxShadow: theme.shadows[3],
+    overflow: "hidden",
+    cursor: "pointer",
+  },
+  content: {
+    width: "100%",
+    paddingLeft: 15,
+    overflow: "hidden",
+    maxWidth: "100%",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
+    "& > *": {
       overflow: "hidden",
       maxWidth: "100%",
       textOverflow: "ellipsis",
       whiteSpace: "nowrap",
-      "& > *": {
-        overflow: "hidden",
-        maxWidth: "100%",
-        textOverflow: "ellipsis",
-        whiteSpace: "nowrap",
-      },
     },
-    status: {
-      position: "absolute",
-      backgroundColor: theme.palette.status[0],
-      left: 46,
-      top: 19,
-      width: 16,
-      height: 16,
-      borderRadius: 8,
-      border: `3px solid ${theme.palette.primary.main}`,
-    },
-    icon: {
-      minWidth: 54,
-      maxWidth: 54,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-  }));
+  },
+  status: {
+    position: "absolute",
+    backgroundColor: theme.palette.status[0],
+    left: 46,
+    top: 19,
+    width: 16,
+    height: 16,
+    borderRadius: 8,
+    border: `3px solid ${theme.palette.primary.main}`,
+  },
+  icon: {
+    minWidth: 54,
+    maxWidth: 54,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+}));
 
+const MoleculesActivitiesConnectionAccepted = (props) => {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -98,4 +98,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(MoleculesActivitiesConnectionAccepted);

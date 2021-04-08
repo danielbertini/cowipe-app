@@ -10,33 +10,33 @@ import Typography from "../../atoms/display/typography";
 import IconButton from "../../atoms/inputs/iconButton";
 import DialogProfile from "../../templates/dialogs/profile";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-      width: "100%",
-      padding: 15,
-      borderBottom: `1px solid ${theme.palette.divider}`,
-      overflow: "hidden",
-      "-webkit-mask-image": "-webkit-radial-gradient(white, black)",
-    },
-    content: {
-      width: "100%",
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    width: "100%",
+    padding: 15,
+    borderBottom: `1px solid ${theme.palette.divider}`,
+    overflow: "hidden",
+    "-webkit-mask-image": "-webkit-radial-gradient(white, black)",
+  },
+  content: {
+    width: "100%",
+    overflow: "hidden",
+    maxWidth: "100%",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
+    "& > *": {
       overflow: "hidden",
       maxWidth: "100%",
       textOverflow: "ellipsis",
       whiteSpace: "nowrap",
-      "& > *": {
-        overflow: "hidden",
-        maxWidth: "100%",
-        textOverflow: "ellipsis",
-        whiteSpace: "nowrap",
-      },
     },
-  }));
+  },
+}));
 
+const MoleculesAvatarsGift = (props) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const theme = useTheme();
@@ -116,4 +116,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(MoleculesAvatarsGift);

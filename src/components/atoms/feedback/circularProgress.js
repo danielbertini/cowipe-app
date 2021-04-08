@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { CircularProgress } from "@material-ui/core";
 
-const Component = (props) => {
+const AtomsFeedbackCircularProgress = (props) => {
   return (
     <>
       <CircularProgress
@@ -18,4 +18,4 @@ const Component = (props) => {
   );
 };
 
-export default memo(Component);
+export default memo(AtomsFeedbackCircularProgress);

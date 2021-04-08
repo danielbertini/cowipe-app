@@ -13,43 +13,43 @@ import CircularProgress from "../../atoms/feedback/circularProgress";
 import AlertDialog from "../../atoms/feedback/alertDialog";
 import Thumbnail from "./thumbnail";
 
-const Component = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      width: "100%",
-      backgroundColor: theme.palette.primary.main,
-      borderRadius: theme.shape.borderRadius,
-      boxShadow: theme.shadows[3],
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    backgroundColor: theme.palette.primary.main,
+    borderRadius: theme.shape.borderRadius,
+    boxShadow: theme.shadows[3],
+    overflow: "hidden",
+  },
+  content: {
+    margin: 15,
+    marginTop: 10,
+    marginBottom: 10,
+    "& > *": {
       overflow: "hidden",
+      maxWidth: "100%",
+      textOverflow: "ellipsis",
+      whiteSpace: "nowrap",
     },
-    content: {
-      margin: 15,
-      marginTop: 10,
-      marginBottom: 10,
-      "& > *": {
-        overflow: "hidden",
-        maxWidth: "100%",
-        textOverflow: "ellipsis",
-        whiteSpace: "nowrap",
-      },
-    },
-    status: {
-      position: "relative",
-      backgroundColor: theme.palette.status[0],
-      marginTop: -22,
-      top: 11,
-      float: "right",
-      right: 15,
-      width: 22,
-      height: 22,
-      borderRadius: 11,
-      border: `3px solid ${theme.palette.primary.main}`,
-    },
-    buttonArea: {
-      padding: 15,
-    },
-  }));
+  },
+  status: {
+    position: "relative",
+    backgroundColor: theme.palette.status[0],
+    marginTop: -22,
+    top: 11,
+    float: "right",
+    right: 15,
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    border: `3px solid ${theme.palette.primary.main}`,
+  },
+  buttonArea: {
+    padding: 15,
+  },
+}));
 
+const MoleculesUserThumbnailBlocked = (props) => {
   const { t } = useTranslation();
   const { enqueueSnackbar } = useSnackbar();
   const classes = useStyles();
@@ -144,4 +144,4 @@ const Component = (props) => {
   return renderThumbnail();
 };
 
-export default memo(Component);
+export default memo(MoleculesUserThumbnailBlocked);

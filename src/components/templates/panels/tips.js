@@ -24,31 +24,30 @@ import Info from "../../atoms/display/info";
 import IconButton from "../../atoms/inputs/iconButton";
 import CircularProgress from "../../atoms/feedback/circularProgress";
 
-const TemplatesPanelsTips = (props) => {
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      width: "100%",
-      overflow: "hidden",
-      borderRadius: theme.shape.borderRadius * 2,
-      backgroundColor: theme.palette.background.panel,
-    },
-    header: {
-      width: "100%",
-      padding: 15,
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "space-between",
-    },
-    content: {
-      width: "100%",
-      padding: 15,
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    overflow: "hidden",
+    borderRadius: theme.shape.borderRadius * 2,
+    backgroundColor: theme.palette.background.panel,
+  },
+  header: {
+    width: "100%",
+    padding: 15,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  content: {
+    width: "100%",
+    padding: 15,
+  },
+}));
 
+const TemplatesPanelsTips = (props) => {
   const { t } = useTranslation();
   const classes = useStyles();
   const theme = useTheme();
-
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [tips, setTips] = useState([]);
