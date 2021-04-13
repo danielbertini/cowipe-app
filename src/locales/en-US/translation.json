@@ -92,9 +92,14 @@
     "giftSent": "Gift sent",
     "noGiftsSent": "No gifts sent.",
     "noGiftsReceived": "No gifts received.",
-    "eraseAccount": "When you delete your account all your information will be removed and you will not be able to recover it. Information such as: coins you have purchased, gifts sent and received, connections, conversations, photos and everything else. Are you sure you want to continue?"
+    "eraseAccount": "When you delete your account all your information will be removed and you will not be able to recover it. Information such as: coins you have purchased, gifts sent and received, connections, conversations, photos and everything else. Are you sure you want to continue?",
+    "messageSent": "Your message has been sent. Thank you."
   },
   "fields": {
+    "name": {
+      "label": "Name",
+      "placeHolder": "Enter your name"
+    },
     "message": {
       "label": "Message",
       "placeHolder": "Write your message"
@@ -265,6 +270,9 @@
     }
   },
   "dialogs": {
+    "talkWithUs": {
+      "title": "Talk with us"
+    },
     "picturesUpload": {
       "description": "You can select up to {{qty}} photos simultaneously."
     },    

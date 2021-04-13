@@ -1,13 +1,17 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Container, Grid, Divider } from "@material-ui/core";
+import { EmailRounded as EmailIcon } from "@material-ui/icons";
 
 import MoleculesSwitchsLanguage from "../../molecules/switchs/language";
 import MoleculesSwitchsTheme from "../../molecules/switchs/theme";
 import Typography from "../../atoms/display/typography";
+import IconButton from "../../atoms/inputs/iconButton";
+import TemplatesDialogsTalkWithUs from "../../templates/dialogs/talkWithUs";
 
 const OrganismsFooterHome = () => {
   const { t } = useTranslation();
+  const [dialogTalkWithUs, setDialogTalkWithUs] = useState(false);
 
   return (
     <>
@@ -30,12 +34,22 @@ const OrganismsFooterHome = () => {
                 <div>
                   <MoleculesSwitchsLanguage />
                   <MoleculesSwitchsTheme />
+                  <IconButton
+                    size="medium"
+                    color="secondary"
+                    onClick={() => setDialogTalkWithUs(true)}
+                  >
+                    <EmailIcon fontSize="inherit" color="secondary" />
+                  </IconButton>
                 </div>
               </div>
             </div>
           </Grid>
         </Grid>
       </Container>
+      {dialogTalkWithUs && (
+        <TemplatesDialogsTalkWithUs open={setDialogTalkWithUs} />
+      )}
     </>
   );
 };

@@ -34,6 +34,7 @@ import Avatar from "../../atoms/display/avatar";
 import AvatarUser from "../../molecules/avatars/userMenu";
 import AvatarCompany from "../../molecules/avatars/companyMenu";
 import DialogSettings from "../../templates/dialogs/settings";
+import TemplatesDialogsTalkWithUs from "../../templates/dialogs/talkWithUs";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -141,6 +142,7 @@ const OrganismsMenusMain = (props) => {
   const [drawerRight, setDrawerRight] = useState(false);
   const [expandedMenuRight, setExpandedRight] = useState(0);
   const [dialogSettings, setDialogSettings] = useState(false);
+  const [dialogTalkWithUs, setDialogTalkWithUs] = useState(false);
   const [userIp, setUserIp] = useState(false);
 
   const getClientIp = async () =>
@@ -203,7 +205,7 @@ const OrganismsMenusMain = (props) => {
                         {t("mainMenu.workWithUs")}
                       </Typography>
                     </ListItem>
-                    <ListItem button>
+                    <ListItem button onClick={() => setDialogTalkWithUs(true)}>
                       <ListItemIcon>
                         <ArrowIcon />
                       </ListItemIcon>
@@ -389,6 +391,9 @@ const OrganismsMenusMain = (props) => {
       {leftDrawer()}
       {rightDrawer()}
       {dialogSettings && <DialogSettings open={setDialogSettings} />}
+      {dialogTalkWithUs && (
+        <TemplatesDialogsTalkWithUs open={setDialogTalkWithUs} />
+      )}
     </>
   );
 };

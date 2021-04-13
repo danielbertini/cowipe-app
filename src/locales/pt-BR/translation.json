@@ -92,9 +92,14 @@
     "giftSent": "Presente enviado",
     "noGiftsSent": "Nenhum presente enviado.",
     "noGiftsReceived": "Nenhum presente recebido.",
-    "eraseAccount": "Ao apagar sua conta todas as suas informações serão removidas e não será possível recuperá-las. Informações como: moedas que tenha comprado, presentes enviados e recebidos, conexões, conversas, fotos e tudo mais. Tem certeza que deseja continuar?"
+    "eraseAccount": "Ao apagar sua conta todas as suas informações serão removidas e não será possível recuperá-las. Informações como: moedas que tenha comprado, presentes enviados e recebidos, conexões, conversas, fotos e tudo mais. Tem certeza que deseja continuar?",
+    "messageSent": "Sua mensagem foi enviada, obrigado."
   },
   "fields": {
+    "name": {
+      "label": "Nome",
+      "placeHolder": "Insira seu nome"
+    },
     "message": {
       "label": "Mensagem",
       "placeHolder": "Escreva sua mensagem"
@@ -273,6 +278,9 @@
     }
   },
   "dialogs": {
+    "talkWithUs": {
+      "title": "Fale conosco"
+    },
     "picturesUpload": {
       "description": "Você pode selecionar até {{qty}} fotos simultâneamente."
     },

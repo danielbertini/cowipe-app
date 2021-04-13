@@ -77,6 +77,7 @@ import DialogPictures from "../../templates/dialogs/pictures";
 import DialogConversations from "../../templates/dialogs/conversations";
 import DialogStore from "../../templates/dialogs/store";
 import DialogGifts from "../../templates/dialogs/gifts";
+import TemplatesDialogsTalkWithUs from "../../templates/dialogs/talkWithUs";
 import messageSound from "../../../sounds/message.mp3";
 
 const useStyles = makeStyles((theme) => ({
@@ -197,6 +198,7 @@ const OrganismsMenusMainAuthenticated = (props) => {
   const [dialogConversations, setDialogConversations] = useState(false);
   const [dialogStore, setDialogStore] = useState(false);
   const [dialogGifts, setDialogGifts] = useState(false);
+  const [dialogTalkWithUs, setDialogTalkWithUs] = useState(false);
   const [preloadingProfile, setPreloadingProfile] = useState(false);
   const [expandedMenuLeft, setExpandedMenuLeft] = useState(0);
   const [expandedMenuRight, setExpandedRight] = useState(0);
@@ -462,7 +464,7 @@ const OrganismsMenusMainAuthenticated = (props) => {
                         {t("mainMenu.workWithUs")}
                       </Typography>
                     </ListItem>
-                    <ListItem button>
+                    <ListItem button onClick={() => setDialogTalkWithUs(true)}>
                       <ListItemIcon>
                         <ArrowIcon />
                       </ListItemIcon>
@@ -922,6 +924,9 @@ const OrganismsMenusMainAuthenticated = (props) => {
           handleClose={setAlertDialogOpen}
           handleAgree={signout}
         />
+      )}
+      {dialogTalkWithUs && (
+        <TemplatesDialogsTalkWithUs open={setDialogTalkWithUs} />
       )}
     </>
   );
