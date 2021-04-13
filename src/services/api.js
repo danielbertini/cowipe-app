@@ -6,7 +6,6 @@ const api = axios.create({
     Accept: "application/json; charset=UTF-8",
     "Content-Type": "application/json; charset=UTF-8",
   },
-  withCredentials: true,
   baseURL: process.env.REACT_APP_API,
 });
 
