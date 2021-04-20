@@ -44,7 +44,7 @@ const palette = {
 };
 
 const font = {
-  size: 13,
+  size: 14,
   weight: {
     light: 300,
     regular: 400,
@@ -58,7 +58,6 @@ const font = {
 const typography = {
   useNextVariants: true,
   fontFamily: [
-    "Inter",
     "Roboto",
     "system-ui",
     "-apple-system",
