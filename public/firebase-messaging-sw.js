@@ -33,6 +33,20 @@ messaging.setBackgroundMessageHandler(function(payload) {
 });
 
 self.addEventListener('notificationclick', event => {
-  console.log(event)
+  let url = 'https://cowipe.com';
+  event.notification.close();
+  event.waitUntil(
+    clients.matchAll({type: 'window'}).then( windowClients => {
+        for (var i = 0; i < windowClients.length; i++) {
+            var client = windowClients[i];
+            if (client.url === url && 'focus' in client) {
+                return client.focus();
+            }
+        }
+        if (clients.openWindow) {
+            return clients.openWindow(url);
+        }
+    })
+);
   return event;
 });
