@@ -23,7 +23,10 @@ messaging.setBackgroundMessageHandler(function(payload) {
   const notificationTitle = payload.data.title;
   const notificationOptions = {
     body: payload.data.body,
-    icon: '/firebase-logo.png'
+    icon: 'https://cdn.cowipe.com/ui/logo512.png',
+    data: {
+      url: 'https://cowipe.com'
+    }
   };
   return self.registration.showNotification(notificationTitle,
     notificationOptions);
