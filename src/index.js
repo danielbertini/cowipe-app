@@ -4,6 +4,7 @@ import { CssBaseline } from "@material-ui/core";
 import CustomThemeProvider from "./context/Theme";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import { registerServiceWorker } from './services/serviceWorker'
 
 import App from "./App";
 import "./i18n";
@@ -17,3 +18,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
+
+registerServiceWorker();

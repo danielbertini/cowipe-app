@@ -28,7 +28,7 @@ import {
 } from "@material-ui/core";
 import { useSnackbar } from "notistack";
 import ReactGA from "react-ga";
-
+import { requestFirebaseNotificationPermission } from '../../../services/firebase'
 import {
   ChatRounded as ConversationsIcon,
   PersonRounded as UserIcon,
@@ -243,6 +243,22 @@ const OrganismsMenusMainAuthenticated = (props) => {
           setUnreadMessages(true);
         }
       }
+    });
+  }, []);
+
+  useEffect(() => {
+    requestFirebaseNotificationPermission().then((firebaseToken) => {
+      if (firebaseToken) {
+        api({
+          method: "PUT",
+          url: `user/updateFirebaseToken`,
+          data: {
+            firebaseToken: firebaseToken,
+          },
+        });        
+      }
+    }).catch((err) => {
+      console.error(err);
     });
   }, []);
 
