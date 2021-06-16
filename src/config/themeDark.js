@@ -44,21 +44,20 @@ const palette = {
 };
 
 const font = {
-  size: 13,
+  size: 14,
   weight: {
     light: 300,
     regular: 400,
     bold: 700,
     black: 900,
   },
-  lineHeight: "1.4",
-  letterSpacing: -0.0223,
+  lineHeight: "1.5",
+  letterSpacing: 0,
 };
 
 const typography = {
   useNextVariants: true,
   fontFamily: [
-    "Inter",
     "Roboto",
     "system-ui",
     "-apple-system",
